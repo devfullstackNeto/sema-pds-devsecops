@@ -1,1 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 1 – Fundamentos do PDS e Governança</title>
 
+<style>
+@media print {
+
+  body {
+    background: #f8fafc;
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    box-shadow: none;
+    border-radius: 0;
+    margin: 20mm auto;
+    padding: 25mm;
+    width: auto;
+    page-break-inside: avoid;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .box, .note, .alert, .objective, table {
+    page-break-inside: avoid;
+  }
+}
+
+body{
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  margin:0;
+  padding:60px;
+  line-height:1.7;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#ffffff;
+  padding:60px;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO DO MÓDULO */
+.module-title{
+  background:#0ea5e9;
+  color:#ffffff;
+  padding:32px 36px;
+  border-radius:8px;
+  margin-bottom:36px;
+}
+
+.module-title h1{
+  margin:0;
+  font-size:34px;
+}
+
+/* BLOCO INSTITUCIONAL */
+.meta{
+  float:right;
+  width:300px;
+  background:#f1f5f9;
+  border-left:4px solid #0ea5e9;
+  padding:18px 20px;
+  font-size:13px;
+  color:#334155;
+  margin:0 0 30px 30px;
+}
+
+/* SEÇÕES */
+h2{
+  margin-top:50px;
+  font-size:24px;
+  border-bottom:2px solid #e2e8f0;
+  padding-bottom:6px;
+}
+
+p{
+  margin:16px 0;
+  text-align:justify;
+}
+
+/* OBJETIVO */
+.objective{
+  background:#ecfeff;
+  border:1px solid #67e8f9;
+  padding:26px;
+  border-radius:8px;
+  margin:40px 0;
+  font-size:17px;
+  text-align:justify;
+}
+
+/* BASE COMUM DOS BOXES */
+.note,
+.alert,
+.reading,
+.material,
+.external,
+.summary,
+.flow{
+  padding:20px 24px;
+  margin:28px 0;
+  border-radius:6px;
+  text-align:justify;
+}
+
+/* TÍTULO DOS BOXES */
+.note strong,
+.alert strong,
+.reading strong,
+.material strong,
+.external strong,
+.summary strong,
+.flow strong{
+  display:block;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:0.4px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+
+/* NOTA */
+.note{
+  background:#fff7ed;
+  border-left:6px solid #f97316;
+  color:#7c2d12;
+}
+.note strong{ color:#9a3412; }
+
+/* ATENÇÃO */
+.alert{
+  background:#fef2f2;
+  border-left:6px solid #dc2626;
+  color:#7f1d1d;
+}
+.alert strong{ color:#991b1b; }
+
+/* LEITURA ORIENTADA */
+.reading{
+  background:#ecfeff;
+  border-left:6px solid #06b6d4;
+  color:#155e75;
+}
+.reading strong{ color:#0e7490; }
+
+/* MATERIAL COMPLEMENTAR */
+.material{
+  background:#f0fdf4;
+  border-left:6px solid #22c55e;
+  color:#14532d;
+}
+.material strong{ color:#166534; }
+
+/* MATERIAL EXTERNO */
+.external{
+  background:#eef2ff;
+  border-left:6px solid #6366f1;
+  color:#1e1b4b;
+}
+.external strong{ color:#312e81; }
+
+/* RESUMO CONCEITUAL */
+.summary{
+  background:#fdf4ff;
+  border-left:6px solid #d946ef;
+  color:#701a75;
+}
+.summary strong{ color:#86198f; }
+
+/* ENCADEAMENTO DIDÁTICO */
+.flow{
+  background:#fffbeb;
+  border-left:6px solid #facc15;
+  color:#78350f;
+}
+.flow strong{ color:#92400e; }
+
+/* LINKS */
+.material a,
+.external a{
+  display:inline-block;
+  margin-top:6px;
+  padding:6px 10px;
+  font-size:14px;
+  font-weight:600;
+  color:inherit;
+  text-decoration:none;
+  border-radius:6px;
+  background:rgba(0,0,0,0.03);
+  border:1px solid rgba(0,0,0,0.08);
+  transition:all 0.2s ease;
+}
+
+.material a:hover,
+.external a:hover{
+  background:rgba(0,0,0,0.06);
+  border-color:rgba(0,0,0,0.15);
+}
+
+
+/* TABELA */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:28px 0;
+}
+
+th, td{
+  border:1px solid #cbd5f5;
+  padding:12px;
+  text-align:left;
+}
+
+th{
+  background:#e0f2fe;
+}
+
+/* RODAPÉ */
+footer{
+  margin-top:80px;
+  padding-top:24px;
+  border-top:1px solid #cbd5e1;
+  text-align:center;
+  font-size:12px;
+  color:#475569;
+}
+
+footer img{
+  height:50px;
+  margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="module-title">
+<h1>
+MÓDULO 1<br>
+Fundamentos do Processo de Desenvolvimento de Software (PDS),
+Governança e Papéis Institucionais
+</h1>
+</div>
+
+<div class="meta">
+<strong>Curso:</strong><br>
+Formação em Processo de Desenvolvimento de Software (PDS) e DevSecOps<br><br>
+<strong>Carga Horária:</strong><br>
+4 horas (2h EaD + 2h Presencial)
+</div>
+
+<div class="objective">
+<strong>Objetivo do Módulo</strong><br><br>
+Este módulo estabelece a base conceitual, normativa e institucional necessária
+para a compreensão de todos os módulos seguintes da capacitação, apresentando
+o Processo de Desenvolvimento de Software (PDS) como instrumento de governança,
+padronização, segurança e preparação para a adoção da cultura DevSecOps.
+</div>
+
+<h2>1. O Desenvolvimento de Software no Setor Público</h2>
+
+<p>
+O desenvolvimento de software no setor público ocorre em um contexto marcado
+por exigências legais, necessidade de transparência, continuidade administrativa
+e responsabilidade institucional. Diferentemente do setor privado, sistemas
+desenvolvidos em órgãos públicos impactam diretamente políticas públicas,
+prestação de serviços à sociedade e a proteção de dados institucionais.
+</p>
+
+<p>
+Falhas no processo de desenvolvimento não se restringem a problemas técnicos.
+Elas podem resultar em riscos jurídicos, interrupção de serviços essenciais,
+inconsistências no tratamento de dados pessoais e fragilização da governança
+institucional.
+</p>
+
+<div class="note">
+<strong>Nota</strong>
+Órgãos de controle avaliam não apenas o produto final, mas a aderência ao
+processo adotado, aos registros gerados e às decisões documentadas.
+</div>
+
+<h2>2. Fundamentos e Princípios do PDS</h2>
+
+<p>
+O Processo de Desenvolvimento de Software (PDS) da SEMA/MT foi concebido para
+estabelecer um modelo institucional padronizado, capaz de garantir previsibilidade,
+qualidade, rastreabilidade e segurança ao longo de todo o ciclo de vida do software.
+</p>
+
+<p>
+Entre seus princípios fundamentais destacam-se: padronização dos fluxos,
+documentação obrigatória, segregação de responsabilidades, segurança desde a
+concepção, governança orientada a indicadores e alinhamento às diretrizes
+institucionais.
+</p>
+
+<div class="reading">
+<strong>Leitura orientada</strong>
+Manual do PDS da SEMA/MT – Seções iniciais (Objetivos, Escopo e Princípios).
+</div>
+
+<h2>3. O PDS como Instrumento de Governança</h2>
+
+<p>
+Mais do que um guia técnico, o PDS é um instrumento formal de governança de TI.
+Ele define como projetos são iniciados, planejados, executados, monitorados,
+implantados e sustentados, assegurando controle institucional e continuidade
+administrativa.
+</p>
+
+<p>
+Cada artefato exigido pelo PDS cumpre uma função estratégica: apoiar decisões,
+permitir auditoria, registrar responsabilidades e garantir transparência.
+</p>
+
+<div class="alert">
+<strong>Atenção</strong>
+A inexistência ou fragilidade dos artefatos compromete a governança,
+dificulta auditorias e inviabiliza a automação segura.
+</div>
+
+<h2>4. Governança de TI e Governança de Dados</h2>
+
+<p>
+A governança de TI busca assegurar que investimentos em tecnologia estejam
+alinhados às estratégias institucionais. Já a governança de dados trata da
+qualidade, integridade, segurança e conformidade no tratamento das informações.
+</p>
+
+<p>
+No contexto do PDS, ambas se complementam, criando um ambiente propício para
+a adoção de práticas modernas, como DevSecOps e automação em esteira.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+COBIT 2019 – Framework de Governança de TI<br>
+<a href="https://www.isaca.org/resources/cobit" target="_blank">https://www.isaca.org/resources/cobit</a>
+</div>
+
+<h2>5. Papéis Institucionais no PDS</h2>
+
+<p>
+O PDS estabelece papéis institucionais claros, evitando sobreposição de decisões,
+conflitos de responsabilidade e lacunas de governança. Essa definição é essencial
+para o funcionamento adequado da esteira DevSecOps.
+</p>
+
+<table>
+<tr>
+<th>Unidade</th>
+<th>Papel no PDS</th>
+</tr>
+<tr>
+<td>STI</td>
+<td>Gestão técnica, infraestrutura, desenvolvimento e sustentação</td>
+</tr>
+<tr>
+<td>CSTI</td>
+<td>Governança estratégica e priorização</td>
+</tr>
+<tr>
+<td>CPQSI</td>
+<td>Qualidade, segurança e conformidade</td>
+</tr>
+<tr>
+<td>CITI</td>
+<td>Alinhamento institucional e normativo</td>
+</tr>
+<tr>
+<td>Gerência de Atendimento</td>
+<td>Interface com usuários e áreas finalísticas</td>
+</tr>
+</table>
+
+<h2>6. Relação entre PDS e DevSecOps</h2>
+
+<p>
+DevSecOps não substitui processos. Ele automatiza processos bem definidos.
+Sem um PDS sólido, a automação apenas acelera falhas, inconsistências e riscos.
+</p>
+
+<div class="summary">
+<strong>Resumo conceitual</strong>
+Processo bem definido → automação segura<br>
+Processo frágil → automação de erros
+</div>
+
+<div class="external">
+<strong>Material externo</strong>
+OWASP DevSecOps Guideline<br>
+<a href="https://owasp.org/www-project-devsecops-guideline/" target="_blank">
+https://owasp.org/www-project-devsecops-guideline/
+</a>
+</div>
+
+<h2>7. Conexão com os Próximos Módulos</h2>
+
+<p>
+Este módulo sustenta todos os demais. A compreensão do PDS e da governança
+institucional é condição necessária para o sucesso dos módulos técnicos
+seguintes, especialmente aqueles voltados à automação e segurança.
+</p>
+
+<div class="flow">
+<strong>Encadeamento didático</strong>
+Módulo 1 → Governança e estrutura<br>
+Módulo 2 → Planejamento e SCRUM institucional<br>
+Demais módulos → Execução, segurança e automação
+</div>
+
+<h2>8. Síntese Final</h2>
+
+<p>
+Ao concluir este módulo, o participante deverá compreender o PDS como um
+instrumento institucional de governança, qualidade e segurança, reconhecendo
+seu papel fundamental na preparação da organização para a adoção da cultura
+DevSecOps e da esteira de automação.
+</p>
+
+<footer>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu3Br57MRPNdth1GhhBpQk1wBCZuyin8pNg&s" alt="Logo">
+<br>
+Capacitação em Processo de Desenvolvimento de Software (PDS) e DevSecOps
+</footer>
+
+</div>
+</body>
+</html>
