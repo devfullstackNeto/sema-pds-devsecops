@@ -47,7 +47,7 @@ body{
 /* BLOCO INSTITUCIONAL */
 .meta{
   background:#f8fafc;
-  border-left:6px solid #0ea5e9;
+  border-left:6px solid #94a3b8;
   padding:24px 28px;
   margin:40px 0;
   border-radius:8px;
@@ -55,7 +55,7 @@ body{
   color:#334155;
 }
 
-/* SEÇÃO */
+/* SEÇÕES */
 h2{
   margin-top:50px;
   font-size:26px;
@@ -75,33 +75,56 @@ p{
 
 .module-card{
   background:#f8fafc;
-  border-left:6px solid #0ea5e9;
   padding:22px 26px;
-  margin:24px 0;
+  margin:22px 0;
   border-radius:8px;
+  border-left:8px solid;
 }
 
 .module-card h3{
   margin:0 0 8px 0;
   font-size:20px;
-  color:#0ea5e9;
 }
 
 .module-card p{
   margin:0;
   font-size:15px;
+  color:#334155;
 }
 
-/* LINKS */
-a{
-  color:#0ea5e9;
+.module-card a{
   text-decoration:none;
-  font-weight:600;
+  font-weight:700;
 }
 
-a:hover{
+.module-card a:hover{
   text-decoration:underline;
 }
+
+/* CORES POR MÓDULO */
+.mod1{ border-color:#0ea5e9; }
+.mod1 h3 a{ color:#0ea5e9; }
+
+.mod2{ border-color:#22c55e; }
+.mod2 h3 a{ color:#22c55e; }
+
+.mod3{ border-color:#8b5cf6; }
+.mod3 h3 a{ color:#8b5cf6; }
+
+.mod4{ border-color:#f97316; }
+.mod4 h3 a{ color:#f97316; }
+
+.mod5{ border-color:#dc2626; }
+.mod5 h3 a{ color:#dc2626; }
+
+.mod6{ border-color:#2563eb; }
+.mod6 h3 a{ color:#2563eb; }
+
+.mod7{ border-color:#facc15; }
+.mod7 h3 a{ color:#92400e; }
+
+.mod8{ border-color:#4f46e5; }
+.mod8 h3 a{ color:#4f46e5; }
 
 /* RODAPÉ */
 footer{
@@ -141,40 +164,61 @@ footer img{
   <h2>Apresentação</h2>
 
   <p>
-    Esta capacitação tem como objetivo preparar a equipe de Tecnologia da Informação
-    para a correta compreensão, aplicação e consolidação do Processo de Desenvolvimento
-    de Software (PDS), instituído como modelo oficial de governança, padronização e
-    controle do ciclo de vida dos sistemas institucionais.
+    Esta capacitação prepara a equipe de Tecnologia da Informação para a compreensão,
+    aplicação e consolidação do Processo de Desenvolvimento de Software (PDS),
+    estabelecido como modelo institucional de governança, padronização e controle
+    do ciclo de vida dos sistemas.
   </p>
 
   <p>
-    O curso estabelece as bases conceituais, normativas e práticas necessárias
-    para a futura implantação da esteira DevSecOps, garantindo que a automação
-    ocorra sobre processos maduros, auditáveis e alinhados às exigências legais
-    e institucionais.
+    O curso estrutura as bases conceituais e práticas necessárias para a implantação
+    segura da esteira DevSecOps, garantindo que a automação seja construída sobre
+    processos maduros, auditáveis e alinhados às diretrizes institucionais.
   </p>
 
   <h2>Módulos da Capacitação</h2>
 
   <div class="modules">
 
-    <div class="module-card">
-      <h3>
-        <a href="modulo-1/">📘 Módulo 1 – Fundamentos do PDS, Governança e Papéis Institucionais</a>
-      </h3>
-      <p>
-        Base conceitual e institucional do PDS. Governança de TI, governança de dados,
-        estrutura regimental, papéis organizacionais e relação entre PDS e DevSecOps.
-      </p>
+    <div class="module-card mod1">
+      <h3><a href="modulo-1/">📘 Módulo 1 – Fundamentos do PDS e Governança</a></h3>
+      <p>Base conceitual, governança de TI e dados, estrutura institucional e papéis.</p>
     </div>
 
-    <!-- Próximos módulos podem ser adicionados aqui -->
-    <!--
-    <div class="module-card">
+    <div class="module-card mod2">
       <h3><a href="modulo-2/">📗 Módulo 2 – Planejamento e SCRUM Institucional</a></h3>
-      <p>Planejamento, gestão de projetos e métodos ágeis no contexto do PDS.</p>
+      <p>Planejamento de projetos, métodos ágeis e gestão conforme o PDS.</p>
     </div>
-    -->
+
+    <div class="module-card mod3">
+      <h3><a href="modulo-3/">📙 Módulo 3 – Engenharia de Requisitos e Arquitetura</a></h3>
+      <p>Requisitos funcionais, não funcionais, rastreabilidade e arquitetura.</p>
+    </div>
+
+    <div class="module-card mod4">
+      <h3><a href="modulo-4/">📕 Módulo 4 – Desenvolvimento, Qualidade e Versionamento</a></h3>
+      <p>Boas práticas de código, testes, revisão e controle de versões.</p>
+    </div>
+
+    <div class="module-card mod5">
+      <h3><a href="modulo-5/">🛡️ Módulo 5 – DevSecOps, Segurança e LGPD</a></h3>
+      <p>Segurança integrada, riscos, conformidade legal e proteção de dados.</p>
+    </div>
+
+    <div class="module-card mod6">
+      <h3><a href="modulo-6/">⚙️ Módulo 6 – Aplicação do PDS em Projetos Reais</a></h3>
+      <p>Execução prática do PDS em projetos institucionais.</p>
+    </div>
+
+    <div class="module-card mod7">
+      <h3><a href="modulo-7/">📂 Módulo 7 – Artefatos, Git e Auditoria</a></h3>
+      <p>Artefatos oficiais, versionamento e governança por indicadores.</p>
+    </div>
+
+    <div class="module-card mod8">
+      <h3><a href="modulo-8/">🚀 Módulo 8 – Integração com a Esteira DevSecOps</a></h3>
+      <p>Automação, CI/CD, pipelines e governança da esteira.</p>
+    </div>
 
   </div>
 
