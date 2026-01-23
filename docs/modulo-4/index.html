@@ -1,1 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 4 – Desenvolvimento, Qualidade e Versionamento</title>
+
+<style>
+@media print {
+  body { background:#f8fafc; padding:0; margin:0; }
+  .container {
+    box-shadow:none;
+    border-radius:0;
+    margin:20mm auto;
+    padding:25mm;
+    width:auto;
+    page-break-inside:avoid;
+  }
+  h2, h3 { page-break-after:avoid; }
+  a { color:inherit; text-decoration:none; }
+  .note, .alert, .objective, table { page-break-inside:avoid; }
+}
+
+body{
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  margin:0;
+  padding:60px;
+  line-height:1.7;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#ffffff;
+  padding:60px;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO */
+.module-title{
+  background:#f97316;
+  color:#ffffff;
+  padding:32px 36px;
+  border-radius:8px;
+  margin-bottom:36px;
+}
+
+.module-title h1{
+  margin:0;
+  font-size:34px;
+}
+
+/* META */
+.meta{
+  float:right;
+  width:300px;
+  background:#f1f5f9;
+  border-left:4px solid #f97316;
+  padding:18px 20px;
+  font-size:13px;
+  color:#334155;
+  margin:0 0 30px 30px;
+}
+
+/* SEÇÕES */
+h2{
+  margin-top:50px;
+  font-size:24px;
+  border-bottom:2px solid #e2e8f0;
+  padding-bottom:6px;
+}
+
+p{
+  margin:16px 0;
+  text-align:justify;
+}
+
+/* OBJETIVO */
+.objective{
+  background:#fff7ed;
+  border:1px solid #fdba74;
+  padding:26px;
+  border-radius:8px;
+  margin:40px 0;
+  font-size:17px;
+}
+
+/* BOXES */
+.note,.alert,.reading,.material,.summary,.flow{
+  padding:20px 24px;
+  margin:28px 0;
+  border-radius:6px;
+}
+
+.note{
+  background:#fff7ed;
+  border-left:6px solid #f97316;
+}
+.alert{
+  background:#fef2f2;
+  border-left:6px solid #dc2626;
+}
+.reading{
+  background:#ecfeff;
+  border-left:6px solid #06b6d4;
+}
+.material{
+  background:#f0fdf4;
+  border-left:6px solid #22c55e;
+}
+.summary{
+  background:#fdf4ff;
+  border-left:6px solid #d946ef;
+}
+.flow{
+  background:#fffbeb;
+  border-left:6px solid #facc15;
+}
+
+/* TABELA */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:28px 0;
+}
+th, td{
+  border:1px solid #cbd5f5;
+  padding:12px;
+}
+th{ background:#fff7ed; }
+
+/* RODAPÉ */
+footer{
+  margin-top:80px;
+  padding-top:24px;
+  border-top:1px solid #cbd5e1;
+  text-align:center;
+  font-size:12px;
+  color:#475569;
+}
+footer img{ height:50px; margin-bottom:10px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="module-title">
+<h1>
+MÓDULO 4<br>
+Desenvolvimento, Qualidade e Versionamento de Software
+</h1>
+</div>
+
+<div class="meta">
+<strong>Curso:</strong><br>
+Formação em Processo de Desenvolvimento de Software (PDS) e DevSecOps<br><br>
+<strong>Carga Horária:</strong><br>
+6 horas (3h EaD + 3h Presencial)
+</div>
+
+<div class="objective">
+<strong>Objetivo do Módulo</strong><br><br>
+Capacitar os participantes para a execução do desenvolvimento de software de forma
+padronizada, controlada e orientada à qualidade, conforme o PDS institucional,
+abordando boas práticas de codificação, controle de versões, revisão técnica e
+preparação do código para automação em esteira DevSecOps.
+</div>
+
+<h2>1. Desenvolvimento de Software como Atividade Institucional</h2>
+
+<p>
+No contexto institucional, o desenvolvimento de software não é uma atividade
+individual ou artesanal, mas um processo organizacional crítico, sujeito a regras,
+controles, auditorias e responsabilidades formais. Cada linha de código produzida
+representa uma decisão técnica que pode impactar a segurança, a continuidade dos
+serviços públicos e a confiabilidade das informações tratadas.
+</p>
+
+<p>
+Diferentemente de ambientes informais, no setor público o código-fonte é um ativo
+institucional, devendo ser rastreável, versionado, auditável e alinhado às diretrizes
+de governança estabelecidas no PDS.
+</p>
+
+<div class="note">
+<strong>Nota</strong>
+Código sem padrão, sem histórico e sem revisão não é apenas um risco técnico,
+mas um risco institucional.
+</div>
+
+<h2>2. Padrões de Codificação e Qualidade</h2>
+
+<p>
+A padronização da codificação é um dos pilares da qualidade de software. O PDS
+estabelece que os projetos devem adotar padrões claros de nomenclatura, organização
+de diretórios, estilo de código e documentação mínima, garantindo legibilidade,
+manutenibilidade e continuidade administrativa.
+</p>
+
+<p>
+Esses padrões reduzem a dependência de indivíduos específicos, facilitam a entrada
+de novos desenvolvedores e permitem que ferramentas automatizadas analisem o código
+de forma consistente.
+</p>
+
+<div class="reading">
+<strong>Leitura orientada</strong>
+Guia de Boas Práticas de Codificação adotado pela SEMA/MT.
+</div>
+
+<h2>3. Qualidade de Software no PDS</h2>
+
+<p>
+Qualidade de software não se resume à ausência de erros visíveis. No PDS, a qualidade
+é entendida como o atendimento simultâneo a requisitos funcionais, não funcionais,
+de segurança, desempenho, usabilidade e conformidade normativa.
+</p>
+
+<p>
+Para isso, o processo prevê validações técnicas, testes, revisões e registros formais,
+que futuramente serão automatizados pela esteira DevSecOps.
+</p>
+
+<div class="alert">
+<strong>Atenção</strong>
+Sem critérios claros de qualidade, a automação apenas acelera a entrega de software
+defeituoso.
+</div>
+
+<h2>4. Versionamento de Código-Fonte</h2>
+
+<p>
+O versionamento é um mecanismo essencial de controle, rastreabilidade e governança.
+Todo código deve ser mantido em repositórios institucionais, com histórico completo
+de alterações, responsáveis e justificativas.
+</p>
+
+<p>
+O uso adequado de branches, commits pequenos e mensagens claras permite compreender
+a evolução do sistema e apoiar auditorias técnicas e administrativas.
+</p>
+
+<table>
+<tr>
+<th>Elemento</th>
+<th>Finalidade</th>
+</tr>
+<tr>
+<td>Repositório</td>
+<td>Armazenamento centralizado e controlado do código</td>
+</tr>
+<tr>
+<td>Commit</td>
+<td>Registro atômico de alterações</td>
+</tr>
+<tr>
+<td>Branch</td>
+<td>Isolamento de desenvolvimento e correções</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>Identificação de versões e releases</td>
+</tr>
+</table>
+
+<h2>5. Revisão de Código (Code Review)</h2>
+
+<p>
+A revisão de código é uma prática obrigatória para garantir qualidade, segurança e
+conformidade. Ela permite identificar falhas, inconsistências, riscos de segurança
+e desvios de padrão antes da integração ao código principal.
+</p>
+
+<p>
+No contexto do PDS, a revisão também cumpre papel educativo e de disseminação de boas
+práticas entre a equipe.
+</p>
+
+<div class="summary">
+<strong>Resumo conceitual</strong>
+Código revisado → qualidade, segurança e aprendizado<br>
+Código sem revisão → risco técnico e institucional
+</div>
+
+<h2>6. Preparação do Código para a Esteira DevSecOps</h2>
+
+<p>
+O desenvolvimento deve ser realizado considerando, desde o início, a futura
+automação em pipelines CI/CD. Isso implica código modular, testes automatizáveis,
+configurações externas e ausência de dependências rígidas de ambiente.
+</p>
+
+<p>
+Essa preparação é fundamental para viabilizar práticas como integração contínua,
+análise automática de qualidade e segurança e deploy controlado.
+</p>
+
+<div class="flow">
+<strong>Encadeamento técnico</strong>
+Desenvolvimento padronizado → versionamento → revisão → automação → entrega segura
+</div>
+
+<h2>7. Rastreabilidade e Auditoria</h2>
+
+<p>
+Cada alteração no software deve ser rastreável a uma demanda, requisito ou correção.
+Essa rastreabilidade é essencial para auditorias, investigações de incidentes e
+prestação de contas institucional.
+</p>
+
+<p>
+Ferramentas de versionamento e gestão de demandas atuam conjuntamente para garantir
+essa transparência.
+</p>
+
+<h2>8. Síntese Final</h2>
+
+<p>
+Ao final deste módulo, o participante deverá compreender que desenvolvimento,
+qualidade e versionamento são dimensões inseparáveis do PDS. O código produzido
+deve estar preparado não apenas para funcionar, mas para ser mantido, auditado,
+automatizado e evoluído com segurança no contexto da esteira DevSecOps.
+</p>
+
+<footer>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu3Br57MRPNdth1GhhBpQk1wBCZuyin8pNg&s" alt="Logo">
+<br>
+Capacitação em Processo de Desenvolvimento de Software (PDS) e DevSecOps
+</footer>
+
+</div>
+</body>
+</html>
 
