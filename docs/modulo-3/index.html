@@ -1,1 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 3 – Engenharia de Requisitos e Arquitetura de Software</title>
 
+<style>
+@media print {
+  body { background:#f8fafc; margin:0; padding:0; }
+  .container {
+    box-shadow:none;
+    border-radius:0;
+    margin:20mm auto;
+    padding:25mm;
+    page-break-inside:avoid;
+  }
+  h2 { page-break-after:avoid; }
+  .note,.alert,.reading,.material,.external,.summary,.flow,.objective,table{
+    page-break-inside:avoid;
+  }
+}
+
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  margin:0;
+  padding:60px;
+  line-height:1.7;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#ffffff;
+  padding:60px;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* ===== MÓDULO 3 – COR BASE ===== */
+.module-title{
+  background:#8b5cf6;
+  color:#ffffff;
+  padding:32px 36px;
+  border-radius:8px;
+  margin-bottom:36px;
+}
+.module-title h1{ margin:0; font-size:34px; }
+
+/* BLOCO INSTITUCIONAL */
+.meta{
+  float:right;
+  width:300px;
+  background:#f1f5f9;
+  border-left:6px solid #94a3b8;
+  padding:18px 20px;
+  font-size:13px;
+  color:#334155;
+  margin:0 0 30px 30px;
+}
+
+/* SEÇÕES */
+h2{
+  margin-top:50px;
+  font-size:24px;
+  border-bottom:2px solid #ede9fe;
+  padding-bottom:6px;
+}
+
+p{ margin:16px 0; text-align:justify; }
+
+/* OBJETIVO */
+.objective{
+  background:#f5f3ff;
+  border-left:6px solid #8b5cf6;
+  padding:26px;
+  border-radius:8px;
+  margin:40px 0;
+  font-size:17px;
+}
+
+/* ===== BOXES PEDAGÓGICOS ===== */
+.note,.alert,.reading,.material,.external,.summary,.flow{
+  padding:20px 24px;
+  margin:28px 0;
+  border-radius:6px;
+}
+
+.note{
+  background:#fff7ed;
+  border-left:6px solid #f97316;
+  color:#7c2d12;
+}
+.alert{
+  background:#fef2f2;
+  border-left:6px solid #dc2626;
+  color:#7f1d1d;
+}
+.reading{
+  background:#ecfeff;
+  border-left:6px solid #06b6d4;
+  color:#155e75;
+}
+.material{
+  background:#f0fdf4;
+  border-left:6px solid #16a34a;
+  color:#14532d;
+}
+.external{
+  background:#eef2ff;
+  border-left:6px solid #6366f1;
+  color:#1e1b4b;
+}
+.summary{
+  background:#fdf4ff;
+  border-left:6px solid #d946ef;
+  color:#701a75;
+}
+.flow{
+  background:#fffbeb;
+  border-left:6px solid #facc15;
+  color:#78350f;
+}
+
+.note strong,.alert strong,.reading strong,.material strong,
+.external strong,.summary strong,.flow strong{
+  display:block;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  letter-spacing:0.4px;
+}
+
+/* LINKS */
+.material a,.external a{
+  display:inline-block;
+  margin-top:8px;
+  padding:6px 12px;
+  border-radius:6px;
+  font-weight:600;
+  text-decoration:none;
+  color:inherit;
+  background:rgba(0,0,0,0.04);
+  border:1px solid rgba(0,0,0,0.12);
+}
+.material a:hover,.external a:hover{
+  background:rgba(0,0,0,0.08);
+}
+
+/* TABELA */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:28px 0;
+}
+th,td{
+  border:1px solid #ddd6fe;
+  padding:12px;
+}
+th{ background:#ede9fe; }
+
+/* RODAPÉ */
+footer{
+  margin-top:80px;
+  padding-top:24px;
+  border-top:1px solid #cbd5e1;
+  text-align:center;
+  font-size:12px;
+  color:#475569;
+}
+footer img{ height:50px; margin-bottom:10px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="module-title">
+<h1>
+MÓDULO 3<br>
+Engenharia de Requisitos e Arquitetura de Software
+</h1>
+</div>
+
+<div class="meta">
+<strong>Curso:</strong><br>
+Formação em Processo de Desenvolvimento de Software (PDS) e DevSecOps<br><br>
+<strong>Carga Horária:</strong><br>
+6 horas (3h EaD + 3h Presencial)
+</div>
+
+<div class="objective">
+<strong>🎯 Objetivo do Módulo</strong>
+<p>
+Capacitar os participantes a compreender, elicitar, documentar, validar e
+gerenciar requisitos de software conforme o PDS, bem como projetar arquiteturas
+aderentes aos padrões institucionais, assegurando rastreabilidade, qualidade,
+sustentabilidade e preparo para automação e DevSecOps.
+</p>
+</div>
+
+<h2>1. Engenharia de Requisitos no Setor Público</h2>
+
+<p>
+No contexto institucional, requisitos de software representam compromissos
+formais entre a área técnica e as áreas finalísticas. Eles expressam necessidades
+organizacionais, obrigações legais, regras de negócio e expectativas da sociedade.
+</p>
+
+<p>
+No setor público, requisitos mal definidos geram impactos diretos na continuidade
+administrativa, na conformidade legal e na capacidade de auditoria dos sistemas.
+</p>
+
+<div class="note">
+<strong>Nota</strong>
+No PDS, requisitos são instrumentos de governança, não apenas insumos técnicos.
+</div>
+
+<h2>2. Tipos de Requisitos no PDS</h2>
+
+<p>
+O PDS diferencia claramente requisitos funcionais e não funcionais, ambos
+obrigatórios para a validação institucional do projeto.
+</p>
+
+<table>
+<tr><th>Tipo</th><th>Descrição</th></tr>
+<tr><td>Funcionais</td><td>Funcionalidades, regras de negócio e fluxos operacionais</td></tr>
+<tr><td>Não Funcionais</td><td>Segurança, desempenho, disponibilidade, conformidade e usabilidade</td></tr>
+</table>
+
+<div class="alert">
+<strong>Atenção</strong>
+Requisitos não funcionais são críticos para segurança, LGPD e DevSecOps.
+</div>
+
+<h2>3. Técnicas de Levantamento e Validação</h2>
+
+<p>
+O PDS recomenda técnicas formais de elicitação, como entrevistas, análise de
+documentos, workshops, prototipação e validação conjunta com áreas usuárias.
+</p>
+
+<div class="summary">
+<strong>Resumo conceitual</strong>
+Requisito validado = risco reduzido + governança fortalecida.
+</div>
+
+<h2>4. Rastreabilidade de Requisitos</h2>
+
+<p>
+A rastreabilidade assegura que cada requisito esteja vinculado a entregas,
+artefatos, testes e decisões, permitindo auditoria e evolução controlada.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+SWEBOK – Engenharia de Requisitos<br>
+<a href="https://www.computer.org/education/bodies-of-knowledge/software-engineering" target="_blank">
+https://www.computer.org/education/bodies-of-knowledge/software-engineering
+</a>
+</div>
+
+<h2>5. Arquitetura de Software no PDS</h2>
+
+<p>
+A arquitetura de software define a estrutura do sistema, seus componentes,
+interações e decisões técnicas de longo prazo, sendo fundamental para manutenção
+e escalabilidade.
+</p>
+
+<p>
+No PDS, decisões arquiteturais devem ser documentadas, justificadas e alinhadas
+a padrões institucionais.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+C4 Model – Documentação Oficial<br>
+<a href="https://c4model.com" target="_blank">https://c4model.com</a>
+</div>
+
+<h2>6. Arquitetura, Qualidade e DevSecOps</h2>
+
+<p>
+Arquiteturas bem definidas facilitam testes, automação, integração contínua e
+incorporação de segurança desde a concepção.
+</p>
+
+<div class="flow">
+<strong>Encadeamento didático</strong>
+Requisitos → Arquitetura → Desenvolvimento → DevSecOps
+</div>
+
+<h2>7. Conexão com o Presencial</h2>
+
+<p>
+No encontro presencial, os participantes irão elaborar requisitos reais,
+construir matrizes de rastreabilidade e definir arquiteturas iniciais para
+projetos da SEMA/MT.
+</p>
+
+<div class="reading">
+<strong>Leitura orientada</strong>
+Manual do PDS – Capítulos de Requisitos e Projeto.
+</div>
+
+<h2>8. Síntese Final</h2>
+
+<p>
+Ao final deste módulo, o participante compreenderá a Engenharia de Requisitos
+e a Arquitetura de Software como pilares da governança institucional, da
+qualidade do software e da preparação para a esteira DevSecOps.
+</p>
+
+<footer>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu3Br57MRPNdth1GhhBpQk1wBCZuyin8pNg&s">
+<br>
+Capacitação em Processo de Desenvolvimento de Software (PDS) e DevSecOps
+</footer>
+
+</div>
+</body>
+</html>
