@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 6 – Aplicação do PDS em Projetos Reais</title>
 
+<style>
+@media print {
+  body { background:#f8fafc; padding:0; margin:0; }
+  .container {
+    box-shadow:none;
+    border-radius:0;
+    margin:20mm auto;
+    padding:25mm;
+    width:auto;
+    page-break-inside:avoid;
+  }
+  h2, h3 { page-break-after:avoid; }
+  a { color:inherit; text-decoration:none; }
+  .note, .alert, .reading, .material, .external, .objective, table {
+    page-break-inside:avoid;
+  }
+}
+
+body{
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  margin:0;
+  padding:60px;
+  line-height:1.75;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#ffffff;
+  padding:60px;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO */
+.module-title{
+  background:#2563eb;
+  color:#ffffff;
+  padding:32px 36px;
+  border-radius:8px;
+  margin-bottom:36px;
+}
+
+.module-title h1{
+  margin:0;
+  font-size:34px;
+  line-height:1.3;
+}
+
+/* META */
+.meta{
+  float:right;
+  width:300px;
+  background:#f1f5f9;
+  border-left:4px solid #2563eb;
+  padding:18px 20px;
+  font-size:13px;
+  color:#334155;
+  margin:0 0 30px 30px;
+  border-radius:6px;
+}
+
+/* SEÇÕES */
+h2{
+  margin-top:56px;
+  font-size:24px;
+  border-bottom:2px solid #e2e8f0;
+  padding-bottom:6px;
+}
+
+p{
+  margin:18px 0;
+  text-align:justify;
+}
+
+/* OBJETIVO */
+.objective{
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  padding:26px;
+  border-radius:8px;
+  margin:40px 0;
+  font-size:17px;
+}
+
+/* BOXES */
+.note,.alert,.reading,.material,.external,.summary,.flow{
+  padding:20px 24px;
+  margin:30px 0;
+  border-radius:6px;
+}
+
+/* TIPOS */
+.note{ background:#fff7ed; border-left:6px solid #f97316; }
+.alert{ background:#fef2f2; border-left:6px solid #dc2626; }
+.reading{ background:#ecfeff; border-left:6px solid #06b6d4; }
+.material{ background:#f0fdf4; border-left:6px solid #22c55e; }
+.external{ background:#eef2ff; border-left:6px solid #6366f1; }
+.summary{ background:#fdf4ff; border-left:6px solid #d946ef; }
+.flow{ background:#fffbeb; border-left:6px solid #facc15; }
+
+/* LINKS */
+.material a,
+.external a{
+  display:inline-block;
+  margin-top:6px;
+  padding:6px 10px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:6px;
+  background:rgba(0,0,0,0.03);
+  border:1px solid rgba(0,0,0,0.08);
+}
+
+/* TABELA */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:30px 0;
+}
+th, td{
+  border:1px solid #cbd5f5;
+  padding:12px;
+}
+th{ background:#eff6ff; }
+
+/* RODAPÉ */
+footer{
+  margin-top:80px;
+  padding-top:24px;
+  border-top:1px solid #cbd5e1;
+  text-align:center;
+  font-size:12px;
+  color:#475569;
+}
+footer img{ height:50px; margin-bottom:10px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="module-title">
+<h1>
+MÓDULO 6<br>
+Aplicação do Processo de Desenvolvimento de Software (PDS) em Projetos Reais
+</h1>
+</div>
+
+<div class="meta">
+<strong>Curso:</strong><br>
+Formação em Processo de Desenvolvimento de Software (PDS) e DevSecOps<br><br>
+<strong>Carga Horária:</strong><br>
+8 horas (4h EaD + 4h Presencial)
+</div>
+
+<div class="objective">
+<strong>Objetivo do Módulo</strong><br><br>
+Aplicar, de forma prática e integrada, o Processo de Desenvolvimento de Software
+(PDS) em projetos reais do contexto institucional, compreendendo o encadeamento
+entre demandas, artefatos, papéis, decisões técnicas, governança e preparação
+para automação em esteira DevSecOps.
+</div>
+
+<h2>1. Do Processo ao Projeto: quando o PDS entra em ação</h2>
+
+<p>
+O PDS não é um documento teórico. Ele se materializa quando uma demanda real
+surge, seja ela uma nova funcionalidade, um sistema completo ou uma manutenção
+evolutiva. Neste momento, o processo passa a orientar decisões técnicas,
+administrativas e institucionais.
+</p>
+
+<p>
+A correta aplicação do PDS garante previsibilidade, rastreabilidade e segurança,
+além de proteger a instituição contra dependência de indivíduos ou soluções
+informais.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+SWEBOK – Software Engineering Body of Knowledge (IEEE)<br>
+<a href="https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+   target="_blank">
+https://www.computer.org/education/bodies-of-knowledge/software-engineering
+</a>
+</div>
+
+<h2>2. Iniciação do Projeto e Registro da Demanda</h2>
+
+<p>
+Todo projeto deve nascer de uma demanda formalizada. O registro correto da
+demanda define escopo, objetivos, partes interessadas e critérios iniciais de
+priorização, evitando ambiguidades e retrabalho.
+</p>
+
+<table>
+<tr>
+<th>Elemento</th>
+<th>Descrição</th>
+</tr>
+<tr>
+<td>Demanda</td>
+<td>Necessidade institucional formalmente registrada</td>
+</tr>
+<tr>
+<td>Área demandante</td>
+<td>Unidade responsável pelo negócio</td>
+</tr>
+<tr>
+<td>Responsável técnico</td>
+<td>Gestor ou líder técnico do projeto</td>
+</tr>
+<tr>
+<td>Prioridade</td>
+<td>Definida conforme critérios institucionais</td>
+</tr>
+</table>
+
+<div class="external">
+<strong>Material externo</strong>
+PMBOK® Guide – Project Initiation Concepts (PMI)<br>
+<a href="https://www.pmi.org/pmbok-guide-standards/foundational/pmbok"
+   target="_blank">
+https://www.pmi.org/pmbok-guide-standards/foundational/pmbok
+</a>
+</div>
+
+<h2>3. Planejamento do Projeto conforme o PDS</h2>
+
+<p>
+O planejamento transforma a demanda em um plano executável. No PDS, essa fase
+define cronograma, papéis, artefatos obrigatórios, riscos e critérios de qualidade.
+</p>
+
+<p>
+Projetos sem planejamento formal tendem a atrasos, conflitos de responsabilidade
+e dificuldade de auditoria.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+Scrum Guide – Guia Oficial do Scrum<br>
+<a href="https://scrumguides.org"
+   target="_blank">
+https://scrumguides.org
+</a>
+</div>
+
+<h2>4. Execução: desenvolvimento orientado ao PDS</h2>
+
+<p>
+Durante a execução, o PDS orienta como o desenvolvimento deve ocorrer, quais
+artefatos precisam ser produzidos e como as decisões devem ser registradas.
+</p>
+
+<p>
+Essa disciplina garante que o código produzido seja compreensível, auditável
+e preparado para automação em pipelines.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+Google Engineering Practices – Software Development Best Practices<br>
+<a href="https://google.github.io/eng-practices/"
+   target="_blank">
+https://google.github.io/eng-practices/
+</a>
+</div>
+
+<h2>5. Monitoramento, Indicadores e Controle</h2>
+
+<p>
+Projetos devem ser monitorados continuamente. Indicadores permitem identificar
+desvios de prazo, qualidade ou escopo antes que se tornem problemas críticos.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+DORA Metrics – Accelerate State of DevOps Report<br>
+<a href="https://www.devops-research.com/research.html"
+   target="_blank">
+https://www.devops-research.com/research.html
+</a>
+</div>
+
+<h2>6. Gestão de Riscos e Decisões Técnicas</h2>
+
+<p>
+Riscos técnicos e institucionais devem ser identificados, analisados e tratados.
+Decisões técnicas precisam ser registradas, justificadas e aprovadas conforme
+os papéis definidos no PDS.
+</p>
+
+<div class="alert">
+<strong>Atenção</strong>
+Decisão técnica sem registro é risco institucional oculto.
+</div>
+
+<h2>7. Encerramento do Projeto e Entrega</h2>
+
+<p>
+O encerramento formal consolida as entregas, valida resultados e garante a
+transferência adequada do sistema para sustentação.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+ITIL 4 – Service Transition Concepts<br>
+<a href="https://www.axelos.com/certifications/itil-service-management"
+   target="_blank">
+https://www.axelos.com/certifications/itil-service-management
+</a>
+</div>
+
+<h2>8. Preparação para Automação e Continuidade</h2>
+
+<p>
+Projetos bem executados conforme o PDS estão prontos para automação em esteira
+DevSecOps. Artefatos, código e decisões passam a alimentar pipelines de forma
+segura e controlada.
+</p>
+
+<div class="flow">
+<strong>Encadeamento prático</strong>
+Demanda → planejamento → execução → controle → entrega → automação
+</div>
+
+<h2>9. Estudo de Caso Orientado</h2>
+
+<p>
+A análise de um projeto real permite compreender como o PDS reduz riscos,
+aumenta a previsibilidade e prepara a organização para automação contínua.
+</p>
+
+<h2>10. Síntese Final</h2>
+
+<p>
+Ao concluir este módulo, o participante deverá ser capaz de aplicar o PDS em
+projetos reais, compreendendo o processo como instrumento de governança,
+qualidade, segurança e base para a adoção sustentável do DevSecOps.
+</p>
+
+<footer>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu3Br57MRPNdth1GhhBpQk1wBCZuyin8pNg&s" alt="Logo">
+<br>
+Capacitação em Processo de Desenvolvimento de Software (PDS) e DevSecOps
+</footer>
+
+</div>
+</body>
+</html>
