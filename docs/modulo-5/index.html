@@ -1,1 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 5 – DevSecOps, Segurança e LGPD</title>
 
+<style>
+@media print {
+  body { background:#f8fafc; padding:0; margin:0; }
+  .container {
+    box-shadow:none;
+    border-radius:0;
+    margin:20mm auto;
+    padding:25mm;
+    width:auto;
+    page-break-inside:avoid;
+  }
+  h2, h3 { page-break-after:avoid; }
+  a { color:inherit; text-decoration:none; }
+  .note, .alert, .reading, .material, .external, .objective, table {
+    page-break-inside:avoid;
+  }
+}
+
+body{
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  margin:0;
+  padding:60px;
+  line-height:1.7;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#ffffff;
+  padding:60px;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO */
+.module-title{
+  background:#dc2626;
+  color:#ffffff;
+  padding:32px 36px;
+  border-radius:8px;
+  margin-bottom:36px;
+}
+
+.module-title h1{
+  margin:0;
+  font-size:34px;
+  line-height:1.3;
+}
+
+/* META */
+.meta{
+  float:right;
+  width:300px;
+  background:#f1f5f9;
+  border-left:4px solid #dc2626;
+  padding:18px 20px;
+  font-size:13px;
+  color:#334155;
+  margin:0 0 30px 30px;
+  border-radius:6px;
+}
+
+/* SEÇÕES */
+h2{
+  margin-top:50px;
+  font-size:24px;
+  border-bottom:2px solid #e2e8f0;
+  padding-bottom:6px;
+}
+
+p{
+  margin:16px 0;
+  text-align:justify;
+}
+
+/* OBJETIVO */
+.objective{
+  background:#fef2f2;
+  border:1px solid #fecaca;
+  padding:26px;
+  border-radius:8px;
+  margin:40px 0;
+  font-size:17px;
+}
+
+/* BOXES */
+.note,.alert,.reading,.material,.external,.summary,.flow{
+  padding:20px 24px;
+  margin:28px 0;
+  border-radius:6px;
+}
+
+.note{
+  background:#fff7ed;
+  border-left:6px solid #f97316;
+}
+
+.alert{
+  background:#fef2f2;
+  border-left:6px solid #dc2626;
+}
+
+.reading{
+  background:#ecfeff;
+  border-left:6px solid #06b6d4;
+}
+
+.material{
+  background:#f0fdf4;
+  border-left:6px solid #22c55e;
+}
+
+.external{
+  background:#eef2ff;
+  border-left:6px solid #6366f1;
+}
+
+.summary{
+  background:#fdf4ff;
+  border-left:6px solid #d946ef;
+}
+
+.flow{
+  background:#fffbeb;
+  border-left:6px solid #facc15;
+}
+
+/* LINKS */
+.material a,
+.external a{
+  display:inline-block;
+  margin-top:6px;
+  padding:6px 10px;
+  font-size:14px;
+  font-weight:600;
+  color:inherit;
+  text-decoration:none;
+  border-radius:6px;
+  background:rgba(0,0,0,0.03);
+  border:1px solid rgba(0,0,0,0.08);
+}
+
+/* TABELA */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:28px 0;
+}
+th, td{
+  border:1px solid #cbd5f5;
+  padding:12px;
+}
+th{ background:#fef2f2; }
+
+/* RODAPÉ */
+footer{
+  margin-top:80px;
+  padding-top:24px;
+  border-top:1px solid #cbd5e1;
+  text-align:center;
+  font-size:12px;
+  color:#475569;
+}
+footer img{ height:50px; margin-bottom:10px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="module-title">
+<h1>
+MÓDULO 5<br>
+DevSecOps, Segurança da Informação e LGPD
+</h1>
+</div>
+
+<div class="meta">
+<strong>Curso:</strong><br>
+Formação em Processo de Desenvolvimento de Software (PDS) e DevSecOps<br><br>
+<strong>Carga Horária:</strong><br>
+6 horas (3h EaD + 3h Presencial)
+</div>
+
+<div class="objective">
+<strong>Objetivo do Módulo</strong><br><br>
+Compreender a segurança da informação como parte integrante do processo de
+desenvolvimento de software, apresentando os fundamentos do DevSecOps, os
+princípios de segurança por design e por padrão, e a relação direta entre o PDS,
+a proteção de dados pessoais (LGPD) e a automação segura em esteira.
+</div>
+
+<h2>1. Segurança da Informação no Contexto Institucional</h2>
+
+<p>
+A segurança da informação no setor público é uma responsabilidade institucional
+e legal. Sistemas desenvolvidos e mantidos por órgãos públicos tratam dados
+sensíveis, dados pessoais e informações estratégicas, exigindo controles técnicos
+e processuais desde a concepção do software.
+</p>
+
+<p>
+A ausência de segurança adequada pode resultar em vazamentos de dados,
+interrupção de serviços essenciais, responsabilização administrativa e sanções
+legais, inclusive à luz da Lei Geral de Proteção de Dados (LGPD).
+</p>
+
+<div class="alert">
+<strong>Atenção</strong>
+Segurança não é uma etapa final. É um requisito transversal a todo o ciclo de vida
+do software.
+</div>
+
+<h2>2. O Conceito de DevSecOps</h2>
+
+<p>
+DevSecOps é a evolução natural das práticas DevOps, incorporando a segurança
+como responsabilidade compartilhada entre desenvolvimento, operações e áreas
+de governança. O objetivo é integrar controles de segurança de forma contínua,
+automatizada e mensurável.
+</p>
+
+<p>
+No PDS, o DevSecOps não substitui processos, mas os operacionaliza, garantindo
+que padrões, normas e requisitos de segurança sejam aplicados de forma sistemática.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+NIST Secure Software Development Framework (SSDF)<br>
+<a href="https://csrc.nist.gov/publications/detail/sp/800-218/final" target="_blank">
+https://csrc.nist.gov/publications/detail/sp/800-218/final
+</a>
+</div>
+
+<h2>3. Segurança por Design e Shift Left</h2>
+
+<p>
+A abordagem de segurança por design pressupõe que requisitos de segurança sejam
+definidos desde a fase de requisitos e arquitetura, evitando correções tardias
+e custosas. O conceito de Shift Left reforça a antecipação de controles e testes.
+</p>
+
+<p>
+Essa prática reduz riscos, melhora a qualidade do software e facilita a automação
+de verificações em pipelines CI/CD.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+OWASP Top 10 – Principais Riscos de Segurança em Aplicações Web<br>
+<a href="https://owasp.org/www-project-top-ten/" target="_blank">
+https://owasp.org/www-project-top-ten/
+</a>
+</div>
+
+<h2>4. Controles de Segurança no Ciclo de Vida do Software</h2>
+
+<p>
+Os controles de segurança devem estar distribuídos ao longo de todo o ciclo de
+vida do software, incluindo análise de requisitos, desenvolvimento, testes,
+implantação e operação.
+</p>
+
+<table>
+<tr>
+<th>Fase</th>
+<th>Exemplo de Controle</th>
+</tr>
+<tr>
+<td>Requisitos</td>
+<td>Classificação de dados e requisitos de proteção</td>
+</tr>
+<tr>
+<td>Desenvolvimento</td>
+<td>Boas práticas de codificação segura</td>
+</tr>
+<tr>
+<td>Testes</td>
+<td>Testes de segurança automatizados</td>
+</tr>
+<tr>
+<td>Implantação</td>
+<td>Configurações seguras e hardening</td>
+</tr>
+<tr>
+<td>Operação</td>
+<td>Monitoramento e resposta a incidentes</td>
+</tr>
+</table>
+
+<div class="material">
+<strong>Material complementar</strong>
+OWASP ASVS – Application Security Verification Standard<br>
+<a href="https://owasp.org/www-project-application-security-verification-standard/"
+   target="_blank">
+https://owasp.org/www-project-application-security-verification-standard/
+</a>
+</div>
+
+<h2>5. LGPD e Desenvolvimento de Software</h2>
+
+<p>
+A Lei Geral de Proteção de Dados (LGPD) estabelece princípios, direitos e deveres
+relacionados ao tratamento de dados pessoais. Sistemas devem ser concebidos
+considerando minimização de dados, finalidade, segurança e prestação de contas.
+</p>
+
+<p>
+O PDS atua como instrumento de conformidade, exigindo registros, rastreabilidade
+e controles que apoiam a adequação à LGPD.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+Lei Geral de Proteção de Dados – Lei nº 13.709/2018<br>
+<a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm"
+   target="_blank">
+https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm
+</a>
+</div>
+
+<h2>6. Automação de Segurança em Esteira DevSecOps</h2>
+
+<p>
+A automação de segurança permite aplicar verificações consistentes e repetíveis,
+reduzindo erros humanos e aumentando a confiabilidade do processo. Análises
+automatizadas tornam a segurança mensurável e auditável.
+</p>
+
+<p>
+Esses controles serão aprofundados nos módulos técnicos de CI/CD e pipelines.
+</p>
+
+<div class="flow">
+<strong>Encadeamento técnico</strong>
+Requisitos seguros → desenvolvimento consciente → automação de controles →
+monitoramento contínuo
+</div>
+
+<h2>7. Auditoria, Evidências e Responsabilização</h2>
+
+<p>
+Em ambientes públicos, a geração de evidências técnicas é fundamental. Logs,
+relatórios automatizados e histórico de decisões sustentam auditorias internas
+e externas, além de apoiar a gestão de riscos.
+</p>
+
+<p>
+A esteira DevSecOps passa a ser um mecanismo de geração contínua dessas evidências.
+</p>
+
+<h2>8. Síntese Final</h2>
+
+<p>
+Ao final deste módulo, o participante deverá compreender que segurança e
+conformidade não são obstáculos à agilidade, mas elementos essenciais para a
+entrega sustentável de software no setor público, viabilizadas pelo PDS e
+potencializadas pela adoção do DevSecOps.
+</p>
+
+<footer>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu3Br57MRPNdth1GhhBpQk1wBCZuyin8pNg&s" alt="Logo">
+<br>
+Capacitação em Processo de Desenvolvimento de Software (PDS) e DevSecOps
+</footer>
+
+</div>
+</body>
+</html>
