@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo 7 – Artefatos, Git, Rastreabilidade e Auditoria</title>
 
+<style>
+@media print {
+  body { background:#f8fafc; padding:0; margin:0; }
+  .container {
+    box-shadow:none;
+    border-radius:0;
+    margin:20mm auto;
+    padding:25mm;
+    width:auto;
+    page-break-inside:avoid;
+  }
+  h2, h3 { page-break-after:avoid; }
+  a { color:inherit; text-decoration:none; }
+  .note, .alert, .reading, .material, .external, .objective, table {
+    page-break-inside:avoid;
+  }
+}
+
+body{
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#f8fafc;
+  color:#0f172a;
+  margin:0;
+  padding:60px;
+  line-height:1.8;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  background:#ffffff;
+  padding:60px;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO */
+.module-title{
+  background:#facc15;
+  color:#78350f;
+  padding:32px 36px;
+  border-radius:8px;
+  margin-bottom:36px;
+}
+
+.module-title h1{
+  margin:0;
+  font-size:34px;
+  line-height:1.3;
+}
+
+/* META */
+.meta{
+  float:right;
+  width:300px;
+  background:#f1f5f9;
+  border-left:4px solid #facc15;
+  padding:18px 20px;
+  font-size:13px;
+  color:#334155;
+  margin:0 0 30px 30px;
+  border-radius:6px;
+}
+
+/* SEÇÕES */
+h2{
+  margin-top:56px;
+  font-size:24px;
+  border-bottom:2px solid #e2e8f0;
+  padding-bottom:6px;
+}
+
+p{
+  margin:18px 0;
+  text-align:justify;
+}
+
+/* OBJETIVO */
+.objective{
+  background:#fffbeb;
+  border:1px solid #fde68a;
+  padding:26px;
+  border-radius:8px;
+  margin:40px 0;
+  font-size:17px;
+}
+
+/* BOXES */
+.note,.alert,.reading,.material,.external,.summary,.flow{
+  padding:22px 26px;
+  margin:32px 0;
+  border-radius:6px;
+}
+
+/* TIPOS */
+.note{ background:#fff7ed; border-left:6px solid #f97316; }
+.alert{ background:#fef2f2; border-left:6px solid #dc2626; }
+.reading{ background:#ecfeff; border-left:6px solid #06b6d4; }
+.material{ background:#f0fdf4; border-left:6px solid #22c55e; }
+.external{ background:#eef2ff; border-left:6px solid #6366f1; }
+.summary{ background:#fdf4ff; border-left:6px solid #d946ef; }
+.flow{ background:#fffbeb; border-left:6px solid #facc15; }
+
+/* LINKS */
+.material a,
+.external a{
+  display:inline-block;
+  margin-top:8px;
+  padding:6px 12px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:6px;
+  background:rgba(0,0,0,0.03);
+  border:1px solid rgba(0,0,0,0.08);
+}
+
+/* TABELA */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:30px 0;
+}
+th, td{
+  border:1px solid #cbd5f5;
+  padding:12px;
+}
+th{ background:#fffbeb; }
+
+/* RODAPÉ */
+footer{
+  margin-top:80px;
+  padding-top:24px;
+  border-top:1px solid #cbd5e1;
+  text-align:center;
+  font-size:12px;
+  color:#475569;
+}
+footer img{ height:50px; margin-bottom:10px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="module-title">
+<h1>
+MÓDULO 7<br>
+Artefatos, Git, Rastreabilidade e Auditoria no PDS
+</h1>
+</div>
+
+<div class="meta">
+<strong>Curso:</strong><br>
+Formação em Processo de Desenvolvimento de Software (PDS) e DevSecOps<br><br>
+<strong>Carga Horária:</strong><br>
+8 horas (4h EaD + 4h Presencial)
+</div>
+
+<div class="objective">
+<strong>Objetivo do Módulo</strong><br><br>
+Compreender o papel dos artefatos, do versionamento e da rastreabilidade como
+elementos centrais da governança de TI, garantindo transparência, controle,
+auditoria e sustentação institucional dos sistemas desenvolvidos conforme o PDS.
+</div>
+
+<h2>1. Artefatos como Evidência Institucional</h2>
+
+<p>
+No contexto do setor público, artefatos não são documentos acessórios, mas
+evidências formais de que decisões foram tomadas de maneira estruturada,
+justificada e alinhada às diretrizes institucionais. Cada artefato produzido no
+PDS cumpre um papel específico de governança.
+</p>
+
+<p>
+Esses artefatos permitem reconstruir a história de um projeto, compreender as
+decisões técnicas adotadas e verificar se os requisitos institucionais foram
+atendidos. Em auditorias, eles funcionam como prova documental da conformidade.
+</p>
+
+<p>
+A ausência de artefatos ou a produção incompleta compromete a transparência e
+fragiliza a posição institucional frente a órgãos de controle.
+</p>
+
+<p>
+No PDS, a produção de artefatos é obrigatória e integrada ao fluxo de trabalho,
+não sendo uma atividade opcional ou posterior.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+COBIT 2019 – Governance and Management Objectives<br>
+<a href="https://www.isaca.org/resources/cobit" target="_blank">
+https://www.isaca.org/resources/cobit
+</a>
+</div>
+
+<h2>2. Tipos de Artefatos no Ciclo de Vida do Software</h2>
+
+<p>
+Os artefatos do PDS estão distribuídos ao longo de todo o ciclo de vida do
+software, desde a iniciação da demanda até a sustentação. Cada fase possui
+documentos e registros específicos.
+</p>
+
+<p>
+Artefatos de requisitos, planejamento, arquitetura, desenvolvimento, testes e
+implantação formam um conjunto integrado de evidências que sustentam a governança.
+</p>
+
+<p>
+Essa padronização evita lacunas de informação, garante continuidade administrativa
+e reduz dependência de indivíduos específicos.
+</p>
+
+<p>
+A clareza sobre quais artefatos produzir e quando produzi-los é essencial para
+a correta aplicação do PDS.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+IEEE SWEBOK – Software Engineering Documentation<br>
+<a href="https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+   target="_blank">
+https://www.computer.org/education/bodies-of-knowledge/software-engineering
+</a>
+</div>
+
+<h2>3. Git como Sistema Oficial de Registro Técnico</h2>
+
+<p>
+O Git não é apenas uma ferramenta de versionamento de código, mas um sistema de
+registro técnico que documenta a evolução do software ao longo do tempo.
+</p>
+
+<p>
+Cada commit representa uma decisão técnica registrada, associada a um autor,
+uma data e uma justificativa. Esse histórico é fundamental para auditorias.
+</p>
+
+<p>
+O uso disciplinado do Git permite rastrear alterações, identificar responsáveis
+e compreender o impacto de mudanças específicas no sistema.
+</p>
+
+<p>
+No PDS, o Git atua como repositório oficial de código e de parte significativa
+dos artefatos técnicos.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+Pro Git Book – Capítulos sobre histórico e boas práticas<br>
+<a href="https://git-scm.com/book/en/v2" target="_blank">
+https://git-scm.com/book/en/v2
+</a>
+</div>
+
+<h2>4. Rastreabilidade de Demandas, Código e Entregas</h2>
+
+<p>
+Rastreabilidade é a capacidade de relacionar demandas institucionais a requisitos,
+código-fonte, testes e entregas finais. Essa relação é essencial para controle e
+auditoria.
+</p>
+
+<p>
+No PDS, cada demanda deve estar vinculada a registros formais, commits, branches
+e releases, permitindo reconstruir o caminho completo da entrega.
+</p>
+
+<p>
+Essa prática reduz riscos, facilita investigações de incidentes e apoia a
+prestação de contas institucional.
+</p>
+
+<p>
+Ferramentas integradas de gestão e versionamento tornam essa rastreabilidade
+mais eficiente e confiável.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+GitLab – Traceability and Audit Events<br>
+<a href="https://docs.gitlab.com/ee/administration/audit_events.html"
+   target="_blank">
+https://docs.gitlab.com/ee/administration/audit_events.html
+</a>
+</div>
+
+<h2>5. Auditoria de Software no Setor Público</h2>
+
+<p>
+Auditorias de software avaliam não apenas o produto final, mas todo o processo
+adotado para sua construção. A conformidade processual é tão importante quanto
+a funcionalidade entregue.
+</p>
+
+<p>
+Órgãos de controle verificam se o desenvolvimento seguiu normas, se houve
+segregação de responsabilidades e se as decisões foram devidamente registradas.
+</p>
+
+<p>
+A existência de artefatos e histórico versionado fortalece a posição da
+instituição frente a auditorias internas e externas.
+</p>
+
+<p>
+O PDS foi concebido para atender exatamente a essas exigências de controle.
+</p>
+
+<div class="material">
+<strong>Material complementar</strong>
+TCU – Referencial Básico de Governança de TI<br>
+<a href="https://portal.tcu.gov.br/governanca/governanca-de-ti/"
+   target="_blank">
+https://portal.tcu.gov.br/governanca/governanca-de-ti/
+</a>
+</div>
+
+<h2>6. Evidências Automatizadas na Esteira DevSecOps</h2>
+
+<p>
+Com a adoção da esteira DevSecOps, grande parte das evidências passa a ser gerada
+automaticamente, como logs de pipeline, relatórios de testes e análises de
+qualidade.
+</p>
+
+<p>
+Essas evidências reduzem esforço manual, aumentam a confiabilidade e garantem
+padronização das informações.
+</p>
+
+<p>
+A automação também permite auditorias mais rápidas e precisas, baseadas em dados
+reais e atualizados.
+</p>
+
+<p>
+A integração entre PDS, Git e pipeline consolida a governança técnica.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+DORA Metrics – DevOps Measurement Framework<br>
+<a href="https://www.devops-research.com/research.html"
+   target="_blank">
+https://www.devops-research.com/research.html
+</a>
+</div>
+
+<h2>7. Boas Práticas para Sustentação e Continuidade</h2>
+
+<p>
+Projetos sustentáveis dependem de documentação adequada, histórico confiável e
+processos claros. A ausência desses elementos gera dependência de pessoas e
+fragilidade institucional.
+</p>
+
+<p>
+A aplicação rigorosa do PDS garante que novos membros da equipe consigam
+compreender e evoluir sistemas existentes.
+</p>
+
+<p>
+A rastreabilidade facilita correções, evoluções e resposta a incidentes.
+</p>
+
+<p>
+Essas práticas são fundamentais para a longevidade dos sistemas públicos.
+</p>
+
+<div class="external">
+<strong>Material externo</strong>
+ITIL 4 – Service Management Practices<br>
+<a href="https://www.axelos.com/best-practice-solutions/itil"
+   target="_blank">
+https://www.axelos.com/best-practice-solutions/itil
+</a>
+</div>
+
+<h2>8. Síntese Final</h2>
+
+<p>
+Ao final deste módulo, o participante deverá compreender que artefatos,
+versionamento, rastreabilidade e auditoria não são burocracia, mas instrumentos
+essenciais de governança, transparência e segurança no desenvolvimento de
+software no setor público.
+</p>
+
+<div class="summary">
+<strong>Resumo conceitual</strong>
+Processo documentado → evidência → auditoria → governança → confiança institucional
+</div>
+
+<footer>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu3Br57MRPNdth1GhhBpQk1wBCZuyin8pNg&s" alt="Logo">
+<br>
+Capacitação em Processo de Desenvolvimento de Software (PDS) e DevSecOps
+</footer>
+
+</div>
+</body>
+</html>
