@@ -1,1 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo C – Requisitos e Valor | C2 – User Stories e Planejamento</title>
 
+<style>
+
+/* ======================================================
+IDENTIDADE VISUAL – LARANJA INSTITUCIONAL (MÓDULO C)
+====================================================== */
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f3f4f6;
+    margin:0;
+    padding:0;
+    color:#0f172a;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:40px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    background:#ffffff;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    position:sticky;
+    top:40px;
+    height:fit-content;
+}
+
+.sidebar h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#9a3412;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    color:#0f172a;
+    transition:0.2s;
+}
+
+.sidebar a:hover{
+    color:#ea580c;
+}
+
+.sidebar a.active{
+    color:#ea580c;
+    font-weight:600;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    background:#ffffff;
+    padding:70px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.module-header{
+    background:linear-gradient(135deg,#f97316,#c2410c);
+    color:white;
+    padding:50px;
+    border-radius:10px;
+    margin-bottom:50px;
+}
+
+.module-header h1{
+    margin:0;
+    font-size:34px;
+}
+
+.module-header p{
+    margin-top:15px;
+    font-size:16px;
+    opacity:0.95;
+}
+
+h2{
+    margin-top:60px;
+    border-bottom:2px solid #e5e7eb;
+    padding-bottom:8px;
+    font-size:26px;
+}
+
+p{
+    margin:18px 0;
+    text-align:justify;
+}
+
+/* CAIXAS CONCEITUAIS */
+
+.highlight{
+    background:#fff7ed;
+    border-left:6px solid #f97316;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+.alert{
+    background:#fef2f2;
+    border-left:6px solid #dc2626;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+/* GERADOR */
+
+.generator-box{
+    margin-top:40px;
+    padding:40px;
+    background:#fff7ed;
+    border-radius:12px;
+    border:1px solid #fed7aa;
+}
+
+.generator-box input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #fdba74;
+}
+
+.generator-box button{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    background:#ea580c;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.story-output{
+    margin-top:25px;
+    padding:20px;
+    background:#ffffff;
+    border-radius:8px;
+    border:1px solid #fed7aa;
+    font-weight:600;
+}
+
+/* BACKLOG TABLE */
+
+.backlog-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+}
+
+.backlog-table th{
+    background:#fff7ed;
+    padding:14px;
+    border:1px solid #fed7aa;
+    text-align:left;
+}
+
+.backlog-table td{
+    padding:14px;
+    border:1px solid #e5e7eb;
+}
+
+.backlog-table tr:hover{
+    background:#f9fafb;
+}
+
+/* MATRIZ */
+
+.matrix{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:40px;
+}
+
+.matrix-box{
+    padding:25px;
+    border-radius:10px;
+    background:#f9fafb;
+    border:1px solid #e5e7eb;
+}
+
+.matrix-box h4{
+    margin-top:0;
+    color:#c2410c;
+}
+
+/* QUIZ PREMIUM */
+
+.quiz-wrapper{
+    margin-top:50px;
+    padding:50px;
+    background:#f9fafb;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+}
+
+.question{
+    margin-bottom:35px;
+    padding:25px;
+    background:#ffffff;
+    border-radius:8px;
+    border:1px solid #e5e7eb;
+}
+
+.option{
+    padding:10px 12px;
+    margin-bottom:8px;
+    border-radius:6px;
+    background:#fff7ed;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{
+    background:#fed7aa;
+}
+
+.option.correct{ background:#bbf7d0; }
+.option.incorrect{ background:#fecaca; }
+.option.disabled{ pointer-events:none; opacity:0.7; }
+
+.result-box{
+    margin-top:40px;
+    padding:30px;
+    border-radius:10px;
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    display:none;
+}
+
+.btn-finalizar{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    background:#ea580c;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Módulo C – C2</h3>
+<a href="#stories">User Stories</a>
+<a href="#criterios">Critérios de Aceite</a>
+<a href="#gerador">Gerador Visual</a>
+<a href="#backlog">Backlog</a>
+<a href="#planejamento">Planejamento Incremental</a>
+<a href="#matriz">Matriz Valor x Esforço</a>
+<a href="#quiz">Autoavaliação</a>
+</div>
+
+<div class="content">
+
+<div class="module-header">
+<h1>Módulo C – Requisitos, Valor e Planejamento</h1>
+<p>C2 – User Stories, Backlog e Planejamento Incremental</p>
+</div>
+
+<h2 id="stories">1. User Stories como Instrumento Conceitual</h2>
+
+<p>
+User Stories não são descrições técnicas detalhadas.
+São instrumentos de expressão de valor.
+</p>
+
+<div class="highlight">
+Como [perfil], quero [ação], para [benefício].
+</div>
+
+<p>
+Essa estrutura garante foco em quem recebe valor,
+qual ação será realizada e qual resultado se pretende alcançar.
+</p>
+
+<h2 id="criterios">2. Critérios de Aceite</h2>
+
+<p>
+Critérios de aceite estabelecem quando uma história pode ser considerada concluída.
+Devem ser verificáveis e objetivos.
+</p>
+
+<div class="alert">
+História sem critério de aceite é ambiguidade institucional.
+</div>
+
+<h2 id="gerador">3. 📝 Gerador Visual de User Story</h2>
+
+<div class="generator-box">
+
+<input type="text" id="perfil" placeholder="Perfil (ex: Analista Ambiental)">
+<input type="text" id="acao" placeholder="Ação (ex: gerar relatório consolidado)">
+<input type="text" id="beneficio" placeholder="Benefício (ex: acompanhar metas ambientais)">
+
+<button onclick="gerarStory()">Gerar User Story</button>
+
+<div class="story-output" id="resultadoStory"></div>
+
+</div>
+
+<h2 id="backlog">4. 📋 Backlog como Instrumento de Priorização</h2>
+
+<table class="backlog-table">
+<tr>
+<th>ID</th>
+<th>User Story</th>
+<th>Valor</th>
+<th>Esforço</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Gerar relatório consolidado</td>
+<td>Alto</td>
+<td>Médio</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Filtro por período</td>
+<td>Médio</td>
+<td>Baixo</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Ajuste de layout</td>
+<td>Baixo</td>
+<td>Baixo</td>
+</tr>
+
+</table>
+
+<h2 id="planejamento">5. Planejamento Incremental</h2>
+
+<p>
+Planejamento rígido pressupõe previsibilidade absoluta.
+Planejamento adaptativo reconhece incerteza.
+</p>
+
+<div class="highlight">
+Planejar incrementalmente significa decidir com base em valor entregue.
+</div>
+
+<h2 id="matriz">6. 📈 Matriz Valor × Esforço</h2>
+
+<div class="matrix">
+
+<div class="matrix-box">
+<h4>Alto Valor / Baixo Esforço</h4>
+<p>Prioridade imediata.</p>
+</div>
+
+<div class="matrix-box">
+<h4>Alto Valor / Alto Esforço</h4>
+<p>Planejamento estratégico.</p>
+</div>
+
+<div class="matrix-box">
+<h4>Baixo Valor / Baixo Esforço</h4>
+<p>Execução opcional.</p>
+</div>
+
+<div class="matrix-box">
+<h4>Baixo Valor / Alto Esforço</h4>
+<p>Reavaliar necessidade.</p>
+</div>
+
+</div>
+
+<h2 id="quiz">7. 🧠 Autoavaliação – C2</h2>
+
+<div class="quiz-wrapper">
+<div id="quizContainer"></div>
+<button class="btn-finalizar" onclick="finalizarQuiz()">Finalizar Avaliação</button>
+<div class="result-box" id="resultadoFinal"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* GERADOR */
+
+function gerarStory(){
+let perfil=document.getElementById("perfil").value;
+let acao=document.getElementById("acao").value;
+let beneficio=document.getElementById("beneficio").value;
+
+if(perfil && acao && beneficio){
+document.getElementById("resultadoStory").innerText=
+"Como "+perfil+", quero "+acao+", para "+beneficio+".";
+}else{
+document.getElementById("resultadoStory").innerText=
+"Preencha todos os campos.";
+}
+}
+
+/* QUIZ */
+
+const perguntas=[
+{texto:"1. Estrutura correta de User Story:",opcoes:["Perfil-Ação-Sistema","Como-Quero-Para","Função-Tela-Relatório"],correta:1},
+{texto:"2. Backlog é:",opcoes:["Lista priorizada","Documento fixo","Relatório financeiro"],correta:0},
+{texto:"3. Critério de aceite deve ser:",opcoes:["Subjetivo","Mensurável","Opcional"],correta:1},
+{texto:"4. Planejamento adaptativo reconhece:",opcoes:["Incerteza","Rigidez","Imutabilidade"],correta:0},
+{texto:"5. Alto valor e baixo esforço implica:",opcoes:["Adiar","Priorizar","Cancelar"],correta:1}
+];
+
+let pontuacao=0;
+let respondidas=0;
+
+function renderQuiz(){
+const container=document.getElementById("quizContainer");
+perguntas.forEach((pergunta,index)=>{
+const div=document.createElement("div");
+div.classList.add("question");
+div.innerHTML=`<h4>${pergunta.texto}</h4>`;
+pergunta.opcoes.forEach((opcao,i)=>{
+const opc=document.createElement("div");
+opc.classList.add("option");
+opc.innerText=opcao;
+opc.onclick=function(){responder(this,index,i);};
+div.appendChild(opc);
+});
+container.appendChild(div);
+});
+}
+
+function responder(el,indPerg,indOpc){
+const pergunta=perguntas[indPerg];
+const opcoes=el.parentNode.querySelectorAll(".option");
+opcoes.forEach(op=>op.classList.add("disabled"));
+if(indOpc===pergunta.correta){
+el.classList.add("correct");
+pontuacao++;
+}else{
+el.classList.add("incorrect");
+opcoes[pergunta.correta].classList.add("correct");
+}
+respondidas++;
+}
+
+function finalizarQuiz(){
+if(respondidas<perguntas.length){
+alert("Responda todas as questões.");
+return;
+}
+const resultado=document.getElementById("resultadoFinal");
+resultado.style.display="block";
+resultado.innerHTML=`
+<h3>Resultado Final</h3>
+<p><strong>Pontuação:</strong> ${pontuacao} de 5</p>
+`;
+}
+
+renderQuiz();
+
+/* PROGRESS BAR */
+
+const progressBar=document.createElement("div");
+progressBar.style.position="fixed";
+progressBar.style.top="0";
+progressBar.style.left="0";
+progressBar.style.height="5px";
+progressBar.style.background="#ea580c";
+progressBar.style.width="0%";
+progressBar.style.zIndex="9999";
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll",()=>{
+const scrollTop=document.documentElement.scrollTop;
+const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+const scrolled=(scrollTop/scrollHeight)*100;
+progressBar.style.width=scrolled+"%";
+});
+
+</script>
+
+</body>
+</html>
