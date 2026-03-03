@@ -1,1 +1,514 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo C – Requisitos e Valor | C3 – Valor Público</title>
 
+<style>
+
+/* ======================================================
+IDENTIDADE VISUAL – LARANJA INSTITUCIONAL (MÓDULO C)
+====================================================== */
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f3f4f6;
+    margin:0;
+    padding:0;
+    color:#0f172a;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:40px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    background:#ffffff;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    position:sticky;
+    top:40px;
+    height:fit-content;
+}
+
+.sidebar h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#9a3412;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    color:#0f172a;
+    transition:0.2s;
+}
+
+.sidebar a:hover{
+    color:#ea580c;
+}
+
+.sidebar a.active{
+    color:#ea580c;
+    font-weight:600;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    background:#ffffff;
+    padding:70px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.module-header{
+    background:linear-gradient(135deg,#f97316,#c2410c);
+    color:white;
+    padding:50px;
+    border-radius:10px;
+    margin-bottom:50px;
+}
+
+.module-header h1{
+    margin:0;
+    font-size:34px;
+}
+
+.module-header p{
+    margin-top:15px;
+    font-size:16px;
+    opacity:0.95;
+}
+
+h2{
+    margin-top:60px;
+    border-bottom:2px solid #e5e7eb;
+    padding-bottom:8px;
+    font-size:26px;
+}
+
+p{
+    margin:18px 0;
+    text-align:justify;
+}
+
+/* CAIXAS CONCEITUAIS */
+
+.highlight{
+    background:#fff7ed;
+    border-left:6px solid #f97316;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+.alert{
+    background:#fef2f2;
+    border-left:6px solid #dc2626;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+/* MAPA ESTRATÉGICO */
+
+.mapa{
+    margin-top:40px;
+    padding:40px;
+    background:#f9fafb;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+}
+
+.mapa-box{
+    padding:20px;
+    margin-bottom:15px;
+    background:#fff7ed;
+    border-left:5px solid #ea580c;
+    border-radius:8px;
+}
+
+/* SIMULADOR */
+
+.simulador{
+    margin-top:40px;
+    padding:40px;
+    background:#fff7ed;
+    border-radius:12px;
+    border:1px solid #fed7aa;
+}
+
+.simulador input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #fdba74;
+}
+
+.simulador button{
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    background:#ea580c;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.resultado-sim{
+    margin-top:20px;
+    padding:20px;
+    background:#ffffff;
+    border-radius:8px;
+    border:1px solid #fed7aa;
+}
+
+/* TABELA ALINHAMENTO */
+
+.alinhamento-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+}
+
+.alinhamento-table th{
+    background:#fff7ed;
+    padding:14px;
+    border:1px solid #fed7aa;
+    text-align:left;
+}
+
+.alinhamento-table td{
+    padding:14px;
+    border:1px solid #e5e7eb;
+}
+
+/* QUIZ */
+
+.quiz-wrapper{
+    margin-top:50px;
+    padding:50px;
+    background:#f9fafb;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+}
+
+.question{
+    margin-bottom:35px;
+    padding:25px;
+    background:#ffffff;
+    border-radius:8px;
+    border:1px solid #e5e7eb;
+}
+
+.option{
+    padding:10px 12px;
+    margin-bottom:8px;
+    border-radius:6px;
+    background:#fff7ed;
+    cursor:pointer;
+}
+
+.option.correct{ background:#bbf7d0; }
+.option.incorrect{ background:#fecaca; }
+.option.disabled{ pointer-events:none; opacity:0.7; }
+
+.result-box{
+    margin-top:40px;
+    padding:30px;
+    border-radius:10px;
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    display:none;
+}
+
+.btn-finalizar{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    background:#ea580c;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* ENCERRAMENTO */
+
+.encerramento{
+    margin-top:80px;
+    padding:60px;
+    background:linear-gradient(135deg,#fff7ed,#ffffff);
+    border-left:8px solid #f97316;
+    border-radius:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Módulo C – C3</h3>
+<a href="#valor">Valor Público</a>
+<a href="#alinhamento">Missão Institucional</a>
+<a href="#prioridade">Prioridade x Urgência</a>
+<a href="#impacto">Impacto Social</a>
+<a href="#indicadores">Indicadores Estratégicos</a>
+<a href="#mapa">Mapa Estratégico</a>
+<a href="#simulador">Simulador</a>
+<a href="#tabela">Alinhamento</a>
+<a href="#quiz">Quiz Final</a>
+<a href="#encerramento">Encerramento</a>
+</div>
+
+<div class="content">
+
+<div class="module-header">
+<h1>Módulo C – Requisitos, Valor e Planejamento</h1>
+<p>C3 – Valor Público e Alinhamento Estratégico</p>
+</div>
+
+<h2 id="valor">1. O que é Valor Público?</h2>
+
+<p>
+Valor público é o benefício gerado à sociedade por meio da ação estatal.
+Não é percepção subjetiva.
+É resultado mensurável, alinhado à missão institucional.
+</p>
+
+<div class="highlight">
+Valor público = benefício social + legitimidade + eficiência.
+</div>
+
+<h2 id="alinhamento">2. Alinhamento com Missão Institucional</h2>
+
+<p>
+Projetos tecnológicos devem estar conectados ao planejamento estratégico.
+Tecnologia sem missão gera desperdício institucional.
+</p>
+
+<div class="alert">
+Sistema entregue não significa valor entregue.
+</div>
+
+<h2 id="prioridade">3. Prioridade x Urgência</h2>
+
+<p>
+Urgência é pressão temporal.
+Prioridade é decisão estratégica.
+</p>
+
+<div class="highlight">
+Nem tudo que é urgente é prioritário.
+Nem tudo que é prioritário é urgente.
+</div>
+
+<h2 id="impacto">4. Impacto Social</h2>
+
+<p>
+Impacto social considera alcance populacional,
+melhoria de serviço e eficiência administrativa.
+</p>
+
+<h2 id="indicadores">5. Indicadores Estratégicos</h2>
+
+<p>
+Indicadores traduzem valor em métricas.
+Exemplos:
+</p>
+
+<ul>
+<li>Tempo médio de atendimento</li>
+<li>Redução de retrabalho</li>
+<li>Taxa de conformidade</li>
+<li>Nível de satisfação do usuário</li>
+</ul>
+
+<h2 id="mapa">📊 Mapa Estratégico Simplificado</h2>
+
+<div class="mapa">
+<div class="mapa-box">Missão Institucional</div>
+<div class="mapa-box">Objetivos Estratégicos</div>
+<div class="mapa-box">Iniciativas Tecnológicas</div>
+<div class="mapa-box">Indicadores e Resultados</div>
+</div>
+
+<h2 id="simulador">🏛 Simulador de Priorização por Impacto</h2>
+
+<div class="simulador">
+<input type="number" id="impactoInput" placeholder="Impacto social (1 a 10)">
+<input type="number" id="alcanceInput" placeholder="Alcance populacional (1 a 10)">
+<button onclick="calcularImpacto()">Calcular Prioridade</button>
+<div class="resultado-sim" id="resultadoSimulador"></div>
+</div>
+
+<h2 id="tabela">📌 Tabela de Alinhamento Requisito × Objetivo Estratégico</h2>
+
+<table class="alinhamento-table">
+<tr>
+<th>Requisito</th>
+<th>Objetivo Estratégico</th>
+<th>Indicador Vinculado</th>
+</tr>
+
+<tr>
+<td>Automatizar relatório ambiental</td>
+<td>Melhorar transparência</td>
+<td>Tempo de geração de relatório</td>
+</tr>
+
+<tr>
+<td>Sistema de monitoramento online</td>
+<td>Fortalecer fiscalização</td>
+<td>Redução de irregularidades</td>
+</tr>
+
+</table>
+
+<h2 id="quiz">🧠 Quiz Final – Módulo C</h2>
+
+<div class="quiz-wrapper">
+<div id="quizContainer"></div>
+<button class="btn-finalizar" onclick="finalizarQuiz()">Finalizar Avaliação</button>
+<div class="result-box" id="resultadoFinal"></div>
+</div>
+
+<div class="encerramento" id="encerramento">
+<h2>🔹 Encerramento do Módulo C</h2>
+
+<p><strong>Requisito não é pedido.</strong></p>
+<p><strong>Valor não é opinião.</strong></p>
+<p><strong>Planejamento não é rigidez.</strong></p>
+<p><strong>PDS transforma demanda em entrega estruturada.</strong></p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* SIMULADOR */
+
+function calcularImpacto(){
+let impacto=parseInt(document.getElementById("impactoInput").value);
+let alcance=parseInt(document.getElementById("alcanceInput").value);
+
+if(!impacto || !alcance){
+document.getElementById("resultadoSimulador").innerText="Preencha ambos os campos.";
+return;
+}
+
+let score=(impacto*0.6)+(alcance*0.4);
+
+let classificacao="Baixa Prioridade";
+
+if(score>=7) classificacao="Alta Prioridade";
+else if(score>=4) classificacao="Média Prioridade";
+
+document.getElementById("resultadoSimulador").innerHTML=
+`Score: ${score.toFixed(1)} <br> Classificação: <strong>${classificacao}</strong>`;
+}
+
+/* QUIZ FINAL */
+
+const perguntas=[
+{texto:"1. Valor público é:",opcoes:["Opinião","Benefício social mensurável","Pedido interno"],correta:1},
+{texto:"2. Missão institucional orienta:",opcoes:["Improvisação","Planejamento estratégico","Urgência isolada"],correta:1},
+{texto:"3. Prioridade é:",opcoes:["Pressão temporal","Decisão estratégica","Demanda política"],correta:1},
+{texto:"4. Indicadores servem para:",opcoes:["Complicar análise","Mensurar resultados","Substituir decisões"],correta:1},
+{texto:"5. Impacto social considera:",opcoes:["Apenas custo","Benefício coletivo","Preferência individual"],correta:1},
+{texto:"6. Planejamento adaptativo reconhece:",opcoes:["Rigidez","Incerteza","Imutabilidade"],correta:1},
+{texto:"7. Requisito alinhado gera:",opcoes:["Valor público","Desperdício","Burocracia"],correta:0},
+{texto:"8. Urgência nem sempre é:",opcoes:["Importante","Prioritária","Temporal"],correta:1},
+{texto:"9. Tecnologia deve servir à:",opcoes:["Moda","Missão institucional","Pressão externa"],correta:1},
+{texto:"10. PDS transforma:",opcoes:["Pedido em código","Demanda em entrega estruturada","Urgência em prioridade"],correta:1}
+];
+
+let pontuacao=0;
+let respondidas=0;
+
+function renderQuiz(){
+const container=document.getElementById("quizContainer");
+perguntas.forEach((pergunta,index)=>{
+const div=document.createElement("div");
+div.classList.add("question");
+div.innerHTML=`<h4>${pergunta.texto}</h4>`;
+pergunta.opcoes.forEach((opcao,i)=>{
+const opc=document.createElement("div");
+opc.classList.add("option");
+opc.innerText=opcao;
+opc.onclick=function(){responder(this,index,i);};
+div.appendChild(opc);
+});
+container.appendChild(div);
+});
+}
+
+function responder(el,indPerg,indOpc){
+const pergunta=perguntas[indPerg];
+const opcoes=el.parentNode.querySelectorAll(".option");
+opcoes.forEach(op=>op.classList.add("disabled"));
+if(indOpc===pergunta.correta){
+el.classList.add("correct");
+pontuacao++;
+}else{
+el.classList.add("incorrect");
+opcoes[pergunta.correta].classList.add("correct");
+}
+respondidas++;
+}
+
+function finalizarQuiz(){
+if(respondidas<perguntas.length){
+alert("Responda todas as questões.");
+return;
+}
+const resultado=document.getElementById("resultadoFinal");
+resultado.style.display="block";
+resultado.innerHTML=`<h3>Resultado Final</h3>
+<p><strong>Pontuação:</strong> ${pontuacao} de 10</p>`;
+}
+
+renderQuiz();
+
+/* BARRA DE PROGRESSO */
+
+const progressBar=document.createElement("div");
+progressBar.style.position="fixed";
+progressBar.style.top="0";
+progressBar.style.left="0";
+progressBar.style.height="5px";
+progressBar.style.background="#ea580c";
+progressBar.style.width="0%";
+progressBar.style.zIndex="9999";
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll",()=>{
+const scrollTop=document.documentElement.scrollTop;
+const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+const scrolled=(scrollTop/scrollHeight)*100;
+progressBar.style.width=scrolled+"%";
+});
+
+</script>
+
+</body>
+</html>
