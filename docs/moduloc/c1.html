@@ -1,1 +1,949 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo C – Engenharia de Requisitos | C1 – Fundamentos Estruturantes</title>
 
+<style>
+
+/* =====================================================
+IDENTIDADE VISUAL INSTITUCIONAL – C1 REFINADO
+SEM ALTERAR CONTEÚDO
+===================================================== */
+
+:root{
+    --laranja:#ea580c;
+    --laranja-escuro:#c2410c;
+    --laranja-claro:#fff7ed;
+    --cinza-borda:#e2e8f0;
+    --cinza-texto:#1e293b;
+    --cinza-suave:#64748b;
+    --sombra-suave:0 10px 25px rgba(0,0,0,0.06);
+    --sombra-media:0 20px 45px rgba(0,0,0,0.08);
+}
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f1f5f9;
+    margin:0;
+    padding-top:6px;
+    color:var(--cinza-texto);
+    line-height:1.9;
+}
+
+/* Barra de progresso */
+
+.progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    height:6px;
+    width:0%;
+    background:linear-gradient(90deg,var(--laranja),var(--laranja-escuro));
+    z-index:9999;
+}
+
+/* Layout */
+
+/* =============================
+LAYOUT ESTÁVEL COM SIDEBAR FIXA
+============================= */
+
+.wrapper{
+    max-width:1200px;
+    width:95%;
+    margin:70px auto;
+    position:relative;
+}
+
+/* Sidebar fixa */
+
+.sidebar{
+    position:fixed;
+    top:80px; /* distância do topo */
+    left:calc((100% - 1200px) / 2); /* centraliza com wrapper */
+    width:280px;
+    background:white;
+    padding:15px;
+    border-radius:16px;
+    box-shadow:var(--sombra-media);
+}
+
+.sidebar h3{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--cinza-suave);
+    margin-bottom:5px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:2px;      /* quase zero */
+    padding:3px 8px;        /* reduz altura */
+    line-height:1.3;        /* reduz espaçamento interno */
+    color:var(--cinza-texto);
+    border-radius:6px;
+    transition:all 0.2s ease;
+}
+
+.sidebar a:hover{
+    background:#fff1e6;
+}
+
+.sidebar a.active{
+    background:#ffe4d6;
+    color:var(--laranja);
+    font-weight:600;
+}
+
+/* Conteúdo */
+
+.content{
+    margin-left:320px; /* 280 + margem visual */
+    background:white;
+    padding:50px;
+    border-radius:18px;
+    box-shadow:var(--sombra-media);
+}
+
+/* Header */
+
+.header{
+    background:linear-gradient(135deg,#f97316,#ea580c);
+    color:white;
+    padding:70px;
+    border-radius:18px;
+    margin-bottom:80px;
+    position:relative;
+}
+
+.header::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:rgba(255,255,255,0.06);
+    border-radius:50%;
+    top:-80px;
+    right:-80px;
+    pointer-events:none;
+}
+
+.header h1{
+    margin:0;
+    font-size:38px;
+}
+
+.header p{
+    margin-top:15px;
+    font-size:19px;
+    opacity:0.95;
+}
+
+.reading-time{
+    margin-top:15px;
+    font-size:14px;
+    opacity:0.85;
+}
+
+/* Títulos */
+
+h2{
+    margin-top:100px;
+    padding-bottom:12px;
+    font-size:30px;
+    position:relative;
+}
+
+h2::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:60px;
+    height:4px;
+    background:var(--laranja);
+    border-radius:4px;
+}
+
+/* Texto */
+
+p{
+    font-size:17px;
+    margin-top:20px;
+}
+
+ul, ol{
+    margin-top:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+/* Blocos */
+
+.highlight{
+    background:var(--laranja-claro);
+    border-left:10px solid var(--laranja);
+    padding:35px;
+    border-radius:16px;
+    margin:60px 0;
+    box-shadow:var(--sombra-suave);
+}
+
+.alert{
+    background:#fef2f2;
+    border-left:10px solid #dc2626;
+    padding:35px;
+    border-radius:16px;
+    margin:60px 0;
+    box-shadow:var(--sombra-suave);
+}
+
+/* Cards */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+    margin-top:60px;
+}
+
+.card{
+    background:white;
+    border:1px solid #fed7aa;
+    padding:40px;
+    border-radius:18px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    box-shadow:var(--sombra-suave);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--sombra-media);
+}
+
+.card h4{
+    margin:0;
+    font-size:20px;
+    color:var(--laranja-escuro);
+}
+
+.card-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.6s ease;
+    margin-top:0;
+}
+
+.card.active .card-content{
+    max-height:1500px;
+    margin-top:20px;
+}
+
+/* Comparador */
+
+.compare{
+    background:white;
+    border:1px solid #fed7aa;
+    padding:50px;
+    border-radius:18px;
+    margin-top:70px;
+    box-shadow:var(--sombra-suave);
+}
+
+.btn{
+    padding:14px 26px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--laranja),var(--laranja-escuro));
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+    margin-top:20px;
+    transition:0.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Fluxo */
+
+.flow{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.step{
+    flex:1;
+    background:white;
+    border:1px solid #fed7aa;
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+    font-weight:600;
+    box-shadow:var(--sombra-suave);
+}
+
+/* Tabela */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:60px;
+    font-size:15px;
+}
+
+th{
+    background:#fed7aa;
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+th, td{
+    border:1px solid var(--cinza-borda);
+    padding:18px;
+}
+
+/* Quiz */
+
+.quiz{
+    margin-top:120px;
+    background:white;
+    padding:70px;
+    border-radius:18px;
+    border:1px solid #fed7aa;
+    box-shadow:var(--sombra-media);
+}
+
+.question{
+    background:#fff7ed;
+    padding:30px;
+    margin-bottom:40px;
+    border-radius:16px;
+    border:1px solid #fed7aa;
+}
+
+.option{
+    background:white;
+    padding:14px;
+    margin-top:12px;
+    border-radius:10px;
+    cursor:pointer;
+    border:1px solid #fed7aa;
+    transition:0.2s;
+}
+
+.option:hover{
+    background:#fff1e6;
+}
+
+.option.correct{ background:#bbf7d0; }
+.option.incorrect{ background:#fecaca; }
+
+.result{
+    margin-top:50px;
+    padding:35px;
+    background:#fff7ed;
+    border-radius:16px;
+    display:none;
+}
+
+/* Encerramento */
+
+.closing{
+    margin-top:120px;
+    padding:70px;
+    background:linear-gradient(135deg,#fff7ed,#ffffff);
+    border-left:12px solid var(--laranja);
+    border-radius:18px;
+    box-shadow:var(--sombra-suave);
+}
+
+html, body{
+    overflow-x:hidden;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+@media (max-width: 1200px){
+
+    .sidebar{
+        left:20px;
+    }
+
+    .content{
+        margin-left:320px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="wrapper">
+
+<div class="sidebar">
+<h3>Módulo C – C1</h3>
+<a href="#conceito">1. Conceito</a>
+<a href="#problema">2. Problema × Necessidade</a>
+<a href="#tipos">3. Tipos de Requisitos</a>
+<a href="#rastreabilidade">4. Rastreabilidade</a>
+<a href="#ambiguidade">5. Ambiguidade</a>
+<a href="#comparador">6. Comparador</a>
+<a href="#fluxo">7. Fluxo PDS</a>
+<a href="#tabela">8. Matriz de Rastreabilidade</a>
+<a href="#quiz">9. Autoavaliação</a>
+<a href="#encerramento">10. Encerramento</a>
+</div>
+
+<div class="content">
+
+<div class="header">
+<h1>Módulo C – Engenharia de Requisitos</h1>
+<p>C1 – Fundamentos Conceituais Estruturantes no PDS</p>
+<div class="reading-time" id="readingTime"></div>
+</div>
+
+<h2 id="conceito">1. Fundamentos da Engenharia de Requisitos</h2>
+
+<p>
+A Engenharia de Requisitos constitui a etapa estruturante do Processo de Desenvolvimento de Software (PDS).
+Não se trata de uma fase meramente técnica, mas de um mecanismo formal de racionalização institucional.
+</p>
+
+<p>
+No setor público, requisitos não representam desejos individuais.
+Representam compromissos organizacionais formalmente assumidos.
+Cada requisito, quando validado, passa a integrar a cadeia de responsabilidade administrativa.
+</p>
+
+<div class="highlight">
+Requisito institucional é ato estruturado de definição de responsabilidade futura.
+</div>
+
+<p>
+Sob perspectiva epistemológica, requisitos são artefatos de redução de incerteza.
+Eles transformam ambiguidade difusa em estrutura formal mensurável.
+</p>
+
+<p>
+Sem essa formalização:
+</p>
+
+<ul>
+<li>O escopo torna-se instável</li>
+<li>O planejamento perde legitimidade</li>
+<li>O controle deixa de ser auditável</li>
+<li>O risco jurídico aumenta</li>
+</ul>
+
+<p>
+Portanto, a Engenharia de Requisitos não é fase preliminar.
+É fundamento estrutural do PDS.
+</p>
+
+<h2 id="problema">2. Problema × Necessidade × Solução</h2>
+
+<p>
+A confusão entre problema, necessidade e solução constitui uma das maiores fontes de falhas institucionais.
+</p>
+
+<p>
+Problema é a situação indesejada observável.
+Necessidade é a condição organizacional requerida para superar o problema.
+Solução é a resposta estruturada que atende à necessidade.
+</p>
+
+<div class="alert">
+Quando a solução antecede a análise do problema, o projeto nasce distorcido.
+</div>
+
+<p>
+Exemplo institucional:
+</p>
+
+<ul>
+<li><strong>Problema:</strong> Alto tempo médio de análise processual.</li>
+<li><strong>Necessidade:</strong> Reduzir o tempo médio para aumentar eficiência.</li>
+<li><strong>Solução:</strong> Desenvolver módulo automatizado de triagem.</li>
+</ul>
+
+<p>
+Se a solução for proposta sem diagnóstico do problema, o risco de inadequação aumenta.
+</p>
+
+<p>
+No PDS, essa distinção é formalizada por meio de registro documental estruturado.
+</p>
+
+<h2 id="tipos">3. Tipologia Ampliada de Requisitos no Setor Público</h2>
+
+<p>
+A tipologia tradicional (funcional e não funcional) é insuficiente no ambiente governamental.
+É necessário incorporar dimensões legais e estratégicas.
+</p>
+
+<div class="cards">
+
+<div class="card" onclick="toggleCard(this)">
+<h4>Requisitos Funcionais</h4>
+<div class="card-content">
+<p>
+Descrevem comportamentos observáveis do sistema.
+São mensuráveis por meio de testes objetivos.
+</p>
+<p>
+Exemplo:
+"O sistema deverá registrar protocolo ambiental e gerar número único sequencial."
+</p>
+</div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<h4>Requisitos Não Funcionais</h4>
+<div class="card-content">
+<p>
+Descrevem atributos de qualidade.
+Desempenho, disponibilidade, segurança, usabilidade.
+</p>
+<p>
+Exemplo:
+"O sistema deverá responder em até 3 segundos para 95% das requisições."
+</p>
+</div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<h4>Requisitos Legais e Regulatórios</h4>
+<div class="card-content">
+<p>
+Derivam de leis, decretos, instruções normativas.
+São mandatórios e não negociáveis.
+</p>
+<p>
+Exemplo:
+"A solução deverá estar em conformidade com a LGPD."
+</p>
+</div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+<h4>Requisitos Estratégicos</h4>
+<div class="card-content">
+<p>
+Relacionam-se diretamente ao planejamento institucional e geração de valor público.
+</p>
+<p>
+Exemplo:
+"Reduzir o prazo médio de análise processual em 20% até o próximo exercício."
+</p>
+</div>
+</div>
+
+</div>
+
+<h2 id="rastreabilidade">4. Rastreabilidade como Mecanismo de Governança</h2>
+
+<p>
+Rastreabilidade é a capacidade de acompanhar o ciclo de vida completo de um requisito.
+Desde sua origem até sua validação final.
+</p>
+
+<div class="highlight">
+Rastreabilidade não é formalidade documental.
+É proteção institucional.
+</div>
+
+<p>
+Ela conecta:
+</p>
+
+<ul>
+<li>Origem da demanda</li>
+<li>Justificativa estratégica</li>
+<li>Planejamento orçamentário</li>
+<li>Execução técnica</li>
+<li>Validação formal</li>
+</ul>
+
+<p>
+Em auditorias, a ausência de rastreabilidade fragiliza a defesa institucional.
+</p>
+
+<p>
+No PDS, a rastreabilidade deve ser bidirecional:
+</p>
+
+<ul>
+<li>Do requisito à entrega</li>
+<li>Da entrega ao requisito</li>
+</ul>
+
+<h2 id="ambiguidade">5. Ambiguidade e Risco Administrativo</h2>
+
+<p>
+Ambiguidade é multiplicidade de interpretações possíveis.
+</p>
+
+<p>
+Em ambientes institucionais, ambiguidade gera:
+</p>
+
+<ul>
+<li>Retrabalho técnico</li>
+<li>Conflitos contratuais</li>
+<li>Disputas de responsabilidade</li>
+<li>Risco jurídico</li>
+</ul>
+
+<div class="alert">
+Ambiguidade é risco organizacional estruturante.
+</div>
+
+<p>
+Requisito bem definido deve ser:
+</p>
+
+<ul>
+<li>Claro</li>
+<li>Mensurável</li>
+<li>Testável</li>
+<li>Rastreável</li>
+<li>Alinhado ao planejamento estratégico</li>
+</ul>
+
+<h2 id="comparador">6. Comparador Analítico</h2>
+
+<div class="compare">
+
+<p><strong>Requisito Ambíguo:</strong></p>
+<p id="ruim">
+"O sistema deverá permitir acesso rápido aos dados ambientais."
+</p>
+
+<p><strong>Requisito Estruturado:</strong></p>
+<p id="bom" style="display:none;">
+"O sistema deverá permitir consulta aos dados ambientais cadastrados em até 3 segundos para 95% das requisições mensais realizadas por usuários autenticados."
+</p>
+
+<button class="btn" onclick="showBad()">Ver Ambíguo</button>
+<button class="btn" onclick="showGood()">Ver Estruturado</button>
+
+</div>
+
+<h2 id="fluxo">7. Ciclo de Requisitos no PDS</h2>
+
+<p>
+No PDS institucional, o ciclo de requisitos integra governança, validação e controle.
+</p>
+
+<div class="flow">
+<div class="step">Origem da Demanda</div>
+<div class="step">Análise Técnica</div>
+<div class="step">Validação Institucional</div>
+<div class="step">Planejamento</div>
+<div class="step">Implementação</div>
+<div class="step">Homologação</div>
+</div>
+
+<p>
+Cada etapa exige registro formal.
+Cada registro exige responsável.
+Cada responsável possui accountability administrativa.
+</p>
+
+<h2 id="tabela">8. Matriz Expandida de Rastreabilidade</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Origem</th>
+<th>Objetivo Estratégico</th>
+<th>Indicador</th>
+<th>Entrega</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>RF-01</td>
+<td>Diretoria Técnica</td>
+<td>Redução de prazo processual</td>
+<td>Tempo médio de análise</td>
+<td>Módulo Protocolo</td>
+<td>Validado</td>
+</tr>
+
+<tr>
+<td>RNF-02</td>
+<td>TI</td>
+<td>Alta disponibilidade</td>
+<td>Uptime ≥ 99,5%</td>
+<td>Infraestrutura Redundante</td>
+<td>Planejado</td>
+</tr>
+
+<tr>
+<td>RL-03</td>
+<td>Assessoria Jurídica</td>
+<td>Conformidade normativa</td>
+<td>Aderência à LGPD</td>
+<td>Módulo de Consentimento</td>
+<td>Em desenvolvimento</td>
+</tr>
+
+</table>
+
+<h2 id="quiz">9. Autoavaliação Conceitual</h2>
+
+<div class="quiz">
+
+<div id="quizContainer"></div>
+
+<button class="btn" onclick="finishQuiz()">Finalizar Avaliação</button>
+
+<div class="result" id="resultBox"></div>
+
+</div>
+
+<h2 id="encerramento">10. Encerramento Estruturante</h2>
+
+<div class="closing">
+
+<p>
+Requisito não é pedido informal.
+Requisito não é opinião subjetiva.
+Requisito é compromisso institucional formal.
+</p>
+
+<p>
+No PDS:
+</p>
+
+<ul>
+<li>Demanda vira requisito.</li>
+<li>Requisito vira planejamento.</li>
+<li>Planejamento vira execução controlada.</li>
+<li>Execução vira valor público mensurável.</li>
+</ul>
+
+<p style="font-weight:600; font-size:18px;">
+Engenharia de Requisitos é o ponto onde técnica encontra responsabilidade administrativa.
+</p>
+
+</div>
+
+<script>
+
+/* =====================================================
+CARDS EXPANSÍVEIS
+===================================================== */
+
+function toggleCard(card){
+    card.classList.toggle("active");
+}
+
+/* =====================================================
+COMPARADOR DE REQUISITOS
+===================================================== */
+
+function showBad(){
+    document.getElementById("ruim").style.display="block";
+    document.getElementById("bom").style.display="none";
+}
+
+function showGood(){
+    document.getElementById("ruim").style.display="none";
+    document.getElementById("bom").style.display="block";
+}
+
+/* =====================================================
+BARRA DE PROGRESSO DE LEITURA
+===================================================== */
+
+window.addEventListener("scroll",function(){
+    const scrollTop=document.documentElement.scrollTop;
+    const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const progress=(scrollTop/scrollHeight)*100;
+    document.getElementById("progressBar").style.width=progress+"%";
+});
+
+/* =====================================================
+TEMPO ESTIMADO DE LEITURA
+===================================================== */
+
+window.addEventListener("load",function(){
+    const text=document.querySelector(".content").innerText;
+    const words=text.split(/\s+/).length;
+    const time=Math.ceil(words/200);
+    document.getElementById("readingTime").innerText="Tempo estimado de leitura: "+time+" minutos";
+});
+
+/* =====================================================
+SCROLL SPY – MENU ATIVO DINÂMICO
+===================================================== */
+
+const sections=document.querySelectorAll("h2");
+const navLinks=document.querySelectorAll(".sidebar a");
+
+window.addEventListener("scroll",()=>{
+    let current="";
+    sections.forEach(section=>{
+        const sectionTop=section.offsetTop-150;
+        if(pageYOffset>=sectionTop){
+            current=section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link=>{
+        link.classList.remove("active");
+        if(link.getAttribute("href")==="#"+current){
+            link.classList.add("active");
+        }
+    });
+});
+
+/* =====================================================
+QUIZ AVANÇADO – 10 QUESTÕES
+===================================================== */
+
+const questions=[
+{
+q:"1. Requisito institucional deve ser:",
+o:["Subjetivo","Mensurável","Opcional","Informal"],
+c:1
+},
+{
+q:"2. Ambiguidade gera principalmente:",
+o:["Clareza","Risco institucional","Eficiência","Controle excessivo"],
+c:1
+},
+{
+q:"3. Requisito legal é:",
+o:["Opcional","Obrigatório","Flexível","Secundário"],
+c:1
+},
+{
+q:"4. Rastreabilidade permite:",
+o:["Ignorar histórico","Acompanhar ciclo completo","Eliminar documentação","Reduzir governança"],
+c:1
+},
+{
+q:"5. Solução antes do problema causa:",
+o:["Governança","Retrabalho","Clareza","Eficiência"],
+c:1
+},
+{
+q:"6. Requisito funcional descreve:",
+o:["Qualidade","Comportamento do sistema","Norma jurídica","Infraestrutura"],
+c:1
+},
+{
+q:"7. Requisito não funcional trata de:",
+o:["Ação específica","Desempenho e atributos","Contrato político","Orçamento apenas"],
+c:1
+},
+{
+q:"8. Engenharia de requisitos é instrumento de:",
+o:["Improvisação","Governança","Estética","Marketing"],
+c:1
+},
+{
+q:"9. No PDS requisito deve ser:",
+o:["Informal","Registrado formalmente","Opcional","Subjetivo"],
+c:1
+},
+{
+q:"10. Requisito mal definido impacta:",
+o:["Nada","Planejamento e controle","Somente código","Usuário apenas"],
+c:1
+}
+];
+
+let score=0;
+let answered=0;
+
+function renderQuiz(){
+    const container=document.getElementById("quizContainer");
+
+    questions.forEach((item,index)=>{
+        const div=document.createElement("div");
+        div.classList.add("question");
+        div.innerHTML="<h4>"+item.q+"</h4>";
+
+        item.o.forEach((opt,i)=>{
+            const option=document.createElement("div");
+            option.classList.add("option");
+            option.innerText=opt;
+
+            option.onclick=function(){
+                const options=div.querySelectorAll(".option");
+
+                options.forEach(o=>o.classList.add("disabled"));
+
+                if(i===item.c){
+                    option.classList.add("correct");
+                    score++;
+                }else{
+                    option.classList.add("incorrect");
+                    options[item.c].classList.add("correct");
+                }
+
+                answered++;
+            };
+
+            div.appendChild(option);
+        });
+
+        container.appendChild(div);
+    });
+}
+
+function finishQuiz(){
+
+    if(answered<questions.length){
+        alert("Responda todas as questões antes de finalizar.");
+        return;
+    }
+
+    const result=document.getElementById("resultBox");
+    result.style.display="block";
+
+    let level="";
+    let analysis="";
+
+    if(score<=4){
+        level="Nível Básico";
+        analysis="Recomenda-se revisão aprofundada dos fundamentos estruturantes.";
+    }else if(score<=7){
+        level="Nível Adequado";
+        analysis="Boa compreensão conceitual com espaço para aprofundamento.";
+    }else{
+        level="Nível Avançado";
+        analysis="Domínio estruturado e maturidade conceitual institucional.";
+    }
+
+    result.innerHTML=
+        "<h3>Resultado Final</h3>"+
+        "<p><strong>Pontuação:</strong> "+score+" / 10</p>"+
+        "<p><strong>Classificação:</strong> "+level+"</p>"+
+        "<p>"+analysis+"</p>";
+}
+
+renderQuiz();
+
+</script>
