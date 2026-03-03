@@ -1,1 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo A – Mentalidade Ágil | A1 – Manifesto Ágil</title>
 
+<style>
+
+/* ================================
+IDENTIDADE VISUAL INSTITUCIONAL
+================================ */
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f1f5f9;
+    margin:0;
+    padding:0;
+    color:#0f172a;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:40px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    background:#ffffff;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    position:sticky;
+    top:40px;
+    height:fit-content;
+}
+
+.sidebar h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    color:#0f172a;
+    transition:0.2s;
+}
+
+.sidebar a:hover{
+    color:#0ea5e9;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    background:#ffffff;
+    padding:70px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.module-header{
+    background:linear-gradient(135deg,#0ea5e9,#0284c7);
+    color:white;
+    padding:50px;
+    border-radius:10px;
+    margin-bottom:50px;
+}
+
+.module-header h1{
+    margin:0;
+    font-size:34px;
+}
+
+.module-header p{
+    margin-top:15px;
+    font-size:16px;
+    opacity:0.9;
+}
+
+h2{
+    margin-top:60px;
+    border-bottom:2px solid #e2e8f0;
+    padding-bottom:8px;
+    font-size:26px;
+}
+
+p{
+    margin:18px 0;
+    text-align:justify;
+}
+
+/* ================================
+TIMELINE ARROJADA
+================================ */
+
+.timeline-wrapper{
+    margin-top:50px;
+    position:relative;
+}
+
+.timeline-line{
+    position:absolute;
+    left:50%;
+    width:4px;
+    background:#0ea5e9;
+    top:0;
+    bottom:0;
+}
+
+.timeline-item{
+    width:50%;
+    padding:30px;
+    position:relative;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s ease;
+}
+
+.timeline-item.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.timeline-item.left{
+    left:0;
+    text-align:right;
+}
+
+.timeline-item.right{
+    left:50%;
+}
+
+.timeline-box{
+    background:#f8fafc;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #e2e8f0;
+    box-shadow:0 5px 15px rgba(0,0,0,0.04);
+}
+
+.timeline-box h4{
+    margin-top:0;
+    color:#0284c7;
+}
+
+/* ================================
+CAIXAS CONCEITUAIS
+================================ */
+
+.highlight{
+    background:#ecfeff;
+    border-left:6px solid #06b6d4;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+.alert{
+    background:#fef2f2;
+    border-left:6px solid #dc2626;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Módulo A – A1</h3>
+<a href="#contexto">Contexto Histórico</a>
+<a href="#crise">Crise do Modelo Tradicional</a>
+<a href="#timeline">Evolução Histórica</a>
+<a href="#fundamentos">Fundamentos Filosóficos</a>
+<a href="#valores">Valores do Manifesto</a>
+<a href="#publico">Aplicação no Setor Público</a>
+<a href="#pds">Conexão com o PDS</a>
+<a href="#quiz">Autoavaliação</a>
+</div>
+
+<div class="content">
+
+<div class="module-header">
+<h1>Módulo A – Mentalidade Ágil</h1>
+<p>A1 – Manifesto Ágil e Fundamentos Filosóficos</p>
+</div>
+
+<h2 id="contexto">1. Contexto Histórico</h2>
+
+<p>
+A virada do século XX para o XXI foi marcada por uma crescente complexidade nos sistemas de software.
+Projetos tornaram-se maiores, interdependentes e sujeitos a ambientes organizacionais altamente dinâmicos.
+</p>
+
+<p>
+O modelo predominante até então era o modelo cascata, estruturado em fases sequenciais rígidas.
+Embora adequado para ambientes previsíveis, mostrou-se limitado diante da volatilidade tecnológica e da crescente demanda por adaptação.
+</p>
+
+<div class="highlight">
+A crescente taxa de falhas em grandes projetos de software foi um dos catalisadores do movimento ágil.
+</div>
+
+<h2 id="crise">2. A Crise do Modelo Tradicional</h2>
+
+<p>
+Relatórios como o Standish Group CHAOS Report evidenciaram elevados índices de insucesso em projetos conduzidos por modelos excessivamente rígidos.
+</p>
+
+<p>
+As causas mais recorrentes incluíam:
+</p>
+
+<ul>
+<li>Requisitos mal definidos</li>
+<li>Escopo inflexível</li>
+<li>Distanciamento entre equipe técnica e usuários</li>
+<li>Entregas tardias e desalinhadas com a necessidade real</li>
+</ul>
+
+<div class="alert">
+Processos excessivamente formais não garantem qualidade se não incorporarem adaptabilidade.
+</div>
+
+<h2 id="timeline">3. Evolução Histórica dos Métodos</h2>
+
+<div class="timeline-wrapper">
+<div class="timeline-line"></div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>1970 – Modelo Cascata</h4>
+<p>Formalização do desenvolvimento sequencial. Forte ênfase em documentação e controle prévio.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>1990 – Métodos Iterativos</h4>
+<p>Surgem abordagens como RAD e RUP, buscando maior flexibilidade.</p>
+</div>
+</div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>2001 – Manifesto Ágil</h4>
+<p>Reunião em Snowbird (EUA) estabelece valores e princípios para desenvolvimento adaptativo.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>Atualidade – DevSecOps</h4>
+<p>Integração entre desenvolvimento, operações e segurança, mantendo a mentalidade adaptativa.</p>
+</div>
+</div>
+
+</div>
+
+<h2 id="fundamentos">4. Fundamentos Filosóficos</h2>
+
+<p>
+A mentalidade ágil não é apenas técnica; é epistemológica.
+Parte do reconhecimento de que sistemas complexos não podem ser totalmente previstos.
+</p>
+
+<p>
+Baseia-se em:
+</p>
+
+<ul>
+<li>Teoria da complexidade</li>
+<li>Aprendizagem incremental</li>
+<li>Feedback contínuo</li>
+<li>Adaptação evolutiva</li>
+</ul>
+
+<p>
+Em ambientes públicos, essa mentalidade precisa coexistir com requisitos de legalidade, controle e governança.
+</p>
+
+<!-- ================================
+VALORES DO MANIFESTO ÁGIL
+================================ -->
+
+<style>
+
+/* ================================
+CARDS EXPANSÍVEIS SOFISTICADOS
+================================ */
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.value-card{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:10px;
+    padding:30px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.value-card:hover{
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    transform:translateY(-4px);
+}
+
+.value-card h4{
+    margin-top:0;
+    color:#0284c7;
+}
+
+.value-details{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.6s ease;
+    margin-top:15px;
+}
+
+.value-card.active .value-details{
+    max-height:500px;
+}
+
+/* ================================
+ACCORDION PRINCÍPIOS
+================================ */
+
+.accordion{
+    margin-top:40px;
+}
+
+.accordion-item{
+    border:1px solid #e2e8f0;
+    border-radius:8px;
+    margin-bottom:15px;
+    overflow:hidden;
+}
+
+.accordion-header{
+    background:#f1f5f9;
+    padding:18px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.accordion-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.6s ease;
+    padding:0 18px;
+    background:#ffffff;
+}
+
+.accordion-item.active .accordion-body{
+    max-height:500px;
+    padding:18px;
+}
+
+/* ================================
+ANÁLISE INSTITUCIONAL
+================================ */
+
+.analysis-box{
+    background:#fdf4ff;
+    border-left:6px solid #d946ef;
+    padding:30px;
+    border-radius:8px;
+    margin-top:50px;
+}
+
+</style>
+
+<h2 id="valores">5. Os Quatro Valores do Manifesto Ágil</h2>
+
+<p>
+O Manifesto Ágil, publicado em 2001, não estabelece regras operacionais,
+mas princípios valorativos que orientam a tomada de decisão em ambientes complexos.
+</p>
+
+<p>
+Abaixo, cada valor pode ser expandido para análise aprofundada e contextualização institucional.
+</p>
+
+<div class="values-grid">
+
+<div class="value-card" onclick="toggleValue(this)">
+<h4>1. Indivíduos e Interações mais que Processos e Ferramentas</h4>
+<div class="value-details">
+<p>
+Reconhece que processos são necessários, mas não substituem a inteligência coletiva.
+A comunicação efetiva reduz ambiguidades e aumenta alinhamento.
+</p>
+<p>
+No setor público, isso significa fortalecer diálogo entre TI, áreas finalísticas e instâncias decisórias.
+</p>
+</div>
+</div>
+
+<div class="value-card" onclick="toggleValue(this)">
+<h4>2. Software Funcionando mais que Documentação Extensa</h4>
+<div class="value-details">
+<p>
+Não elimina documentação, mas questiona excesso improdutivo.
+A entrega funcional permite validação real de valor.
+</p>
+<p>
+Em ambientes institucionais, documentação é requisito, mas deve ser proporcional e estratégica.
+</p>
+</div>
+</div>
+
+<div class="value-card" onclick="toggleValue(this)">
+<h4>3. Colaboração com o Cliente mais que Negociação Contratual</h4>
+<div class="value-details">
+<p>
+Valoriza diálogo contínuo em vez de rigidez contratual.
+A colaboração reduz desalinhamentos.
+</p>
+<p>
+No setor público, o "cliente" é a área demandante e, indiretamente, a sociedade.
+</p>
+</div>
+</div>
+
+<div class="value-card" onclick="toggleValue(this)">
+<h4>4. Responder a Mudanças mais que Seguir um Plano</h4>
+<div class="value-details">
+<p>
+Planos são necessários, mas devem ser adaptáveis.
+Ambientes complexos exigem revisões periódicas.
+</p>
+<p>
+No PDS, essa adaptabilidade deve ocorrer dentro de limites de governança.
+</p>
+</div>
+</div>
+
+</div>
+
+<h2>6. Os Doze Princípios do Manifesto Ágil</h2>
+
+<p>
+Além dos valores, o Manifesto estabelece doze princípios que orientam a prática.
+Abaixo, estão sintetizados com foco conceitual.
+</p>
+
+<div class="accordion">
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">1. Satisfação do cliente por meio de entrega contínua</div>
+<div class="accordion-body">
+Entrega incremental reduz risco e aumenta previsibilidade.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">2. Mudanças são bem-vindas</div>
+<div class="accordion-body">
+Mudanças devem ser geridas, não ignoradas.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">3. Entregas frequentes</div>
+<div class="accordion-body">
+Ciclos curtos permitem inspeção e adaptação.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">4. Cooperação diária entre negócio e desenvolvedores</div>
+<div class="accordion-body">
+Integração reduz ruídos e retrabalho.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">5. Projetos construídos em torno de indivíduos motivados</div>
+<div class="accordion-body">
+Autonomia supervisionada aumenta responsabilidade.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">6. Comunicação face a face</div>
+<div class="accordion-body">
+Comunicação direta reduz ambiguidades.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">7. Software funcionando como medida primária</div>
+<div class="accordion-body">
+Indicador concreto de progresso.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">8. Desenvolvimento sustentável</div>
+<div class="accordion-body">
+Ritmo constante evita sobrecarga e falhas.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">9. Excelência técnica contínua</div>
+<div class="accordion-body">
+Qualidade técnica sustenta adaptabilidade.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">10. Simplicidade</div>
+<div class="accordion-body">
+Maximizar o trabalho não realizado.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">11. Equipes auto-organizáveis</div>
+<div class="accordion-body">
+Autonomia supervisionada dentro da governança.
+</div>
+</div>
+
+<div class="accordion-item" onclick="toggleAccordion(this)">
+<div class="accordion-header">12. Reflexão e ajuste contínuo</div>
+<div class="accordion-body">
+Retrospectivas como mecanismo de melhoria.
+</div>
+</div>
+
+</div>
+
+<h2 id="publico">7. Aplicação no Setor Público</h2>
+
+<p>
+A adoção da mentalidade ágil no setor público exige equilíbrio.
+Não se trata de flexibilizar normas, mas de incorporar adaptabilidade dentro da legalidade.
+</p>
+
+<div class="analysis-box">
+<strong>Análise Crítica:</strong>
+<br><br>
+Agilidade sem governança gera risco.
+Governança sem adaptabilidade gera ineficiência.
+<br><br>
+O desafio institucional é integrar ambos.
+</div>
+
+<h2 id="pds">8. Conexão com o PDS</h2>
+
+<p>
+O PDS institucional não é antagônico à mentalidade ágil.
+Ao contrário, fornece estrutura para que a adaptabilidade ocorra com responsabilidade,
+rastreabilidade e segurança.
+</p>
+
+<h2 id="manifestacao">8.1 Manifestação Formal dos Valores Ágeis no PDS</h2>
+
+<p>
+A mentalidade ágil não se manifesta no setor público por meio de informalidade,
+mas por meio de estrutura institucional capaz de absorver adaptação sem comprometer
+governança, rastreabilidade e conformidade normativa.
+</p>
+
+<p>
+Abaixo, apresenta-se a correspondência analítica entre os valores do Manifesto Ágil
+e sua materialização formal no Processo de Desenvolvimento de Software (PDS).
+</p>
+
+<style>
+.pds-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+    font-size:14px;
+}
+
+.pds-table th{
+    background:#e0f2fe;
+    padding:14px;
+    text-align:left;
+    border:1px solid #cbd5e1;
+}
+
+.pds-table td{
+    padding:14px;
+    border:1px solid #e2e8f0;
+    vertical-align:top;
+}
+
+.pds-table tr:hover{
+    background:#f8fafc;
+}
+
+.manifesto-box{
+    margin-top:50px;
+    padding:40px;
+    background:linear-gradient(135deg,#f0f9ff,#ffffff);
+    border-left:8px solid #0284c7;
+    border-radius:10px;
+}
+</style>
+
+<table class="pds-table">
+
+<tr>
+<th>Valor do Manifesto Ágil</th>
+<th>Interpretação Institucional</th>
+<th>Manifestação Formal no PDS</th>
+</tr>
+
+<tr>
+<td><strong>Indivíduos e Interações</strong></td>
+<td>
+A valorização do diálogo não elimina processos, mas orienta decisões colaborativas.
+</td>
+<td>
+Definição clara de papéis institucionais, instâncias decisórias formais,
+registros de reuniões e validações estruturadas.
+</td>
+</tr>
+
+<tr>
+<td><strong>Software Funcionando</strong></td>
+<td>
+Entrega incremental de valor ao usuário institucional.
+</td>
+<td>
+Marcos formais de validação, homologação e aceite,
+acompanhados de documentação mínima necessária e registros de aprovação.
+</td>
+</tr>
+
+<tr>
+<td><strong>Colaboração com o Cliente</strong></td>
+<td>
+Alinhamento contínuo entre TI e áreas demandantes.
+</td>
+<td>
+Formalização de demandas, definição de escopo,
+registro de requisitos e validação progressiva conforme etapas do PDS.
+</td>
+</tr>
+
+<tr>
+<td><strong>Responder a Mudanças</strong></td>
+<td>
+Adaptabilidade dentro de limites normativos.
+</td>
+<td>
+Controle de mudanças estruturado, versionamento,
+registro de alterações e reavaliação formal de impacto.
+</td>
+</tr>
+
+</table>
+
+<p>
+Observa-se, portanto, que o PDS não contradiz a mentalidade ágil;
+ele institucionaliza sua aplicação de forma segura.
+</p>
+
+<h2 id="sintese">9. Síntese Institucional</h2>
+
+<div class="manifesto-box">
+
+<p>
+A mentalidade ágil não representa ausência de processo.
+Representa maturidade na gestão da incerteza.
+</p>
+
+<p>
+No contexto público, agilidade não significa improvisação.
+Significa capacidade adaptativa estruturada.
+</p>
+
+<p>
+Agilidade pública pode ser definida como:
+<strong>adaptabilidade com responsabilidade institucional.</strong>
+</p>
+
+<p>
+O Processo de Desenvolvimento de Software (PDS) constitui
+a infraestrutura normativa que permite essa adaptabilidade
+sem comprometer governança, transparência e controle.
+</p>
+
+<p>
+Assim, estabelece-se o seguinte posicionamento institucional:
+</p>
+
+<ul>
+<li>Mentalidade ágil ≠ informalidade.</li>
+<li>Adaptabilidade ≠ ausência de controle.</li>
+<li>Velocidade ≠ fragilidade.</li>
+<li>Governança ≠ rigidez absoluta.</li>
+</ul>
+
+<p>
+O PDS é a estrutura que viabiliza agilidade segura.
+É o mecanismo pelo qual a organização transforma valores adaptativos
+em práticas formalmente responsáveis.
+</p>
+
+<p>
+Portanto, a adoção da mentalidade ágil na SEMA/MT
+não implica substituição da governança,
+mas sua qualificação por meio de práticas evolutivas.
+</p>
+
+</div>
+
+<script>
+
+/* Toggle valores */
+function toggleValue(card){
+    card.classList.toggle("active");
+}
+
+/* Toggle accordion */
+function toggleAccordion(item){
+    item.classList.toggle("active");
+}
+
+</script>
+
+
+
+<style>
+
+/* ================================
+QUIZ AVANÇADO INSTITUCIONAL
+================================ */
+
+.quiz-wrapper{
+    margin-top:80px;
+    padding:50px;
+    background:#f8fafc;
+    border-radius:12px;
+    border:1px solid #e2e8f0;
+}
+
+.quiz-wrapper h2{
+    margin-top:0;
+}
+
+.question{
+    margin-bottom:35px;
+    padding:25px;
+    background:#ffffff;
+    border-radius:8px;
+    border:1px solid #e2e8f0;
+}
+
+.question h4{
+    margin-top:0;
+    font-size:17px;
+}
+
+.option{
+    padding:10px 12px;
+    margin-bottom:8px;
+    border-radius:6px;
+    background:#e2e8f0;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{
+    background:#cbd5e1;
+}
+
+.option.correct{
+    background:#bbf7d0;
+}
+
+.option.incorrect{
+    background:#fecaca;
+}
+
+.option.disabled{
+    pointer-events:none;
+    opacity:0.7;
+}
+
+.quiz-footer{
+    margin-top:40px;
+    text-align:center;
+}
+
+.btn-finalizar{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    background:#0284c7;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.result-box{
+    margin-top:40px;
+    padding:30px;
+    border-radius:10px;
+    background:#ffffff;
+    border:1px solid #e2e8f0;
+    display:none;
+}
+
+.result-box h3{
+    margin-top:0;
+}
+
+</style>
+
+<div class="quiz-wrapper" id="quiz">
+
+<h2>10. Autoavaliação – Mentalidade Ágil</h2>
+
+<div id="quizContainer"></div>
+
+<div class="quiz-footer">
+<button class="btn-finalizar" onclick="finalizarQuiz()">Finalizar Avaliação</button>
+</div>
+
+<div class="result-box" id="resultadoFinal"></div>
+
+</div>
+
+<script>
+
+/* ================================
+QUESTÕES
+================================ */
+
+const perguntas = [
+
+{
+texto: "1. A mentalidade ágil surge principalmente como resposta a:",
+opcoes: [
+"Excesso de automação em projetos.",
+"Altas taxas de falha em projetos conduzidos por modelos rígidos.",
+"Ausência total de documentação.",
+"Falta de tecnologia adequada."
+],
+correta: 1
+},
+
+{
+texto: "2. O Manifesto Ágil prioriza:",
+opcoes: [
+"Ferramentas sofisticadas acima de pessoas.",
+"Documentação extensa como principal indicador.",
+"Indivíduos e interações acima de processos excessivos.",
+"Controle absoluto de escopo."
+],
+correta: 2
+},
+
+{
+texto: "3. No setor público, a mentalidade ágil deve:",
+opcoes: [
+"Substituir totalmente a governança.",
+"Operar sem registro formal.",
+"Integrar adaptabilidade com responsabilidade institucional.",
+"Eliminar controles normativos."
+],
+correta: 2
+},
+
+{
+texto: "4. O valor 'Software Funcionando' significa:",
+opcoes: [
+"Eliminar qualquer documentação.",
+"Entregar valor funcional de forma incremental.",
+"Acelerar desenvolvimento sem validação.",
+"Desconsiderar requisitos formais."
+],
+correta: 1
+},
+
+{
+texto: "5. A teoria da complexidade sustenta que:",
+opcoes: [
+"Sistemas complexos são totalmente previsíveis.",
+"Planejamento elimina incerteza.",
+"Sistemas complexos exigem adaptação contínua.",
+"Processos rígidos garantem sucesso."
+],
+correta: 2
+},
+
+{
+texto: "6. O princípio da entrega contínua busca:",
+opcoes: [
+"Reduzir feedback do usuário.",
+"Postergar validações.",
+"Permitir inspeção e adaptação frequente.",
+"Eliminar planejamento."
+],
+correta: 2
+},
+
+{
+texto: "7. No contexto do PDS, agilidade deve ocorrer:",
+opcoes: [
+"Sem documentação.",
+"Dentro de limites de governança e rastreabilidade.",
+"Com autonomia irrestrita.",
+"Sem instâncias decisórias."
+],
+correta: 1
+},
+
+{
+texto: "8. A colaboração com o cliente no setor público significa:",
+opcoes: [
+"Negociação informal sem registros.",
+"Alinhamento contínuo com áreas demandantes.",
+"Eliminação de contratos.",
+"Ausência de controle."
+],
+correta: 1
+},
+
+{
+texto: "9. DevSecOps representa:",
+opcoes: [
+"Substituição da governança por automação.",
+"Integração entre desenvolvimento, operações e segurança.",
+"Fim da documentação formal.",
+"Processo exclusivamente técnico."
+],
+correta: 1
+},
+
+{
+texto: "10. A principal tensão na adoção da mentalidade ágil no setor público é:",
+opcoes: [
+"Falta de tecnologia.",
+"Conflito entre adaptabilidade e governança.",
+"Excesso de motivação das equipes.",
+"Ausência de usuários."
+],
+correta: 1
+}
+
+];
+
+/* ================================
+RENDERIZAÇÃO
+================================ */
+
+let pontuacao = 0;
+let respondidas = 0;
+
+function renderQuiz(){
+    const container = document.getElementById("quizContainer");
+
+    perguntas.forEach((pergunta, index)=>{
+        const div = document.createElement("div");
+        div.classList.add("question");
+
+        div.innerHTML = `<h4>${pergunta.texto}</h4>`;
+
+        pergunta.opcoes.forEach((opcao, i)=>{
+            const opc = document.createElement("div");
+            opc.classList.add("option");
+            opc.innerText = opcao;
+
+            opc.onclick = function(){
+                responder(this, index, i);
+            };
+
+            div.appendChild(opc);
+        });
+
+        container.appendChild(div);
+    });
+}
+
+function responder(elemento, indicePergunta, indiceOpcao){
+    const pergunta = perguntas[indicePergunta];
+
+    const opcoes = elemento.parentNode.querySelectorAll(".option");
+
+    opcoes.forEach(op=>{
+        op.classList.add("disabled");
+    });
+
+    if(indiceOpcao === pergunta.correta){
+        elemento.classList.add("correct");
+        pontuacao++;
+    } else {
+        elemento.classList.add("incorrect");
+        opcoes[pergunta.correta].classList.add("correct");
+    }
+
+    respondidas++;
+}
+
+function finalizarQuiz(){
+    if(respondidas < perguntas.length){
+        alert("Responda todas as questões antes de finalizar.");
+        return;
+    }
+
+    const resultado = document.getElementById("resultadoFinal");
+    resultado.style.display = "block";
+
+    let classificacao = "";
+    let analise = "";
+
+    if(pontuacao <= 4){
+        classificacao = "Nível Básico";
+        analise = "Recomenda-se revisão conceitual dos fundamentos da mentalidade ágil.";
+    } else if(pontuacao <= 7){
+        classificacao = "Nível Adequado";
+        analise = "Compreensão consistente, com espaço para aprofundamento crítico.";
+    } else {
+        classificacao = "Nível Avançado";
+        analise = "Domínio conceitual elevado e compreensão institucional madura.";
+    }
+
+    resultado.innerHTML = `
+        <h3>Resultado Final</h3>
+        <p><strong>Pontuação:</strong> ${pontuacao} de 10</p>
+        <p><strong>Classificação:</strong> ${classificacao}</p>
+        <p>${analise}</p>
+    `;
+}
+
+renderQuiz();
+
+</script>
+<style>
+
+/* ================================
+BARRA DE PROGRESSO GLOBAL
+================================ */
+
+.progress-bar-top{
+    position:fixed;
+    top:0;
+    left:0;
+    height:5px;
+    background:#0284c7;
+    width:0%;
+    z-index:9999;
+}
+
+/* ================================
+SIDEBAR ATIVA
+================================ */
+
+.sidebar a.active{
+    color:#0284c7;
+    font-weight:600;
+}
+
+/* ================================
+QUIZ PROGRESS
+================================ */
+
+.quiz-progress{
+    margin-bottom:20px;
+    font-weight:600;
+    color:#334155;
+}
+
+/* ================================
+TIMELINE PREMIUM
+================================ */
+
+.timeline-item{
+    position:relative;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    top:35px;
+    width:18px;
+    height:18px;
+    background:#0284c7;
+    border-radius:50%;
+    border:4px solid white;
+}
+
+.timeline-item.left::before{
+    right:-9px;
+}
+
+.timeline-item.right::before{
+    left:-9px;
+}
+
+/* ================================
+CERTIFICADO SIMULADO
+================================ */
+
+.certificado{
+    margin-top:60px;
+    padding:40px;
+    background:white;
+    border:3px solid #0284c7;
+    border-radius:12px;
+    display:none;
+    text-align:center;
+}
+
+.certificado h3{
+    margin-top:0;
+    color:#0284c7;
+}
+
+.certificado input{
+    padding:10px;
+    width:300px;
+    margin-top:20px;
+}
+
+.btn-certificado{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    background:#0284c7;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+</style>
+
+<div class="progress-bar-top" id="progressBar"></div>
+
+<script>
+
+/* ================================
+BARRA DE PROGRESSO DE LEITURA
+================================ */
+
+window.addEventListener("scroll",function(){
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+});
+
+/* ================================
+SIDEBAR SEÇÃO ATIVA
+================================ */
+
+const sections = document.querySelectorAll("h2");
+const navLinks = document.querySelectorAll(".sidebar a");
+
+window.addEventListener("scroll", ()=>{
+    let current = "";
+    sections.forEach(section=>{
+        const sectionTop = section.offsetTop - 120;
+        if(pageYOffset >= sectionTop){
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link=>{
+        link.classList.remove("active");
+        if(link.getAttribute("href").includes(current)){
+            link.classList.add("active");
+        }
+    });
+});
+
+/* ================================
+PROGRESSO DO QUIZ
+================================ */
+
+let quizProgressElement = document.createElement("div");
+quizProgressElement.classList.add("quiz-progress");
+quizProgressElement.innerText = "Questões respondidas: 0 / 10";
+
+document.getElementById("quizContainer").prepend(quizProgressElement);
+
+function atualizarProgresso(){
+    quizProgressElement.innerText = `Questões respondidas: ${respondidas} / 10`;
+}
+
+/* Sobrescrevendo função responder para atualizar progresso */
+const originalResponder = responder;
+
+responder = function(elemento, indicePergunta, indiceOpcao){
+    originalResponder(elemento, indicePergunta, indiceOpcao);
+    atualizarProgresso();
+};
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    function revelarTimeline(){
+        const items = document.querySelectorAll(".timeline-item");
+
+        items.forEach(item=>{
+            const rect = item.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 100){
+                item.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revelarTimeline);
+
+    // Executa uma vez ao carregar
+    revelarTimeline();
+});
+
+</script>
+<!-- ======================================================
+ENCERRAMENTO DO MÓDULO A
+====================================================== -->
+
+<h2 id="encerramentoModuloA">11. Encerramento do Módulo A – Mentalidade Ágil Institucional</h2>
+
+<style>
+.encerramento-moduloA{
+    margin-top:60px;
+    padding:50px;
+    background:linear-gradient(135deg,#ecfdf5,#ffffff);
+    border-left:10px solid #15803d;
+    border-radius:12px;
+}
+
+.encerramento-gridA{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:35px;
+}
+
+.encerramento-cardA{
+    background:#ffffff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    border-left:5px solid #16a34a;
+}
+</style>
+
+<div class="encerramento-moduloA">
+
+<p>
+O Módulo A tratou da base conceitual da transformação organizacional.
+Antes de métodos, antes de ferramentas,
+antes de frameworks,
+existe mentalidade.
+</p>
+
+<p>
+Foram consolidadas duas camadas fundamentais:
+</p>
+
+<div class="encerramento-gridA">
+
+<div class="encerramento-cardA">
+<h4>A1 – Fundamentos Filosóficos</h4>
+<p>
+Compreensão da crise do modelo tradicional,
+valores do Manifesto Ágil
+e adaptação conceitual ao setor público.
+</p>
+</div>
+
+<div class="encerramento-cardA">
+<h4>A2 – Métodos Ágeis</h4>
+<p>
+Estruturas organizacionais como Scrum,
+Kanban, Lean e XP,
+interpretadas à luz da governança institucional.
+</p>
+</div>
+
+</div>
+
+<p style="margin-top:40px;">
+A conclusão estratégica é clara:
+</p>
+
+<ul>
+<li>Mentalidade ágil não significa ausência de processo.</li>
+<li>Métodos ágeis não significam ruptura institucional.</li>
+<li>Adaptabilidade não significa improvisação.</li>
+<li>Incrementalidade não significa informalidade.</li>
+</ul>
+
+<p>
+No contexto público, a mentalidade ágil assume uma forma própria:
+</p>
+
+<p style="font-size:18px; font-weight:600;">
+Agilidade Pública = Adaptabilidade estruturada dentro da governança.
+</p>
+
+<p>
+O Processo de Desenvolvimento de Software (PDS)
+é o mecanismo que permite transformar valores ágeis
+em práticas formalmente responsáveis.
+</p>
+
+<p>
+Assim, o Módulo A estabelece o seguinte posicionamento institucional:
+</p>
+
+<p style="font-weight:600; margin-top:20px;">
+A mentalidade ágil na SEMA/MT não substitui a estrutura.
+Ela qualifica a estrutura.
+</p>
+
+<p>
+Com isso, encerra-se o fundamento conceitual.
+O próximo passo não é discutir valores.
+É estruturar governança.
+</p>
+
+<p style="margin-top:30px;">
+E é exatamente isso que o Módulo B desenvolve.
+</p>
+
+</div>
