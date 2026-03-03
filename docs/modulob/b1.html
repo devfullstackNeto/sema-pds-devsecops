@@ -1,1 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo B – Governança e Controle | B1 – Fundamentos de Governança</title>
+
+<style>
+
+/* ======================================================
+IDENTIDADE VISUAL – ROXO INSTITUCIONAL
+====================================================== */
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f3f4f6;
+    margin:0;
+    padding:0;
+    color:#0f172a;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:40px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    background:#ffffff;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    position:sticky;
+    top:40px;
+    height:fit-content;
+}
+
+.sidebar h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    color:#0f172a;
+    transition:0.2s;
+}
+
+.sidebar a:hover{
+    color:#7c3aed;
+}
+
+.sidebar a.active{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    background:#ffffff;
+    padding:70px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.module-header{
+    background:linear-gradient(135deg,#7c3aed,#5b21b6);
+    color:white;
+    padding:50px;
+    border-radius:10px;
+    margin-bottom:50px;
+}
+
+.module-header h1{
+    margin:0;
+    font-size:34px;
+}
+
+.module-header p{
+    margin-top:15px;
+    font-size:16px;
+    opacity:0.95;
+}
+
+h2{
+    margin-top:60px;
+    border-bottom:2px solid #e5e7eb;
+    padding-bottom:8px;
+    font-size:26px;
+}
+
+p{
+    margin:18px 0;
+    text-align:justify;
+}
+
+/* CAIXAS CONCEITUAIS */
+
+.highlight{
+    background:#f5f3ff;
+    border-left:6px solid #a78bfa;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+.alert{
+    background:#fef2f2;
+    border-left:6px solid #dc2626;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+/* ======================================================
+TIMELINE GOVERNANÇA
+====================================================== */
+
+.timeline-wrapper{
+    margin-top:50px;
+    position:relative;
+}
+
+.timeline-line{
+    position:absolute;
+    left:50%;
+    width:4px;
+    background:#7c3aed;
+    top:0;
+    bottom:0;
+}
+
+.timeline-item{
+    width:50%;
+    padding:30px;
+    position:relative;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s ease;
+}
+
+.timeline-item.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.timeline-item.left{
+    left:0;
+    text-align:right;
+}
+
+.timeline-item.right{
+    left:50%;
+}
+
+.timeline-box{
+    background:#f9fafb;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+}
+
+.timeline-box h4{
+    margin-top:0;
+    color:#5b21b6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Módulo B – B1</h3>
+<a href="#conceito">O que é Governança</a>
+<a href="#gestao">Governança x Gestão</a>
+<a href="#publica">Governança Pública</a>
+<a href="#accountability">Accountability</a>
+<a href="#instancias">Instâncias Decisórias</a>
+<a href="#timeline">Evolução da Governança</a>
+<a href="#pds">Governança e PDS</a>
+<a href="#quiz">Autoavaliação</a>
+</div>
+
+<div class="content">
+
+<div class="module-header">
+<h1>Módulo B – Governança e Controle</h1>
+<p>B1 – Fundamentos de Governança</p>
+</div>
+
+<h2 id="conceito">1. O que é Governança?</h2>
+
+<p>
+Governança é o sistema pelo qual organizações são dirigidas, monitoradas e avaliadas.
+Ela define quem decide, como decide e com base em quais critérios.
+</p>
+
+<div class="highlight">
+Governança estrutura poder decisório.
+Gestão executa decisões.
+</div>
+
+<p>
+Sem governança, decisões tornam-se difusas.
+Sem gestão, decisões tornam-se inefetivas.
+</p>
+
+<h2 id="gestao">2. Governança versus Gestão</h2>
+
+<p>
+Governança estabelece direção estratégica, políticas e mecanismos de controle.
+Gestão operacionaliza essas diretrizes.
+</p>
+
+<ul>
+<li>Governança define objetivos</li>
+<li>Gestão executa ações</li>
+<li>Governança monitora desempenho</li>
+<li>Gestão implementa ajustes operacionais</li>
+</ul>
+
+<div class="alert">
+Confundir governança com gestão compromete responsabilidade institucional.
+</div>
+
+<h2 id="publica">3. Governança no Setor Público</h2>
+
+<p>
+No setor público, governança assume caráter ampliado,
+pois envolve responsabilidade perante a sociedade.
+</p>
+
+<p>
+Ela inclui:
+</p>
+
+<ul>
+<li>Legalidade</li>
+<li>Transparência</li>
+<li>Prestação de contas</li>
+<li>Controle externo</li>
+<li>Controle interno</li>
+</ul>
+
+<h2 id="accountability">4. Accountability</h2>
+
+<p>
+Accountability representa a obrigação de prestar contas,
+assumir responsabilidade e justificar decisões.
+</p>
+
+<div class="highlight">
+Governança pública é inseparável de accountability.
+</div>
+
+<p>
+Toda decisão precisa ser:
+</p>
+
+<ul>
+<li>Formalizada</li>
+<li>Rastreável</li>
+<li>Justificável</li>
+<li>Auditável</li>
+</ul>
+
+<h2 id="instancias">5. Instâncias Decisórias</h2>
+
+<p>
+Organizações públicas operam por meio de instâncias colegiadas,
+comissões, conselhos e estruturas formais de deliberação.
+</p>
+
+<p>
+Essas instâncias:
+</p>
+
+<ul>
+<li>Definem prioridades</li>
+<li>Autorizam projetos</li>
+<li>Estabelecem diretrizes</li>
+<li>Monitoram resultados</li>
+</ul>
+
+<div class="highlight">
+Segregação de responsabilidades reduz riscos institucionais.
+</div>
+
+<h2 id="timeline">6. Evolução da Governança Organizacional</h2>
+
+<div class="timeline-wrapper">
+<div class="timeline-line"></div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>Governança Corporativa</h4>
+<p>Foco em transparência e proteção de stakeholders.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>Governança Pública</h4>
+<p>Ênfase em responsabilidade social e controle estatal.</p>
+</div>
+</div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>Governança de TI</h4>
+<p>Alinhamento estratégico entre tecnologia e objetivos institucionais.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>Governança Digital</h4>
+<p>Integração entre tecnologia, dados e políticas públicas.</p>
+</div>
+</div>
+
+</div>
+
+<h2 id="pds">7. Governança e o Processo de Desenvolvimento de Software (PDS)</h2>
+
+<p>
+O PDS é instrumento formal de governança tecnológica.
+Ele define:
+</p>
+
+<ul>
+<li>Fluxos de decisão</li>
+<li>Responsabilidades</li>
+<li>Registros obrigatórios</li>
+<li>Marcos de validação</li>
+<li>Mecanismos de controle</li>
+</ul>
+
+<div class="highlight">
+Sem governança estruturada, o PDS perde sua função institucional.
+</div>
+
+<!-- ======================================================
+TABELA ANALÍTICA – GOVERNANÇA E PDS
+====================================================== -->
+
+<h2 id="governancaPDS">8. Manifestação da Governança no PDS</h2>
+
+<p>
+A governança tecnológica não se manifesta apenas em normas abstratas,
+mas na formalização concreta de fluxos, registros e responsabilidades.
+</p>
+
+<style>
+.gov-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+    font-size:14px;
+}
+
+.gov-table th{
+    background:#ede9fe;
+    padding:14px;
+    border:1px solid #ddd6fe;
+    text-align:left;
+}
+
+.gov-table td{
+    padding:14px;
+    border:1px solid #e5e7eb;
+    vertical-align:top;
+}
+
+.gov-table tr:hover{
+    background:#f9fafb;
+}
+</style>
+
+<table class="gov-table">
+<tr>
+<th>Elemento de Governança</th>
+<th>Função Institucional</th>
+<th>Manifestação Formal no PDS</th>
+</tr>
+
+<tr>
+<td>Definição Estratégica</td>
+<td>Estabelece prioridades organizacionais</td>
+<td>Formalização de demandas e validação inicial por instâncias competentes</td>
+</tr>
+
+<tr>
+<td>Segregação de Responsabilidades</td>
+<td>Evita conflito de interesses</td>
+<td>Distribuição formal de papéis e responsabilidades no fluxo do PDS</td>
+</tr>
+
+<tr>
+<td>Controle e Monitoramento</td>
+<td>Acompanha execução e resultados</td>
+<td>Marcos de validação, registros de homologação e aceite</td>
+</tr>
+
+<tr>
+<td>Gestão de Riscos</td>
+<td>Antecipação de impactos negativos</td>
+<td>Registro de mudanças, análise de impacto e versionamento</td>
+</tr>
+
+<tr>
+<td>Transparência</td>
+<td>Permite auditoria e rastreabilidade</td>
+<td>Documentação mínima obrigatória e histórico formal de decisões</td>
+</tr>
+
+</table>
+
+<!-- ======================================================
+RISCO E CONFORMIDADE
+====================================================== -->
+
+<h2 id="risco">9. Risco Institucional e Conformidade</h2>
+
+<p>
+Toda organização pública opera sob múltiplas camadas de risco:
+</p>
+
+<ul>
+<li>Risco jurídico</li>
+<li>Risco operacional</li>
+<li>Risco tecnológico</li>
+<li>Risco reputacional</li>
+</ul>
+
+<div class="highlight">
+Governança não elimina riscos.
+Ela os torna visíveis, gerenciáveis e auditáveis.
+</div>
+
+<p>
+Conformidade (compliance) exige aderência a normas internas,
+legislação vigente e boas práticas institucionais.
+</p>
+
+<p>
+O PDS atua como mecanismo estruturante dessa conformidade
+no ciclo de vida do software.
+</p>
+
+<!-- ======================================================
+SÍNTESE INSTITUCIONAL
+====================================================== -->
+
+<h2 id="sintese">10. Síntese Institucional</h2>
+
+<style>
+.manifesto-box{
+    margin-top:40px;
+    padding:40px;
+    background:linear-gradient(135deg,#f5f3ff,#ffffff);
+    border-left:8px solid #7c3aed;
+    border-radius:10px;
+}
+</style>
+
+<div class="manifesto-box">
+
+<p>
+Governança não é obstáculo à inovação.
+É a condição que torna a inovação sustentável.
+</p>
+
+<p>
+Governança não representa excesso de burocracia.
+Representa clareza de responsabilidade.
+</p>
+
+<p>
+No setor público, inovação sem governança gera risco institucional.
+Governança sem inovação gera ineficiência.
+</p>
+
+<p>
+O Processo de Desenvolvimento de Software (PDS)
+é a infraestrutura normativa que transforma decisões tecnológicas
+em decisões responsáveis.
+</p>
+
+<p>
+Portanto:
+</p>
+
+<ul>
+<li>Controle ≠ rigidez improdutiva</li>
+<li>Formalização ≠ burocratização excessiva</li>
+<li>Responsabilidade ≠ lentidão</li>
+<li>Transparência ≠ exposição indevida</li>
+</ul>
+
+<p>
+Governança é maturidade organizacional aplicada à tecnologia.
+</p>
+
+</div>
+
+<!-- ======================================================
+QUIZ – B1
+====================================================== -->
+
+<h2 id="quiz">11. Autoavaliação – Fundamentos de Governança</h2>
+
+<style>
+.quiz-wrapper{
+    margin-top:50px;
+    padding:50px;
+    background:#f9fafb;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+}
+
+.question{
+    margin-bottom:35px;
+    padding:25px;
+    background:#ffffff;
+    border-radius:8px;
+    border:1px solid #e5e7eb;
+}
+
+.option{
+    padding:10px 12px;
+    margin-bottom:8px;
+    border-radius:6px;
+    background:#ede9fe;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{
+    background:#ddd6fe;
+}
+
+.option.correct{ background:#bbf7d0; }
+.option.incorrect{ background:#fecaca; }
+.option.disabled{ pointer-events:none; opacity:0.7; }
+
+.result-box{
+    margin-top:40px;
+    padding:30px;
+    border-radius:10px;
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    display:none;
+}
+
+.btn-finalizar{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    background:#7c3aed;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+</style>
+
+<div class="quiz-wrapper">
+<div id="quizContainer"></div>
+<button class="btn-finalizar" onclick="finalizarQuiz()">Finalizar Avaliação</button>
+<div class="result-box" id="resultadoFinal"></div>
+</div>
+
+<script>
+
+const perguntas = [
+{texto:"1. Governança define:", opcoes:["Execução técnica","Direção estratégica","Programação","Infraestrutura"], correta:1},
+{texto:"2. Gestão é responsável por:", opcoes:["Definir política","Executar decisões","Criar leis","Auditar sociedade"], correta:1},
+{texto:"3. Accountability implica:", opcoes:["Sigilo absoluto","Prestação de contas","Ausência de registro","Autonomia irrestrita"], correta:1},
+{texto:"4. Governança pública exige:", opcoes:["Improvisação","Legalidade e transparência","Velocidade máxima","Ausência de controle"], correta:1},
+{texto:"5. Segregação de responsabilidades reduz:", opcoes:["Eficiência","Riscos institucionais","Formalização","Controle"], correta:1},
+{texto:"6. O PDS é instrumento de:", opcoes:["Marketing","Governança tecnológica","Treinamento","Publicidade"], correta:1},
+{texto:"7. Conformidade envolve:", opcoes:["Ignorar normas","Aderir a normas","Eliminar registros","Flexibilizar leis"], correta:1},
+{texto:"8. Risco tecnológico é:", opcoes:["Inexistente","Potencial impacto negativo","Garantia de sucesso","Formalidade teórica"], correta:1},
+{texto:"9. Governança monitora:", opcoes:["Execução detalhada","Resultados e desempenho","Linhas de código","Hardware específico"], correta:1},
+{texto:"10. Inovação sustentável requer:", opcoes:["Ausência de controle","Governança estruturada","Improvisação","Excesso de formalismo"], correta:1}
+];
+
+let pontuacao=0;
+let respondidas=0;
+
+function renderQuiz(){
+    const container=document.getElementById("quizContainer");
+    perguntas.forEach((pergunta,index)=>{
+        const div=document.createElement("div");
+        div.classList.add("question");
+        div.innerHTML=`<h4>${pergunta.texto}</h4>`;
+        pergunta.opcoes.forEach((opcao,i)=>{
+            const opc=document.createElement("div");
+            opc.classList.add("option");
+            opc.innerText=opcao;
+            opc.onclick=function(){responder(this,index,i);};
+            div.appendChild(opc);
+        });
+        container.appendChild(div);
+    });
+}
+
+function responder(el,indPerg,indOpc){
+    const pergunta=perguntas[indPerg];
+    const opcoes=el.parentNode.querySelectorAll(".option");
+    opcoes.forEach(op=>op.classList.add("disabled"));
+    if(indOpc===pergunta.correta){
+        el.classList.add("correct");
+        pontuacao++;
+    }else{
+        el.classList.add("incorrect");
+        opcoes[pergunta.correta].classList.add("correct");
+    }
+    respondidas++;
+}
+
+function finalizarQuiz(){
+    if(respondidas<perguntas.length){
+        alert("Responda todas as questões.");
+        return;
+    }
+    const resultado=document.getElementById("resultadoFinal");
+    resultado.style.display="block";
+    resultado.innerHTML=`
+    <h3>Resultado Final</h3>
+    <p><strong>Pontuação:</strong> ${pontuacao} de 10</p>
+    `;
+}
+
+renderQuiz();
+
+/* Barra de progresso */
+
+const progressBar=document.createElement("div");
+progressBar.style.position="fixed";
+progressBar.style.top="0";
+progressBar.style.left="0";
+progressBar.style.height="5px";
+progressBar.style.background="#7c3aed";
+progressBar.style.width="0%";
+progressBar.style.zIndex="9999";
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll",()=>{
+    const scrollTop=document.documentElement.scrollTop;
+    const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const scrolled=(scrollTop/scrollHeight)*100;
+    progressBar.style.width=scrolled+"%";
+});
+
+/* Timeline animation */
+
+document.addEventListener("DOMContentLoaded",function(){
+    function revelarTimeline(){
+        const items=document.querySelectorAll(".timeline-item");
+        items.forEach(item=>{
+            const rect=item.getBoundingClientRect();
+            if(rect.top<window.innerHeight-100){
+                item.classList.add("visible");
+            }
+        });
+    }
+    window.addEventListener("scroll",revelarTimeline);
+    revelarTimeline();
+});
+
+</script>
 
