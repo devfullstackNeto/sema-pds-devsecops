@@ -1,1 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo D – Qualidade, Segurança e DevSecOps | D1 – Fundamentos de Qualidade</title>
 
+<style>
+
+/* ================================
+IDENTIDADE VISUAL – CINZA INSTITUCIONAL
+================================ */
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f3f4f6;
+    margin:0;
+    padding:0;
+    color:#111827;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:40px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    background:#ffffff;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    position:sticky;
+    top:40px;
+    height:fit-content;
+}
+
+.sidebar h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    color:#111827;
+    transition:0.2s;
+}
+
+.sidebar a:hover{
+    color:#374151;
+}
+
+.sidebar a.active{
+    font-weight:600;
+    color:#000000;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    background:#ffffff;
+    padding:70px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.module-header{
+    background:linear-gradient(135deg,#1f2937,#111827);
+    color:white;
+    padding:50px;
+    border-radius:10px;
+    margin-bottom:50px;
+}
+
+.module-header h1{
+    margin:0;
+    font-size:32px;
+}
+
+.module-header p{
+    margin-top:15px;
+    opacity:0.9;
+}
+
+h2{
+    margin-top:60px;
+    border-bottom:2px solid #e5e7eb;
+    padding-bottom:8px;
+    font-size:26px;
+}
+
+p{
+    margin:18px 0;
+    text-align:justify;
+}
+
+/* CAIXAS */
+
+.highlight{
+    background:#f9fafb;
+    border-left:6px solid #374151;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+.alert{
+    background:#fef2f2;
+    border-left:6px solid #dc2626;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+/* TIMELINE */
+
+.timeline-wrapper{
+    margin-top:50px;
+    position:relative;
+}
+
+.timeline-line{
+    position:absolute;
+    left:50%;
+    width:4px;
+    background:#374151;
+    top:0;
+    bottom:0;
+}
+
+.timeline-item{
+    width:50%;
+    padding:30px;
+    position:relative;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s ease;
+}
+
+.timeline-item.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.timeline-item.left{
+    left:0;
+    text-align:right;
+}
+
+.timeline-item.right{
+    left:50%;
+}
+
+.timeline-box{
+    background:#f9fafb;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+}
+
+.timeline-box h4{
+    margin-top:0;
+    color:#111827;
+}
+
+/* TABELA INSTITUCIONAL */
+
+.qualidade-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+}
+
+.qualidade-table th{
+    background:#f3f4f6;
+    padding:14px;
+    border:1px solid #e5e7eb;
+    text-align:left;
+}
+
+.qualidade-table td{
+    padding:14px;
+    border:1px solid #e5e7eb;
+    vertical-align:top;
+}
+
+/* QUIZ */
+
+.quiz-wrapper{
+    margin-top:80px;
+    padding:50px;
+    background:#f9fafb;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+}
+
+.question{
+    margin-bottom:35px;
+    padding:25px;
+    background:#ffffff;
+    border-radius:8px;
+    border:1px solid #e5e7eb;
+}
+
+.option{
+    padding:10px 12px;
+    margin-bottom:8px;
+    border-radius:6px;
+    background:#e5e7eb;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{
+    background:#d1d5db;
+}
+
+.option.correct{
+    background:#bbf7d0;
+}
+
+.option.incorrect{
+    background:#fecaca;
+}
+
+.option.disabled{
+    pointer-events:none;
+    opacity:0.7;
+}
+
+.btn-finalizar{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    background:#111827;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.result-box{
+    margin-top:40px;
+    padding:30px;
+    border-radius:10px;
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    display:none;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar-top{
+    position:fixed;
+    top:0;
+    left:0;
+    height:5px;
+    background:#111827;
+    width:0%;
+    z-index:9999;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="progress-bar-top" id="progressBar"></div>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Módulo D – D1</h3>
+<a href="#conceito">Conceito Estrutural</a>
+<a href="#crise">Crise da Qualidade</a>
+<a href="#timeline">Evolução Histórica</a>
+<a href="#dimensoes">Dimensões</a>
+<a href="#defeito">Defeito x Falha x Risco</a>
+<a href="#testes">Estrutura de Testes</a>
+<a href="#metricas">Métricas</a>
+<a href="#pds">Qualidade no PDS</a>
+<a href="#quiz">Autoavaliação</a>
+</div>
+
+<div class="content">
+
+<div class="module-header">
+<h1>Módulo D – Qualidade, Segurança e DevSecOps</h1>
+<p>D1 – Fundamentos de Qualidade de Software</p>
+</div>
+
+<h2 id="conceito">1. Conceito Estrutural de Qualidade</h2>
+
+<p>
+Qualidade de software não é atributo estético, nem apenas ausência de erro.
+Trata-se de conformidade com requisitos explícitos e implícitos,
+capacidade de operação previsível e aderência a padrões técnicos e institucionais.
+</p>
+
+<div class="highlight">
+Qualidade é mecanismo de proteção institucional.
+</div>
+
+<p>
+No setor público, qualidade representa redução de risco jurídico,
+operacional e reputacional.
+Ela transforma planejamento em execução confiável.
+</p>
+
+<h2 id="crise">2. A Crise da Qualidade em Projetos Públicos</h2>
+
+<p>
+Falhas recorrentes em sistemas governamentais evidenciam que
+entrega funcional não garante estabilidade estrutural.
+</p>
+
+<ul>
+<li>Sistemas indisponíveis</li>
+<li>Vazamentos de dados</li>
+<li>Retrabalho constante</li>
+<li>Baixa rastreabilidade</li>
+</ul>
+
+<div class="alert">
+Ausência de validação estruturada não elimina risco.
+Apenas posterga sua manifestação.
+</div>
+
+<h2 id="timeline">3. Evolução Histórica da Engenharia de Qualidade</h2>
+
+<div class="timeline-wrapper">
+<div class="timeline-line"></div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>1970 – Inspeção Manual</h4>
+<p>Revisões humanas como principal mecanismo de controle.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>1990 – Testes Estruturados</h4>
+<p>Formalização de planos de teste e critérios de aceite.</p>
+</div>
+</div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>2005 – Automação</h4>
+<p>Ferramentas automatizadas ampliam cobertura e previsibilidade.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>Atualidade – Qualidade Integrada</h4>
+<p>Integração contínua, métricas e cultura organizacional.</p>
+</div>
+</div>
+
+</div>
+
+<h2 id="dimensoes">4. Dimensões da Qualidade</h2>
+
+<table class="qualidade-table">
+<tr>
+<th>Dimensão</th>
+<th>Descrição Técnica</th>
+<th>Impacto Institucional</th>
+</tr>
+<tr>
+<td>Funcional</td>
+<td>Atendimento aos requisitos definidos</td>
+<td>Entrega de valor real à área demandante</td>
+</tr>
+<tr>
+<td>Técnica</td>
+<td>Arquitetura robusta, desempenho e segurança</td>
+<td>Redução de falhas e retrabalho</td>
+</tr>
+<tr>
+<td>Institucional</td>
+<td>Rastreabilidade, conformidade normativa</td>
+<td>Proteção jurídica e transparência</td>
+</tr>
+</table>
+
+<h2 id="defeito">5. Defeito × Falha × Risco</h2>
+
+<p>
+Defeito é erro interno no código.
+Falha é a manifestação observável.
+Risco é a probabilidade de impacto negativo.
+</p>
+
+<h2 id="testes">6. Estrutura Conceitual de Testes</h2>
+
+<p>
+Testes estruturam a evidência de conformidade.
+</p>
+
+<ul>
+<li>Teste unitário</li>
+<li>Teste de integração</li>
+<li>Teste de sistema</li>
+<li>Teste de aceite</li>
+</ul>
+
+<h2 id="metricas">7. Métricas como Instrumento de Governança</h2>
+
+<p>
+Indicadores transformam percepção em evidência mensurável.
+</p>
+
+<h2 id="pds">8. Qualidade no PDS</h2>
+
+<p>
+No PDS, qualidade é etapa transversal.
+Não é fase final.
+</p>
+
+<h2 id="quiz">9. Autoavaliação</h2>
+
+<div class="quiz-wrapper">
+
+<div id="quizContainer"></div>
+
+<button class="btn-finalizar" onclick="finalizarQuiz()">Finalizar Avaliação</button>
+
+<div class="result-box" id="resultadoFinal"></div>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* BARRA DE PROGRESSO */
+
+window.addEventListener("scroll",function(){
+    const scrollTop=document.documentElement.scrollTop;
+    const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const scrolled=(scrollTop/scrollHeight)*100;
+    document.getElementById("progressBar").style.width=scrolled+"%";
+});
+
+/* TIMELINE */
+
+function revelarTimeline(){
+    const items=document.querySelectorAll(".timeline-item");
+    items.forEach(item=>{
+        const rect=item.getBoundingClientRect();
+        if(rect.top<window.innerHeight-100){
+            item.classList.add("visible");
+        }
+    });
+}
+window.addEventListener("scroll",revelarTimeline);
+revelarTimeline();
+
+/* QUIZ */
+
+const perguntas=[
+{texto:"Qualidade funcional refere-se a:",opcoes:["Infraestrutura","Atendimento a requisitos","Firewall","Backup"],correta:1},
+{texto:"Falha é:",opcoes:["Erro interno","Manifestação do defeito","Indicador","Servidor"],correta:1},
+{texto:"Risco é:",opcoes:["Certeza","Probabilidade de impacto","Correção","Controle"],correta:1},
+{texto:"Qualidade institucional garante:",opcoes:["Velocidade","Conformidade normativa","Estética","Hardware"],correta:1},
+{texto:"Testes produzem:",opcoes:["Opinião","Evidência","Pressão","Burocracia"],correta:1}
+];
+
+let pontuacao=0;
+let respondidas=0;
+
+function renderQuiz(){
+const container=document.getElementById("quizContainer");
+perguntas.forEach((pergunta,index)=>{
+const div=document.createElement("div");
+div.classList.add("question");
+div.innerHTML=`<h4>${pergunta.texto}</h4>`;
+pergunta.opcoes.forEach((opcao,i)=>{
+const opc=document.createElement("div");
+opc.classList.add("option");
+opc.innerText=opcao;
+opc.onclick=function(){responder(this,index,i)};
+div.appendChild(opc);
+});
+container.appendChild(div);
+});
+}
+
+function responder(elemento,indicePergunta,indiceOpcao){
+const pergunta=perguntas[indicePergunta];
+const opcoes=elemento.parentNode.querySelectorAll(".option");
+opcoes.forEach(op=>op.classList.add("disabled"));
+if(indiceOpcao===pergunta.correta){
+elemento.classList.add("correct");
+pontuacao++;
+}else{
+elemento.classList.add("incorrect");
+opcoes[pergunta.correta].classList.add("correct");
+}
+respondidas++;
+}
+
+function finalizarQuiz(){
+if(respondidas<perguntas.length){
+alert("Responda todas as questões.");
+return;
+}
+const resultado=document.getElementById("resultadoFinal");
+resultado.style.display="block";
+let classificacao=pontuacao>=4?"Compreensão Adequada":"Revisão Recomendada";
+resultado.innerHTML=`<h3>Resultado</h3>
+<p><strong>Pontuação:</strong> ${pontuacao} de ${perguntas.length}</p>
+<p>${classificacao}</p>`;
+}
+
+renderQuiz();
+
+</script>
+
+</body>
+</html>
