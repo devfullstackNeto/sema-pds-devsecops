@@ -1,1 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo B – Governança e Controle | B2 – Introdução ao COBIT</title>
 
+<style>
+
+/* ======================================================
+IDENTIDADE VISUAL – ROXO PROFUNDO
+====================================================== */
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f5f3ff;
+    margin:0;
+    padding:0;
+    color:#0f172a;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:40px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    background:#ffffff;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    position:sticky;
+    top:40px;
+    height:fit-content;
+}
+
+.sidebar h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    color:#0f172a;
+    transition:0.2s;
+}
+
+.sidebar a:hover{
+    color:#6d28d9;
+}
+
+.sidebar a.active{
+    color:#6d28d9;
+    font-weight:600;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    background:#ffffff;
+    padding:70px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.module-header{
+    background:linear-gradient(135deg,#6d28d9,#4c1d95);
+    color:white;
+    padding:50px;
+    border-radius:10px;
+    margin-bottom:50px;
+}
+
+.module-header h1{
+    margin:0;
+    font-size:34px;
+}
+
+.module-header p{
+    margin-top:15px;
+    font-size:16px;
+    opacity:0.95;
+}
+
+h2{
+    margin-top:60px;
+    border-bottom:2px solid #e5e7eb;
+    padding-bottom:8px;
+    font-size:26px;
+}
+
+p{
+    margin:18px 0;
+    text-align:justify;
+}
+
+.highlight{
+    background:#ede9fe;
+    border-left:6px solid #a78bfa;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Módulo B – B2</h3>
+<a href="#necessidade">Por que Modelos?</a>
+<a href="#conceito">O que é COBIT</a>
+<a href="#principios">Princípios</a>
+<a href="#componentes">Componentes</a>
+<a href="#dominios">Domínios</a>
+<a href="#objetivos">Objetivos</a>
+<a href="#pds">COBIT e PDS</a>
+<a href="#quiz">Autoavaliação</a>
+</div>
+
+<div class="content">
+
+<div class="module-header">
+<h1>Módulo B – Governança e Controle</h1>
+<p>B2 – Introdução Conceitual ao COBIT</p>
+</div>
+
+<h2 id="necessidade">1. Por que Modelos de Governança são Necessários?</h2>
+
+<p>
+Organizações complexas não podem depender de decisões isoladas ou informais.
+Modelos estruturados permitem padronização, previsibilidade e controle.
+</p>
+
+<div class="highlight">
+Modelos de governança não substituem decisões.
+Eles estruturam decisões.
+</div>
+
+<p>
+Sem modelos de referência, a governança tende a se fragmentar.
+</p>
+
+<h2 id="conceito">2. O que é o COBIT?</h2>
+
+<p>
+COBIT é um framework internacional de governança e gestão de TI.
+Seu objetivo é alinhar tecnologia aos objetivos organizacionais,
+garantindo geração de valor e mitigação de riscos.
+</p>
+
+<p>
+Ele não é metodologia de desenvolvimento,
+nem substitui processos internos.
+</p>
+
+<div class="highlight">
+COBIT organiza a governança da TI.
+Não executa a gestão operacional.
+</div>
+
+<h2 id="principios">3. Princípios do COBIT</h2>
+
+<ul>
+<li>Foco nas partes interessadas</li>
+<li>Abordagem holística</li>
+<li>Governança distinta da gestão</li>
+<li>Sistema integrado</li>
+<li>Adaptação ao contexto organizacional</li>
+</ul>
+
+<p>
+Esses princípios reforçam a necessidade de estrutura formal
+para decisões tecnológicas.
+</p>
+
+<h2 id="componentes">4. Componentes do Sistema de Governança</h2>
+
+<p>
+O sistema de governança proposto pelo COBIT é composto por:
+</p>
+
+<ul>
+<li>Processos</li>
+<li>Estruturas organizacionais</li>
+<li>Políticas e procedimentos</li>
+<li>Informação</li>
+<li>Cultura e comportamento</li>
+<li>Competências</li>
+<li>Infraestrutura tecnológica</li>
+</ul>
+
+<div class="highlight">
+Governança é sistêmica.
+Não é apenas processo.
+</div>
+
+<h2 id="dominios">5. Domínios (Nível Conceitual)</h2>
+
+<p>
+O COBIT organiza objetivos em domínios que abrangem:
+</p>
+
+<ul>
+<li>Governança</li>
+<li>Planejamento</li>
+<li>Construção</li>
+<li>Entrega</li>
+<li>Monitoramento</li>
+</ul>
+
+<p>
+Esses domínios estruturam responsabilidades e ciclos decisórios.
+</p>
+
+<h2 id="objetivos">6. Objetivos de Governança e Gestão</h2>
+
+<p>
+O framework diferencia:
+</p>
+
+<ul>
+<li>Objetivos de Governança – definição de direção e avaliação</li>
+<li>Objetivos de Gestão – planejamento e execução</li>
+</ul>
+
+<p>
+Essa distinção reforça o conceito apresentado no B1.
+</p>
+
+<h2 id="pds">7. Relação Conceitual entre COBIT e PDS</h2>
+
+<p>
+O PDS atua como instrumento operacional alinhado à governança.
+</p>
+
+<p>
+Enquanto o COBIT estrutura o sistema de governança,
+o PDS formaliza o fluxo de desenvolvimento dentro dessa estrutura.
+</p>
+
+<div class="highlight">
+COBIT fornece estrutura.
+PDS operacionaliza decisões tecnológicas.
+</div>
+
+<!-- ======================================================
+TABELA ANALÍTICA – COBIT × PDS
+====================================================== -->
+
+<h2 id="cobitPds">8. Correspondência Analítica – COBIT e PDS</h2>
+
+<p>
+O COBIT fornece um modelo sistêmico de governança.
+O PDS representa a materialização prática dessa governança no ciclo de desenvolvimento.
+</p>
+
+<style>
+.cobit-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+    font-size:14px;
+}
+
+.cobit-table th{
+    background:#ede9fe;
+    padding:14px;
+    border:1px solid #ddd6fe;
+    text-align:left;
+}
+
+.cobit-table td{
+    padding:14px;
+    border:1px solid #e5e7eb;
+    vertical-align:top;
+}
+
+.cobit-table tr:hover{
+    background:#faf5ff;
+}
+</style>
+
+<table class="cobit-table">
+<tr>
+<th>Dimensão do COBIT</th>
+<th>Propósito Conceitual</th>
+<th>Manifestação no PDS</th>
+</tr>
+
+<tr>
+<td>Estruturas Organizacionais</td>
+<td>Definição de autoridade e decisão</td>
+<td>Instâncias formais de validação, aprovação e acompanhamento</td>
+</tr>
+
+<tr>
+<td>Processos</td>
+<td>Padronização de práticas</td>
+<td>Fluxo estruturado de desenvolvimento, validação e homologação</td>
+</tr>
+
+<tr>
+<td>Informação</td>
+<td>Transparência e rastreabilidade</td>
+<td>Documentação obrigatória e registros formais</td>
+</tr>
+
+<tr>
+<td>Gestão de Riscos</td>
+<td>Mitigação de impactos negativos</td>
+<td>Controle de mudanças e análise de impacto no ciclo do software</td>
+</tr>
+
+<tr>
+<td>Monitoramento</td>
+<td>Avaliação de desempenho</td>
+<td>Marcos de controle, aceite e indicadores institucionais</td>
+</tr>
+
+</table>
+
+<!-- ======================================================
+VALOR E RISCO
+====================================================== -->
+
+<h2 id="valorRisco">9. Governança, Valor e Risco</h2>
+
+<p>
+A governança de TI tem dois objetivos centrais:
+</p>
+
+<ul>
+<li>Gerar valor para a organização</li>
+<li>Reduzir riscos associados à tecnologia</li>
+</ul>
+
+<div class="highlight">
+Valor sem controle gera vulnerabilidade.
+Controle sem geração de valor gera ineficiência.
+</div>
+
+<p>
+O equilíbrio entre esses dois polos caracteriza maturidade institucional.
+</p>
+
+<p>
+No contexto do desenvolvimento de software,
+isso significa entregar soluções que:
+</p>
+
+<ul>
+<li>Atendam às demandas institucionais</li>
+<li>Estejam alinhadas à estratégia</li>
+<li>Sejam auditáveis</li>
+<li>Possuam controle formal de mudanças</li>
+</ul>
+
+<!-- ======================================================
+ANÁLISE INSTITUCIONAL
+====================================================== -->
+
+<h2 id="analise">10. Análise Institucional Crítica</h2>
+
+<style>
+.analysis-box{
+    margin-top:40px;
+    padding:40px;
+    background:linear-gradient(135deg,#faf5ff,#ffffff);
+    border-left:8px solid #6d28d9;
+    border-radius:10px;
+}
+</style>
+
+<div class="analysis-box">
+
+<p>
+Adotar COBIT não significa importar integralmente um framework.
+Significa compreender seus princípios e adaptá-los ao contexto institucional.
+</p>
+
+<p>
+O risco de adoção acrítica é a burocratização excessiva.
+O risco da ausência de referência é a fragmentação decisória.
+</p>
+
+<p>
+A maturidade organizacional reside na adaptação consciente.
+</p>
+
+</div>
+
+<!-- ======================================================
+SÍNTESE ESTRATÉGICA
+====================================================== -->
+
+<h2 id="sintese">11. Síntese Estratégica</h2>
+
+<style>
+.manifesto-box{
+    margin-top:40px;
+    padding:40px;
+    background:linear-gradient(135deg,#ede9fe,#ffffff);
+    border-left:8px solid #6d28d9;
+    border-radius:10px;
+}
+</style>
+
+<div class="manifesto-box">
+
+<p>
+COBIT não substitui processos internos.
+Ele estrutura a governança sob a qual os processos operam.
+</p>
+
+<p>
+O PDS não é concorrente do COBIT.
+É sua materialização no desenvolvimento de software.
+</p>
+
+<p>
+Assim, estabelece-se:
+</p>
+
+<ul>
+<li>Governança define direção.</li>
+<li>Gestão executa estratégia.</li>
+<li>PDS formaliza o ciclo técnico.</li>
+<li>COBIT estrutura o sistema decisório.</li>
+</ul>
+
+<p>
+Maturidade institucional é integração,
+não sobreposição de modelos.
+</p>
+
+</div>
+
+<!-- ======================================================
+QUIZ – B2
+====================================================== -->
+
+<h2 id="quiz">12. Autoavaliação – Introdução ao COBIT</h2>
+
+<style>
+.quiz-wrapper{
+    margin-top:50px;
+    padding:50px;
+    background:#ffffff;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+}
+
+.question{
+    margin-bottom:35px;
+    padding:25px;
+    background:#faf5ff;
+    border-radius:8px;
+    border:1px solid #e5e7eb;
+}
+
+.option{
+    padding:10px 12px;
+    margin-bottom:8px;
+    border-radius:6px;
+    background:#ede9fe;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{ background:#ddd6fe; }
+.option.correct{ background:#bbf7d0; }
+.option.incorrect{ background:#fecaca; }
+.option.disabled{ pointer-events:none; opacity:0.7; }
+
+.btn-finalizar{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    background:#6d28d9;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.result-box{
+    margin-top:30px;
+    padding:30px;
+    border-radius:10px;
+    background:#f9fafb;
+    border:1px solid #e5e7eb;
+    display:none;
+}
+</style>
+
+<div class="quiz-wrapper">
+<div id="quizContainer"></div>
+<button class="btn-finalizar" onclick="finalizarQuiz()">Finalizar Avaliação</button>
+<div class="result-box" id="resultadoFinal"></div>
+</div>
+
+<script>
+
+const perguntas = [
+{texto:"1. O COBIT é:", opcoes:["Metodologia ágil","Framework de governança de TI","Ferramenta de programação","Linguagem técnica"], correta:1},
+{texto:"2. COBIT diferencia:", opcoes:["Código e hardware","Governança e gestão","Banco e servidor","Usuário e sistema"], correta:1},
+{texto:"3. Governança no COBIT envolve:", opcoes:["Execução operacional","Direção estratégica e avaliação","Codificação","Infraestrutura física"], correta:1},
+{texto:"4. O PDS é:", opcoes:["Framework global","Processo institucional de desenvolvimento","Manual jurídico","Ferramenta de teste"], correta:1},
+{texto:"5. COBIT visa gerar:", opcoes:["Complexidade","Valor e controle","Burocracia","Rigidez absoluta"], correta:1},
+{texto:"6. A adaptação do COBIT deve ser:", opcoes:["Integral e rígida","Contextualizada","Ignorada","Eliminada"], correta:1},
+{texto:"7. Monitoramento no COBIT significa:", opcoes:["Auditoria técnica apenas","Avaliação de desempenho","Controle informal","Programação"], correta:1},
+{texto:"8. Governança eficaz equilibra:", opcoes:["Velocidade e improviso","Valor e risco","Código e hardware","Controle e lentidão"], correta:1},
+{texto:"9. O PDS opera:", opcoes:["Fora da governança","Dentro da governança institucional","Sem registro","Sem validação"], correta:1},
+{texto:"10. Maturidade institucional implica:", opcoes:["Ausência de modelo","Integração estruturada","Improvisação contínua","Eliminação de controle"], correta:1}
+];
+
+let pontuacao=0;
+let respondidas=0;
+
+function renderQuiz(){
+    const container=document.getElementById("quizContainer");
+    perguntas.forEach((pergunta,index)=>{
+        const div=document.createElement("div");
+        div.classList.add("question");
+        div.innerHTML=`<h4>${pergunta.texto}</h4>`;
+        pergunta.opcoes.forEach((opcao,i)=>{
+            const opc=document.createElement("div");
+            opc.classList.add("option");
+            opc.innerText=opcao;
+            opc.onclick=function(){responder(this,index,i);};
+            div.appendChild(opc);
+        });
+        container.appendChild(div);
+    });
+}
+
+function responder(el,indPerg,indOpc){
+    const pergunta=perguntas[indPerg];
+    const opcoes=el.parentNode.querySelectorAll(".option");
+    opcoes.forEach(op=>op.classList.add("disabled"));
+    if(indOpc===pergunta.correta){
+        el.classList.add("correct");
+        pontuacao++;
+    }else{
+        el.classList.add("incorrect");
+        opcoes[pergunta.correta].classList.add("correct");
+    }
+    respondidas++;
+}
+
+function finalizarQuiz(){
+    if(respondidas<perguntas.length){
+        alert("Responda todas as questões.");
+        return;
+    }
+    const resultado=document.getElementById("resultadoFinal");
+    resultado.style.display="block";
+    resultado.innerHTML=`
+    <h3>Resultado Final</h3>
+    <p><strong>Pontuação:</strong> ${pontuacao} de 10</p>
+    `;
+}
+
+renderQuiz();
+
+/* Barra de progresso */
+
+const progressBar=document.createElement("div");
+progressBar.style.position="fixed";
+progressBar.style.top="0";
+progressBar.style.left="0";
+progressBar.style.height="5px";
+progressBar.style.background="#6d28d9";
+progressBar.style.width="0%";
+progressBar.style.zIndex="9999";
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll",()=>{
+    const scrollTop=document.documentElement.scrollTop;
+    const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const scrolled=(scrollTop/scrollHeight)*100;
+    progressBar.style.width=scrolled+"%";
+});
+
+</script>
+
+<!-- ======================================================
+BLOCO INTEGRADOR – B1 + B2
+====================================================== -->
+
+<h2 id="integrador">13. Bloco Integrador – Governança Estruturada</h2>
+
+<p>
+Ao longo do B1 e do B2 foram estabelecidas duas camadas fundamentais:
+</p>
+
+<ul>
+<li><strong>Governança como sistema de direção e controle</strong></li>
+<li><strong>COBIT como modelo estruturante da governança de TI</strong></li>
+</ul>
+
+<p>
+Agora é necessário integrar esses elementos ao contexto institucional.
+</p>
+
+<style>
+.integrador-box{
+    margin-top:40px;
+    padding:40px;
+    background:linear-gradient(135deg,#f5f3ff,#ffffff);
+    border-left:8px solid #6d28d9;
+    border-radius:10px;
+}
+</style>
+
+<div class="integrador-box">
+
+<p>
+Governança não é um conceito abstrato.
+Ela se materializa por meio de:
+</p>
+
+<ul>
+<li>Estruturas formais de decisão</li>
+<li>Processos definidos</li>
+<li>Registros rastreáveis</li>
+<li>Responsabilidade clara</li>
+</ul>
+
+<p>
+COBIT organiza esse sistema.
+O PDS operacionaliza a governança no ciclo do software.
+</p>
+
+<p>
+Essa integração representa maturidade institucional.
+</p>
+
+</div>
+
+<!-- ======================================================
+MAPA CONCEITUAL ESTRUTURAL
+====================================================== -->
+
+<h2>14. Mapa Conceitual Estrutural</h2>
+
+<style>
+.mapa-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.mapa-card{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-left:6px solid #6d28d9;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+</style>
+
+<div class="mapa-grid">
+
+<div class="mapa-card">
+<h4>Governança</h4>
+<p>Define direção estratégica e mecanismos de controle.</p>
+</div>
+
+<div class="mapa-card">
+<h4>COBIT</h4>
+<p>Estrutura o sistema de governança de TI.</p>
+</div>
+
+<div class="mapa-card">
+<h4>PDS</h4>
+<p>Formaliza o ciclo de desenvolvimento dentro da governança.</p>
+</div>
+
+<div class="mapa-card">
+<h4>Resultado</h4>
+<p>Tecnologia alinhada, controlada e institucionalmente responsável.</p>
+</div>
+
+</div>
+
+<!-- ======================================================
+ANÁLISE CRÍTICA AVANÇADA
+====================================================== -->
+
+<h2>15. Análise Crítica de Maturidade</h2>
+
+<div class="analysis-box">
+
+<p>
+Organizações imaturas operam por reação.
+Organizações maduras operam por estrutura.
+</p>
+
+<p>
+A ausência de governança leva à fragmentação.
+O excesso de formalismo sem propósito leva à paralisia.
+</p>
+
+<p>
+O equilíbrio entre estrutura e funcionalidade caracteriza maturidade.
+</p>
+
+</div>
+
+<!-- ======================================================
+POSICIONAMENTO INSTITUCIONAL
+====================================================== -->
+
+<h2>16. Posicionamento Institucional</h2>
+
+<style>
+.posicionamento-box{
+    margin-top:40px;
+    padding:40px;
+    background:linear-gradient(135deg,#ede9fe,#ffffff);
+    border-left:8px solid #4c1d95;
+    border-radius:10px;
+}
+</style>
+
+<div class="posicionamento-box">
+
+<p>
+A governança tecnológica da instituição deve:
+</p>
+
+<ul>
+<li>Ser formalmente estruturada</li>
+<li>Ser adaptável ao contexto</li>
+<li>Manter controle e transparência</li>
+<li>Evitar burocratização improdutiva</li>
+</ul>
+
+<p>
+O PDS é a engrenagem operacional dessa governança.
+COBIT é o modelo estruturante.
+</p>
+
+<p>
+O próximo passo natural é compreender a gestão de serviços,
+complementando a governança estrutural.
+</p>
+
+</div>
