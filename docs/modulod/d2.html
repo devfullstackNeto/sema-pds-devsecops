@@ -1,1 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Módulo D – Qualidade, Segurança e DevSecOps | D2 – Segurança da Informação e LGPD</title>
 
+<style>
+
+/* =====================================================
+IDENTIDADE VISUAL – CINZA INSTITUCIONAL (D2)
+===================================================== */
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f3f4f6;
+    margin:0;
+    padding:0;
+    color:#111827;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1200px;
+    margin:60px auto;
+    display:flex;
+    gap:40px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:280px;
+    background:#ffffff;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    position:sticky;
+    top:40px;
+    height:fit-content;
+}
+
+.sidebar h3{
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.sidebar a{
+    display:block;
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    color:#111827;
+    transition:0.2s;
+}
+
+.sidebar a:hover{
+    color:#000000;
+}
+
+.sidebar a.active{
+    font-weight:600;
+    color:#000000;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    background:#ffffff;
+    padding:70px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.module-header{
+    background:linear-gradient(135deg,#1f2937,#111827);
+    color:white;
+    padding:50px;
+    border-radius:10px;
+    margin-bottom:50px;
+}
+
+.module-header h1{
+    margin:0;
+    font-size:30px;
+}
+
+.module-header p{
+    margin-top:15px;
+    opacity:0.9;
+}
+
+h2{
+    margin-top:60px;
+    border-bottom:2px solid #e5e7eb;
+    padding-bottom:8px;
+    font-size:26px;
+}
+
+p{
+    margin:18px 0;
+    text-align:justify;
+}
+
+/* BOXES */
+
+.highlight{
+    background:#f9fafb;
+    border-left:6px solid #374151;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+.alert{
+    background:#fef2f2;
+    border-left:6px solid #dc2626;
+    padding:25px;
+    border-radius:8px;
+    margin:40px 0;
+}
+
+.analysis-box{
+    background:#f3f4f6;
+    border-left:6px solid #000000;
+    padding:30px;
+    border-radius:8px;
+    margin-top:50px;
+}
+
+/* TIMELINE */
+
+.timeline-wrapper{
+    margin-top:50px;
+    position:relative;
+}
+
+.timeline-line{
+    position:absolute;
+    left:50%;
+    width:4px;
+    background:#374151;
+    top:0;
+    bottom:0;
+}
+
+.timeline-item{
+    width:50%;
+    padding:30px;
+    position:relative;
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s ease;
+}
+
+.timeline-item.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.timeline-item.left{
+    left:0;
+    text-align:right;
+}
+
+.timeline-item.right{
+    left:50%;
+}
+
+.timeline-box{
+    background:#f9fafb;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+}
+
+/* TABELA */
+
+.tabela{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+}
+
+.tabela th{
+    background:#f3f4f6;
+    padding:14px;
+    border:1px solid #e5e7eb;
+    text-align:left;
+}
+
+.tabela td{
+    padding:14px;
+    border:1px solid #e5e7eb;
+    vertical-align:top;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar-top{
+    position:fixed;
+    top:0;
+    left:0;
+    height:5px;
+    background:#111827;
+    width:0%;
+    z-index:9999;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="progress-bar-top" id="progressBar"></div>
+
+<div class="container">
+
+<div class="sidebar">
+<h3>Módulo D – D2</h3>
+<a href="#fundamentos">Fundamentos de Segurança</a>
+<a href="#triade">Tríade CIA</a>
+<a href="#ameacas">Ameaças e Vulnerabilidades</a>
+<a href="#riscos">Gestão de Riscos</a>
+<a href="#controles">Controles</a>
+<a href="#lgpd">LGPD no Desenvolvimento</a>
+<a href="#responsabilidade">Responsabilidade Institucional</a>
+<a href="#quiz">Autoavaliação</a>
+</div>
+
+<div class="content">
+
+<div class="module-header">
+<h1>Módulo D – Qualidade, Segurança e DevSecOps</h1>
+<p>D2 – Segurança da Informação e LGPD no PDS</p>
+</div>
+
+<h2 id="fundamentos">1. Fundamentos de Segurança da Informação</h2>
+
+<p>
+Segurança da informação não se limita a mecanismos tecnológicos.
+Trata-se de disciplina organizacional orientada à proteção de ativos informacionais.
+</p>
+
+<p>
+No contexto institucional, informação é patrimônio estratégico.
+Sua violação compromete não apenas sistemas,
+mas legitimidade administrativa e confiança pública.
+</p>
+
+<div class="highlight">
+Segurança não começa no firewall.
+Começa na modelagem do requisito.
+</div>
+
+<p>
+O desenvolvimento seguro exige integração entre engenharia,
+governança e responsabilidade normativa.
+</p>
+
+<h2 id="triade">2. A Tríade CIA – Confidencialidade, Integridade e Disponibilidade</h2>
+
+<p>
+A tríade CIA constitui fundamento clássico da segurança da informação.
+</p>
+
+<table class="tabela">
+<tr>
+<th>Princípio</th>
+<th>Definição Técnica</th>
+<th>Impacto Institucional</th>
+</tr>
+<tr>
+<td>Confidencialidade</td>
+<td>Proteção contra acesso não autorizado</td>
+<td>Preservação de dados sensíveis</td>
+</tr>
+<tr>
+<td>Integridade</td>
+<td>Garantia de não alteração indevida</td>
+<td>Confiabilidade das informações oficiais</td>
+</tr>
+<tr>
+<td>Disponibilidade</td>
+<td>Acesso quando necessário</td>
+<td>Continuidade de serviços públicos</td>
+</tr>
+</table>
+
+<h2 id="ameacas">3. Ameaças e Vulnerabilidades</h2>
+
+<p>
+Ameaça é evento potencialmente danoso.
+Vulnerabilidade é fragilidade explorável.
+</p>
+
+<ul>
+<li>Falhas de configuração</li>
+<li>Erros de código</li>
+<li>Engenharia social</li>
+<li>Ataques externos</li>
+<li>Exposição indevida de dados</li>
+</ul>
+
+<div class="alert">
+Sistema funcional não é necessariamente sistema seguro.
+</div>
+
+<h2 id="riscos">4. Gestão de Riscos em Segurança</h2>
+
+<p>
+Risco = Probabilidade × Impacto.
+</p>
+
+<p>
+A gestão de risco envolve:
+</p>
+
+<ul>
+<li>Identificação de ativos</li>
+<li>Análise de ameaças</li>
+<li>Avaliação de vulnerabilidades</li>
+<li>Classificação de impacto</li>
+<li>Definição de resposta</li>
+</ul>
+
+<h2 id="controles">5. Controles de Segurança</h2>
+
+<p>
+Controles são mecanismos implementados para reduzir risco a níveis aceitáveis.
+Não eliminam totalmente ameaças,
+mas reduzem probabilidade ou impacto.
+</p>
+
+<p>
+Podem ser classificados em três categorias principais:
+</p>
+
+<table class="tabela">
+<tr>
+<th>Tipo de Controle</th>
+<th>Descrição</th>
+<th>Exemplo no PDS</th>
+</tr>
+<tr>
+<td>Preventivo</td>
+<td>Evita ocorrência do incidente</td>
+<td>Validação de entrada de dados</td>
+</tr>
+<tr>
+<td>Detectivo</td>
+<td>Identifica incidente ocorrido</td>
+<td>Logs e monitoramento</td>
+</tr>
+<tr>
+<td>Corretivo</td>
+<td>Restaura normalidade após incidente</td>
+<td>Backup e plano de contingência</td>
+</tr>
+</table>
+
+<div class="highlight">
+Controle técnico sem controle processual é incompleto.
+Governança complementa tecnologia.
+</div>
+
+<h3>5.1 Controles Técnicos</h3>
+
+<ul>
+<li>Criptografia de dados em repouso e em trânsito</li>
+<li>Autenticação forte</li>
+<li>Controle de acesso baseado em perfil</li>
+<li>Versionamento e rastreabilidade</li>
+<li>Monitoramento contínuo</li>
+</ul>
+
+<h3>5.2 Controles Administrativos</h3>
+
+<ul>
+<li>Políticas institucionais</li>
+<li>Segregação de funções</li>
+<li>Termos de responsabilidade</li>
+<li>Auditoria periódica</li>
+<li>Capacitação de servidores</li>
+</ul>
+
+<h2>6. Fluxo Estruturado: Risco → Controle → Mitigação</h2>
+
+<style>
+.fluxo-seguranca{
+    margin-top:40px;
+    padding:40px;
+    background:#f9fafb;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.fluxo-box{
+    flex:1;
+    min-width:200px;
+    padding:20px;
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    text-align:center;
+}
+
+.fluxo-arrow{
+    font-size:24px;
+    align-self:center;
+}
+</style>
+
+<div class="fluxo-seguranca">
+    <div class="fluxo-box">
+        <strong>Risco Identificado</strong>
+        <p>Exposição de dados pessoais</p>
+    </div>
+
+    <div class="fluxo-arrow">→</div>
+
+    <div class="fluxo-box">
+        <strong>Controle Aplicado</strong>
+        <p>Criptografia + Controle de Acesso</p>
+    </div>
+
+    <div class="fluxo-arrow">→</div>
+
+    <div class="fluxo-box">
+        <strong>Mitigação</strong>
+        <p>Redução da probabilidade e impacto</p>
+    </div>
+</div>
+
+<h2 id="lgpd">7. LGPD Aplicada ao Desenvolvimento de Software</h2>
+
+<p>
+A Lei Geral de Proteção de Dados (Lei nº 13.709/2018)
+estabelece princípios e obrigações no tratamento de dados pessoais.
+</p>
+
+<p>
+No contexto do desenvolvimento de sistemas,
+a LGPD não é etapa posterior,
+mas requisito estrutural.
+</p>
+
+<div class="analysis-box">
+Desenvolver sistema sem considerar proteção de dados
+é falha de requisito, não apenas falha técnica.
+</div>
+
+<h3>7.1 Princípios da LGPD Relevantes ao Desenvolvimento</h3>
+
+<table class="tabela">
+<tr>
+<th>Princípio</th>
+<th>Aplicação no PDS</th>
+</tr>
+<tr>
+<td>Finalidade</td>
+<td>Definição clara do propósito do tratamento</td>
+</tr>
+<tr>
+<td>Necessidade</td>
+<td>Coleta mínima necessária</td>
+</tr>
+<tr>
+<td>Transparência</td>
+<td>Clareza ao titular dos dados</td>
+</tr>
+<tr>
+<td>Segurança</td>
+<td>Medidas técnicas e administrativas</td>
+</tr>
+<tr>
+<td>Responsabilização</td>
+<td>Registro e evidência de conformidade</td>
+</tr>
+</table>
+
+<h3>7.2 LGPD × Etapas do PDS</h3>
+
+<table class="tabela">
+<tr>
+<th>Etapa do PDS</th>
+<th>Exigência LGPD</th>
+<th>Evidência Necessária</th>
+</tr>
+<tr>
+<td>Levantamento de Requisitos</td>
+<td>Identificação de dados pessoais</td>
+<td>Registro formal de categorias de dados</td>
+</tr>
+<tr>
+<td>Modelagem</td>
+<td>Minimização de dados</td>
+<td>Documentação de arquitetura</td>
+</tr>
+<tr>
+<td>Desenvolvimento</td>
+<td>Implementação de controles</td>
+<td>Validação técnica</td>
+</tr>
+<tr>
+<td>Homologação</td>
+<td>Teste de segurança</td>
+<td>Relatório formal</td>
+</tr>
+<tr>
+<td>Produção</td>
+<td>Monitoramento contínuo</td>
+<td>Logs e auditoria</td>
+</tr>
+</table>
+
+<h2 id="responsabilidade">8. Responsabilidade Institucional</h2>
+
+<p>
+No setor público, vazamento de dados não é apenas incidente técnico.
+É potencial infração administrativa.
+</p>
+
+<ul>
+<li>Responsabilidade do gestor</li>
+<li>Responsabilidade do encarregado (DPO)</li>
+<li>Responsabilidade da equipe técnica</li>
+<li>Responsabilidade institucional</li>
+</ul>
+
+<div class="alert">
+Segurança é dever institucional compartilhado.
+Não é responsabilidade exclusiva da TI.
+</div>
+
+<h2>9. Evolução Regulatória da Proteção de Dados</h2>
+
+<div class="timeline-wrapper">
+<div class="timeline-line"></div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>2018 – LGPD</h4>
+<p>Estabelecimento de marco legal de proteção de dados.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>2020 – Vigência</h4>
+<p>Início da obrigatoriedade de adequação.</p>
+</div>
+</div>
+
+<div class="timeline-item left">
+<div class="timeline-box">
+<h4>2021 – ANPD</h4>
+<p>Atuação regulatória e fiscalizatória.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-box">
+<h4>Atualidade</h4>
+<p>Integração obrigatória com governança digital.</p>
+</div>
+</div>
+
+</div>
+
+<h2>10. Simulador – Impacto de Vazamento de Dados</h2>
+
+<style>
+.simulador-box{
+    margin-top:30px;
+    padding:40px;
+    background:#f9fafb;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+}
+
+.simulador-box label{
+    display:block;
+    margin-top:15px;
+    font-weight:600;
+}
+
+.simulador-box select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+}
+
+.btn-calcular{
+    margin-top:20px;
+    padding:10px 20px;
+    background:#111827;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.resultado-simulador{
+    margin-top:20px;
+    font-weight:600;
+}
+</style>
+
+<div class="simulador-box">
+
+<label>Tipo de dado envolvido:</label>
+<select id="tipoDado">
+    <option value="baixo">Dados administrativos simples</option>
+    <option value="medio">Dados pessoais comuns</option>
+    <option value="alto">Dados pessoais sensíveis</option>
+</select>
+
+<label>Quantidade de registros:</label>
+<select id="quantidade">
+    <option value="baixo">Pequena escala</option>
+    <option value="medio">Escala média</option>
+    <option value="alto">Grande escala</option>
+</select>
+
+<button class="btn-calcular" onclick="avaliarImpacto()">Calcular Impacto</button>
+
+<div class="resultado-simulador" id="resultadoImpacto"></div>
+
+</div>
+
+<h2>11. Classificação de Dados</h2>
+
+<table class="tabela">
+<tr>
+<th>Categoria</th>
+<th>Exemplo</th>
+<th>Nível de Proteção</th>
+</tr>
+<tr>
+<td>Dados Públicos</td>
+<td>Informações institucionais abertas</td>
+<td>Baixo</td>
+</tr>
+<tr>
+<td>Dados Pessoais</td>
+<td>Nome, CPF, endereço</td>
+<td>Médio</td>
+</tr>
+<tr>
+<td>Dados Sensíveis</td>
+<td>Saúde, religião, biometria</td>
+<td>Alto</td>
+</tr>
+</table>
+
+<div class="highlight">
+Classificar dados é pré-condição para definir controles adequados.
+</div>
+
+<h2 id="quiz">12. Autoavaliação – Segurança e LGPD</h2>
+
+<style>
+.quiz-wrapper{
+    margin-top:60px;
+    padding:50px;
+    background:#f9fafb;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+}
+
+.question{
+    margin-bottom:30px;
+    padding:20px;
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+}
+
+.option{
+    margin-top:8px;
+    padding:8px;
+    background:#e5e7eb;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.option.correct{ background:#bbf7d0; }
+.option.incorrect{ background:#fecaca; }
+.option.disabled{ pointer-events:none; opacity:0.7; }
+
+.btn-finalizar{
+    margin-top:20px;
+    padding:12px 25px;
+    background:#111827;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.result-box{
+    margin-top:30px;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:#ffffff;
+    display:none;
+}
+</style>
+
+<div class="quiz-wrapper">
+<div id="quizContainer"></div>
+<button class="btn-finalizar" onclick="finalizarQuiz()">Finalizar Avaliação</button>
+<div class="result-box" id="resultadoFinal"></div>
+</div>
+
+<h2>13. Encerramento Estratégico do D2</h2>
+
+<style>
+.encerramento{
+    margin-top:60px;
+    padding:50px;
+    background:linear-gradient(135deg,#1f2937,#111827);
+    color:white;
+    border-radius:12px;
+}
+.encerramento p{
+    text-align:center;
+}
+</style>
+
+<div class="encerramento">
+
+<p style="font-size:20px; font-weight:600;">
+Segurança não é camada posterior.
+</p>
+
+<p>
+Ela é componente estrutural do requisito.
+</p>
+
+<p>
+LGPD não é obrigação acessória.
+É parâmetro normativo de desenvolvimento.
+</p>
+
+<p>
+No PDS, segurança e conformidade
+transformam tecnologia em responsabilidade pública.
+</p>
+
+</div>
+
+</div> <!-- fecha content -->
+</div> <!-- fecha container -->
+
+<script>
+
+/* PROGRESS BAR */
+
+window.addEventListener("scroll",function(){
+    const scrollTop=document.documentElement.scrollTop;
+    const scrollHeight=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const scrolled=(scrollTop/scrollHeight)*100;
+    document.getElementById("progressBar").style.width=scrolled+"%";
+});
+
+/* TIMELINE ANIMATION */
+
+function revelarTimeline(){
+    const items=document.querySelectorAll(".timeline-item");
+    items.forEach(item=>{
+        const rect=item.getBoundingClientRect();
+        if(rect.top<window.innerHeight-100){
+            item.classList.add("visible");
+        }
+    });
+}
+window.addEventListener("scroll",revelarTimeline);
+revelarTimeline();
+
+/* SIMULADOR */
+
+function avaliarImpacto(){
+    const tipo=document.getElementById("tipoDado").value;
+    const qtd=document.getElementById("quantidade").value;
+
+    let impacto="Baixo";
+
+    if(tipo==="alto" || qtd==="alto"){
+        impacto="Alto";
+    }else if(tipo==="medio" || qtd==="medio"){
+        impacto="Médio";
+    }
+
+    document.getElementById("resultadoImpacto").innerText=
+    "Impacto estimado: "+impacto;
+}
+
+/* QUIZ */
+
+const perguntas=[
+{
+texto:"1. Segurança começa em qual etapa?",
+opcoes:["Produção","Firewall","Requisito","Backup"],
+correta:2
+},
+{
+texto:"2. A tríade CIA significa:",
+opcoes:["Controle, Inspeção, Acesso","Confidencialidade, Integridade, Disponibilidade","Código, Infraestrutura, Arquivo","Controle, Identidade, Ameaça"],
+correta:1
+},
+{
+texto:"3. Risco é definido como:",
+opcoes:["Erro confirmado","Probabilidade x impacto","Falha técnica","Ataque externo"],
+correta:1
+},
+{
+texto:"4. LGPD exige:",
+opcoes:["Coleta irrestrita","Minimização de dados","Ausência de logs","Anonimato obrigatório"],
+correta:1
+},
+{
+texto:"5. Controle preventivo:",
+opcoes:["Detecta incidente","Restaura sistema","Evita ocorrência","Documenta erro"],
+correta:2
+},
+{
+texto:"6. Dados sensíveis possuem proteção:",
+opcoes:["Baixa","Opcional","Elevada","Irrelevante"],
+correta:2
+},
+{
+texto:"7. Logs são controle:",
+opcoes:["Corretivo","Detectivo","Inexistente","Ilegal"],
+correta:1
+},
+{
+texto:"8. Segurança é responsabilidade:",
+opcoes:["Apenas TI","Gestor apenas","Compartilhada","Usuário final apenas"],
+correta:2
+},
+{
+texto:"9. Classificação de dados serve para:",
+opcoes:["Excluir registros","Definir proteção","Reduzir código","Eliminar LGPD"],
+correta:1
+},
+{
+texto:"10. Desenvolvimento seguro é:",
+opcoes:["Opcional","Etapa final","Transversal","Terceirizado"],
+correta:2
+}
+];
+
+let pontuacao=0;
+let respondidas=0;
+
+function renderQuiz(){
+const container=document.getElementById("quizContainer");
+perguntas.forEach((pergunta,index)=>{
+const div=document.createElement("div");
+div.classList.add("question");
+div.innerHTML=`<h4>${pergunta.texto}</h4>`;
+pergunta.opcoes.forEach((opcao,i)=>{
+const opc=document.createElement("div");
+opc.classList.add("option");
+opc.innerText=opcao;
+opc.onclick=function(){responder(this,index,i)};
+div.appendChild(opc);
+});
+container.appendChild(div);
+});
+}
+
+function responder(elemento,indicePergunta,indiceOpcao){
+const pergunta=perguntas[indicePergunta];
+const opcoes=elemento.parentNode.querySelectorAll(".option");
+opcoes.forEach(op=>op.classList.add("disabled"));
+if(indiceOpcao===pergunta.correta){
+elemento.classList.add("correct");
+pontuacao++;
+}else{
+elemento.classList.add("incorrect");
+opcoes[pergunta.correta].classList.add("correct");
+}
+respondidas++;
+}
+
+function finalizarQuiz(){
+if(respondidas<perguntas.length){
+alert("Responda todas as questões.");
+return;
+}
+const resultado=document.getElementById("resultadoFinal");
+resultado.style.display="block";
+
+let classificacao="";
+if(pontuacao<=4){
+classificacao="Nível Básico – Revisão recomendada.";
+}else if(pontuacao<=7){
+classificacao="Nível Adequado – Compreensão consistente.";
+}else{
+classificacao="Nível Avançado – Domínio institucional elevado.";
+}
+
+resultado.innerHTML=`<h3>Resultado</h3>
+<p><strong>Pontuação:</strong> ${pontuacao} de ${perguntas.length}</p>
+<p>${classificacao}</p>`;
+}
+
+renderQuiz();
+
+</script>
+
+</body>
+</html>
